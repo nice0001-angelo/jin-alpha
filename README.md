@@ -1,7 +1,7 @@
 # jin-alpha
 Jin QnA
 
-<This is Web Application unber SpringBoot>
+##>This is Web Application unber SpringBoot>
 
 Front : BootStrap, HTML, CSS, Javascript(Jquery)<br />
 Back : java(Spring)<br />
@@ -17,7 +17,7 @@ http : http://13.124.193.108:80<br />
 Web Application Server : Tomcat<br />
 DB : H2<br />
 
-Tool
+Tool<br />
 STS(Eclipse)<br />
 Putty<br />
 Filezilla<br />
