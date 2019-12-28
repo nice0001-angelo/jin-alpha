@@ -9,8 +9,8 @@ Back : java(Spring)
 lib Manager : Maven
 JDBC : JPA
 
-Version Manager : Git
-Cloud : AWS
+Version Manager : Git<br />
+Cloud : AWS<br />
 OS : ubuntu
 IP : 13.124.193.108
 http : http://13.124.193.108:80
