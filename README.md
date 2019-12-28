@@ -1,7 +1,7 @@
 # jin-alpha
 Jin QnA
 
-##>This is Web Application unber SpringBoot>
+##This is Web Application unber SpringBoot
 
 Front : BootStrap, HTML, CSS, Javascript(Jquery)<br />
 Back : java(Spring)<br />
