@@ -15,7 +15,8 @@ import net.jin.domain.UserRepository;
 @Controller
 public class UserController {
 	
-	private List<User> users = new ArrayList<User>();
+	//userRepository로 바꾸면서 필요 없어짐
+	//private List<User> users = new ArrayList<User>();
 	
 	@Autowired
 	private UserRepository userRepository; //UserRepository는 스프링부트에서 알아서 생성해줌
@@ -30,7 +31,7 @@ public class UserController {
 	
 	@GetMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("users",users);
+		model.addAttribute("users", userRepository.findAll());
 		return "list";
 	}
 }
