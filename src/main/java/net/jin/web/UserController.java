@@ -18,6 +18,12 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository; //UserRepository는 스프링부트에서 알아서 생성해줌
 	
+	
+	@GetMapping("/form")
+	public String form() {
+		return "user/form";
+	}
+	
 	@PostMapping("") //not real location. just for communication
 	public String create(User user) {
 		System.out.println("User: " + user);
