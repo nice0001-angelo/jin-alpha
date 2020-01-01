@@ -17,7 +17,17 @@ public class UserController {
 
 	@Autowired
 	private UserRepository userRepository; //UserRepository는 스프링부트에서 알아서 생성해줌
+
 	
+	@GetMapping("/profile")
+	public String profile() {
+		return "user/profile";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "user/login";
+	}
 	
 	@GetMapping("/form")
 	public String form() {
