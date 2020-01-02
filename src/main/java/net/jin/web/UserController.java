@@ -46,7 +46,7 @@ public class UserController {
 	@GetMapping("") //not real location. just for communication
 	public String list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "/user/list"; //real location(src/main/resources/static/user/list.html)
+		return "user/list"; //real location(src/main/resources/static/user/list.html)
 	}
 	
 	@GetMapping("/{id}/form")
