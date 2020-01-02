@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,6 +33,15 @@ public class UserController {
 	@GetMapping("/form")
 	public String form() {
 		return "user/form";
+	}
+	
+	@GetMapping("/{id}/form")
+	public String updateForm(@PathVariable Long id, Model model) {
+		//User user = userRepository.findOne(id); findOne는 에러가 나서 아래와 같이 바꿈 Java 8 optional
+		//model.addAttribute("users", user);
+		User user = userRepository.findById(id).get();
+		model.addAttribute("user",user);
+		return "user/updateForm";
 	}
 	
 	@PostMapping("") //not real location. just for communication

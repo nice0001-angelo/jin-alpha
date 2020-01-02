@@ -1,84 +1,73 @@
 <!DOCTYPE html>
 <html lang="kr">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<title>JINHYUN Java Web Programming</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
-	</head>
-	
-	<body>
-{{> /include/navigation}}
+<head>
+	{{> /include/header}}
+</head>
 
-<div class="container" id="main">
-   <div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
-      <div class="panel panel-default qna-list">
-          <ul class="list">
-              <li>
-                  <div class="wrap">
-                      <div class="main">
-                          <strong class="subject">
-                              <a href="./qna/show.html">SpringBoot 천재</a>
-                          </strong>
-                          <div class="auth-info">
-                              <i class="icon-add-comment"></i>
-                              <span class="time">2020-01-01 14:47</span>
-                              <a href="./user/profile.html" class="author">남진현</a>
-                          </div>
-                          <div class="reply" title="댓글">
-                              <i class="icon-reply"></i>
-                              <span class="point">11</span>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-              <li>
-                  <div class="wrap">
-                      <div class="main">
-                          <strong class="subject">
-                              <a href="./qna/show.html">BootStrap의 효용성이란</a>
-                          </strong>
-                          <div class="auth-info">
-                              <i class="icon-add-comment"></i>
-                              <span class="time">2020-01-01 18:47</span>
-                              <a href="./user/profile.html" class="author">남진현</a>
-                          </div>
-                          <div class="reply" title="댓글">
-                              <i class="icon-reply"></i>
-                              <span class="point">12</span>
-                          </div>
-                      </div>
-                  </div>
-              </li>
-          </ul>
-          <div class="row">
-              <div class="col-md-3"></div>
-              <div class="col-md-6 text-center">
-                  <ul class="pagination center-block" style="display:inline-block;">
-                      <li><a href="#">«</a></li>
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                      <li><a href="#">»</a></li>
-                </ul>
-              </div>
-              <div class="col-md-3 qna-write">
-                  <a href="./qna/form.html" class="btn btn-primary pull-right" role="button">질문하기</a>
-              </div>
-          </div>
-        </div>
-    </div>
-</div>
+<body>
+	{{> /include/navigation}}
 
-<!--login modal-->
-<!--
+	<div class="container" id="main">
+		<div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
+			<div class="panel panel-default qna-list">
+				<ul class="list">
+					<li>
+						<div class="wrap">
+							<div class="main">
+								<strong class="subject"> <a href="./qna/show.html">SpringBoot
+										천재</a>
+								</strong>
+								<div class="auth-info">
+									<i class="icon-add-comment"></i> <span class="time">2020-01-01
+										14:47</span> <a href="./user/profile.html" class="author">남진현</a>
+								</div>
+								<div class="reply" title="댓글">
+									<i class="icon-reply"></i> <span class="point">11</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<div class="main">
+								<strong class="subject"> <a href="./qna/show.html">BootStrap의
+										효용성이란</a>
+								</strong>
+								<div class="auth-info">
+									<i class="icon-add-comment"></i> <span class="time">2020-01-01
+										18:47</span> <a href="./user/profile.html" class="author">남진현</a>
+								</div>
+								<div class="reply" title="댓글">
+									<i class="icon-reply"></i> <span class="point">12</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6 text-center">
+						<ul class="pagination center-block" style="display: inline-block;">
+							<li><a href="#">«</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">»</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 qna-write">
+						<a href="./qna/form.html" class="btn btn-primary pull-right"
+							role="button">질문하기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--login modal-->
+	<!--
 <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -112,8 +101,8 @@
 </div>
 -->
 
-<!--register modal-->
-<!--
+	<!--register modal-->
+	<!--
 <div id="registerModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -154,9 +143,9 @@
 </div>
 -->
 
-<!-- script references -->
-<script src="js/jquery-2.2.0.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/scripts.js"></script>
-	</body>
+	<!-- script references -->
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
 </html>
