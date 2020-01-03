@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="kr">
-<head>
-	{{> include/header}}
+<head>{{> include/header}}
 </head>
 <body>
 	{{> include/navigation}}
@@ -13,9 +12,9 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>사용자 아이디</th>
-							<th>이름</th>
-							<th>이메일</th>
+							<th>User ID</th>
+							<th>Name</th>
+							<th>Email</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -26,7 +25,8 @@
 							<td>{{userId}}</td>
 							<td>{{name}}</td>
 							<td>{{email}}</td>
-							<td><a href="users/{{id}}/form" class="btn btn-success" role="button">수정</a></td>
+							<td><a href="users/{{id}}/form" class="btn btn-success"
+								role="button">수정</a></td>
 						</tr>
 						{{/users}}
 					</tbody>
@@ -35,9 +35,6 @@
 		</div>
 	</div>
 
-	<!-- script references -->
-	<script src="../js/jquery-2.2.0.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/scripts.js"></script>
+	{{> include/footer}}
 </body>
 </html>

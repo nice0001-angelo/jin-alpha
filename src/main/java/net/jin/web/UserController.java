@@ -25,8 +25,8 @@ public class UserController {
 		return "user/profile";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
+	@GetMapping("/loginForm")
+	public String loginForm() {
 		return "user/login";
 	}
 	
