@@ -28,14 +28,15 @@ public class UserController {
 	}
 	
 	//login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
-	//navigation의 log in button
+	//navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "user/login";
 	}
 	
+	
 	//form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
-	//navigation의 sign up button
+	//navigation의 sign up button 클릭시 a href="/users/form" 통해서 호출
 	@GetMapping("/form")
 	public String form() {
 		return "user/form";
@@ -60,6 +61,12 @@ public class UserController {
 		session.setAttribute("user", user);
 		
 		return "redirect:/";		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("user"); //session.setAttribute("user", user); 의 "user"과 이름이 같아야 함
+		return "redirect:./";
 	}
 	
 	//form.html에서 입력한 사용자정보를 DB에 저장하기 위한 메소드
