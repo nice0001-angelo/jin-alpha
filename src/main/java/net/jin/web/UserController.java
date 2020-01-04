@@ -36,12 +36,15 @@ public class UserController {
 	public String login(String userId, String password, HttpSession session) {
 		User user = userRepository.findByUserId(userId); //UserRepository에 정의
 		if (user == null) {
+			System.out.println("Key in!");
 			return "redirect:loginForm";
 		}
 		if (!password.equals(user.getPassword())) {
+			System.out.println("Login Failure!");
 			return "redirect:loginForm";
 		}
 		
+		System.out.println("Login Success!");
 		session.setAttribute("user", user);
 		
 		return "redirect:/";		
