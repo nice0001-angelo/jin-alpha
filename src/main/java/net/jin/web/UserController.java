@@ -30,6 +30,20 @@ public class UserController {
 		return "user/login";
 	}
 	
+	@PostMapping("/login")
+	public String login(String userId, String password) {
+		User user = userRepository.findByUserId(userId); //UserRepository에 정의
+		if (user == null) {
+			return "redirect:users/loginForm";
+		}
+		if (!password.equals(user.getPassword())) {
+			return "redirect:users/loginForm";
+		}
+		
+		
+		return "redirect:/";		
+	}
+	
 	@GetMapping("/form")
 	public String form() {
 		return "user/form";
