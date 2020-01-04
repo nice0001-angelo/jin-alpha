@@ -11,13 +11,18 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false, length=20)
+	@Column(nullable=false, length=20, unique=true)
 	private String userId;
 	
 	private String password;
 	private String name;
 	private String email;
 
+	//로그인 한 사용자가 다른 로그인 사용자 정보를 수정하지 못하게 특정하기 위한  getter
+	public Long getId() { 
+		return id;
+	}
+	
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}

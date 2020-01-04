@@ -16,38 +16,38 @@ import net.jin.domain.UserRepository;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-	
 
 	@Autowired
-	private UserRepository userRepository; //UserRepository는 스프링부트에서 알아서 생성해줌
+	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
 
-	//profile.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
+	// profile.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header,
+	// footer를 공통으로 쓸 수 있음
 	@GetMapping("/profile")
 	public String profile() {
 		return "user/profile";
 	}
-	
-	//login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
-	//navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
+
+	// login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
+	// 공통으로 쓸 수 있음
+	// navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "user/login";
 	}
-	
-	
-	//form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
-	//navigation의 sign up button 클릭시 a href="/users/form" 통해서 호출
+
+	// form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
+	// 공통으로 쓸 수 있음
+	// navigation의 sign up button 클릭시 a href="/users/form" 통해서 호출
 	@GetMapping("/form")
 	public String form() {
 		return "user/form";
 	}
-	
-	
-	//login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
-	//ligin.html 의  method="post" action="/users/login" 을 통해서 호출됨
+
+	// login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
+	// ligin.html 의 method="post" action="/users/login" 을 통해서 호출됨
 	@PostMapping("/login")
 	public String login(String userId, String password, HttpSession session) {
-		User user = userRepository.findByUserId(userId); //UserRepository.java에 정의
+		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
 		if (user == null) {
 			System.out.println("Key in!");
 			return "redirect:loginForm";
@@ -56,58 +56,92 @@ public class UserController {
 			System.out.println("Login Failure!");
 			return "redirect:loginForm";
 		}
-		
+
 		System.out.println("Login Success!");
-		session.setAttribute("user", user);
-		
-		return "redirect:/";		
+		session.setAttribute("sessioneduser", user);
+
+		return "redirect:/";
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("user"); //session.setAttribute("user", user); 의 "user"과 이름이 같아야 함
-		return "redirect:./";
+		session.removeAttribute("sessioneduser"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
+		return "redirect:/";
 	}
-	
-	//form.html에서 입력한 사용자정보를 DB에 저장하기 위한 메소드
-	//form.html 의  method="post" action="/users" 을 통해서 호출됨
-	@PostMapping("") //not real location. just for communication
+
+	// form.html에서 입력한 사용자정보를 DB에 저장하기 위한 메소드
+	// form.html 의 method="post" action="/users" 을 통해서 호출됨
+	@PostMapping("") // not real location. just for communication
 	public String create(User user) {
 		System.out.println("User: " + user);
 		userRepository.save(user);
-		return "redirect:/users"; //not real location. just for communication
+		return "redirect:/users"; // not real location. just for communication
 	}
-	
-	//list.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를 공통으로 쓸 수 있음
-	//list.html 을 호출하기 위한 메소드. form.html에서 사용자 등록시 db로부터 정보를 가져다가 보여줌
-	//navigation.html에서 오른쪽 상단의 user 아이콘 클릭시 db로부터 정보를 가져다가 보여줌
-	//DB 에 있는 모든 사용자 정보를 가져다가 list.html 화면에 Disply
-	//return "redirect:/users" 을 통해서 호출됨
-	@GetMapping("") //not real location. just for communication
+
+	// list.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
+	// 공통으로 쓸 수 있음
+	// list.html 을 호출하기 위한 메소드. form.html에서 사용자 등록시 db로부터 정보를 가져다가 보여줌
+	// navigation.html에서 오른쪽 상단의 user 아이콘 클릭시 db로부터 정보를 가져다가 보여줌
+	// DB 에 있는 모든 사용자 정보를 가져다가 list.html 화면에 Disply
+	// return "redirect:/users" 을 통해서 호출됨
+	@GetMapping("") // not real location. just for communication
 	public String list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "user/list"; //real location(src/main/resources/static/user/list.html)
+		return "user/list"; // real location(src/main/resources/static/user/list.html)
 	}
-	
-	//list.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateForm.html에 전달하기 위한 메소드
-	//id를 unique key로 해서 전체 값을 넘김
-	//list.html 화면에서 update 버튼 클릭시 a href="users/{{id}}/form" 를 통해서 호출됨
+
+	// list.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateForm.html에 전달하기 위한 메소드
+	// id를 unique key로 해서 전체 값을 넘김
+	// list.html 화면에서 update 버튼 클릭시 a href="users/{{id}}/form" 를 통해서 호출됨
 	@GetMapping("/{id}/form")
-	public String updateForm(@PathVariable Long id, Model model) {
-		//User user = userRepository.findOne(id); findOne는 에러가 나서 아래와 같이 바꿈 Java 8 optional
-		//model.addAttribute("users", user);
+	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
+
+		// login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null 일때는 수정이 안되고 login 화면으로
+		// 이동토록 함
+		Object tempUser = session.getAttribute("sessioneduser");
+		if (tempUser == null) {
+			return "redirect:/users/loginForm";
+		}
+
+		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
+		User sessionedUser = (User) tempUser;
+		if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음
+			throw new IllegalStateException("You can update with only yours~!");
+		}
+
+		// User user = userRepository.findOne(id); findOne는 에러가 나서 아래와 같이 바꿈 Java 8
+		// optional
+		// model.addAttribute("users", user);
+		// findById(id) 대신에 콕 집어서 getter 로 값을 가져 오게 되면 위에서 if(!id.equals~~ 에서부터 3줄은 주석
+		// 처리 해도 됨
 		User user = userRepository.findById(id).get();
-		model.addAttribute("user",user);
-		return "user/updateForm"; //real location(src/main/resources/static/user/updateForm.html)
+		// User user = userRepository.findById(sessionedUser.getId()).get();
+		model.addAttribute("user", user);
+		return "user/updateForm"; // real location(src/main/resources/static/user/updateForm.html)
 	}
-	
-	//list.html로 부터 넘겨 받은 정보를 updateForm.html에서 수정한 후 저장하기 위한 메소드
-	//저장후 list.html 화면을 호출하여 정보를 display 하도록 함.
-	//updateForm.html 화면에서 Information update 버튼 클릭시 method="post" action="/users/{{id}}" 을 통해서 호출됨
+
+	// list.html로 부터 넘겨 받은 정보를 updateForm.html에서 수정한 후 저장하기 위한 메소드
+	// 저장후 list.html 화면을 호출하여 정보를 display 하도록 함.
+	// updateForm.html 화면에서 Information update 버튼 클릭시 method="post"
+	// action="/users/{{id}}" 을 통해서 호출됨
 	@PostMapping("/{id}")
-	public String update(@PathVariable Long id, User newUser) {
+	public String update(@PathVariable Long id, User updatedUser, HttpSession session) {
+
+		// login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null 일때는 수정이 안되고 login 화면으로
+		// 이동토록 함
+		Object tempUser = session.getAttribute("sessioneduser");
+		if (tempUser == null) {
+			return "redirect:/users/loginForm";
+		}
+
+		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
+		User sessionedUser = (User) tempUser;
+		if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음
+			throw new IllegalStateException("You can update with only yours~!");
+		}
+
 		User user = userRepository.findById(id).get();
-		user.update(newUser);
+		user.update(updatedUser);
 		userRepository.save(user);
 		return "redirect:/users";
 	}
