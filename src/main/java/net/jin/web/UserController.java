@@ -34,7 +34,7 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public String login(String userId, String password, HttpSession session) {
-		User user = userRepository.findByUserId(userId); //UserRepository에 정의
+		User user = userRepository.findByUserId(userId); //UserRepository.java에 정의
 		if (user == null) {
 			System.out.println("Key in!");
 			return "redirect:loginForm";
@@ -58,7 +58,6 @@ public class UserController {
 	@PostMapping("") //not real location. just for communication
 	public String create(User user) {
 		System.out.println("User: " + user);
-		//users.add(user);
 		userRepository.save(user);
 		return "redirect:/users"; //not real location. just for communication
 	}
@@ -75,7 +74,7 @@ public class UserController {
 		//model.addAttribute("users", user);
 		User user = userRepository.findById(id).get();
 		model.addAttribute("user",user);
-		return "user/updateForm";
+		return "user/updateForm"; //real location(src/main/resources/static/user/updateForm.html)
 	}
 	
 	@PostMapping("/{id}")
