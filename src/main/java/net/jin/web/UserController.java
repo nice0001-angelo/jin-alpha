@@ -58,14 +58,14 @@ public class UserController {
 		}
 
 		System.out.println("Login Success!");
-		session.setAttribute("sessioneduser", user);
+		session.setAttribute("HttpSessionUtils.USER_SESSION_KEY", user);
 
 		return "redirect:/";
 	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("sessioneduser"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
+		session.removeAttribute("HttpSessionUtils.USER_SESSION_KEY"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
 		return "redirect:/";
 	}
 
@@ -98,7 +98,7 @@ public class UserController {
 
 		// login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null 일때는 수정이 안되고 login 화면으로
 		// 이동토록 함
-		Object tempUser = session.getAttribute("sessioneduser");
+		Object tempUser = session.getAttribute("sessionedUser");
 		if (tempUser == null) {
 			return "redirect:/users/loginForm";
 		}
