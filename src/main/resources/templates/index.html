@@ -10,41 +10,25 @@
 		<div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
 			<div class="panel panel-default qna-list">
 				<ul class="list">
+				{{#questions}}
 					<li>
 						<div class="wrap">
 							<div class="main">
-								<strong class="subject"> <a href="./qna/show.html">SpringBoot
-										Genious</a>
+								<strong class="subject"> <a href="">{{title}}</a>
 								</strong>
 								<div class="auth-info">
-									<i class="icon-add-comment"></i> <span class="time">2020-01-01
-										14:47</span> <a href="./user/profile.html" class="author">JINHYUN
-										NAM</a>
+									<i class="icon-add-comment"></i> <span class="time">2020-01-01 14:47</span> 
+									<a href="./user/profile.html" class="author">{{writer}}</a>
 								</div>
-								<div class="reply" title="댓글">
-									<i class="icon-reply"></i> <span class="point">11</span>
+								<div class="reply" title="reply">
+									<i class="icon-reply"></i> <span class="point">1</span>
 								</div>
 							</div>
 						</div>
 					</li>
-					<li>
-						<div class="wrap">
-							<div class="main">
-								<strong class="subject"> <a href="./qna/show.html">BootStrap's
-										Future? </a>
-								</strong>
-								<div class="auth-info">
-									<i class="icon-add-comment"></i> <span class="time">2020-01-01
-										18:47</span> <a href="./user/profile.html" class="author">JINHYUN
-										NAM</a>
-								</div>
-								<div class="reply" title="댓글">
-									<i class="icon-reply"></i> <span class="point">12</span>
-								</div>
-							</div>
-						</div>
-					</li>
+				{{/questions}}
 				</ul>
+				
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6 text-center">
