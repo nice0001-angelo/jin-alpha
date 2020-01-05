@@ -58,14 +58,14 @@ public class UserController {
 		}
 
 		System.out.println("Login Success!");
-		session.setAttribute("HttpSessionUtils.USER_SESSION_KEY", user);
-
+		session.setAttribute("sessionedUser", user);
+				
 		return "redirect:/";
 	}
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("HttpSessionUtils.USER_SESSION_KEY"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
+		session.removeAttribute("sessionedUser"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
 		return "redirect:/";
 	}
 
