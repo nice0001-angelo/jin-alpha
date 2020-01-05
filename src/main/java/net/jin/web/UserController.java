@@ -52,7 +52,9 @@ public class UserController {
 			System.out.println("Key in!");
 			return "redirect:loginForm";
 		}
-		if (!password.equals(user.getPassword())) {
+		//if (!password.equals(user.getPassword())) {
+		//user.java 에 matchNewPassword() 정의해서 로직으로 쓴다
+		if (!user.matchNewPassword(password)) {			
 			System.out.println("Login Failure!");
 			return "redirect:loginForm";
 		}
@@ -109,7 +111,8 @@ public class UserController {
 		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
 		//User sessionedUser = (User) tempUser;
 		User sessionedUser = HttpSessionUtils.getUserFromSession(session);
-		if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음
+		//if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음. 아래에 matchNewId 로 대체
+		if(!sessionedUser.matchNewId(id)) {
 			throw new IllegalStateException("You can update with only yours~!");
 		}
 
@@ -142,7 +145,8 @@ public class UserController {
 		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
 		//User sessionedUser = (User) tempUser;
 		User sessionedUser = HttpSessionUtils.getUserFromSession(session);
-		if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음
+		//if (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음 아래에  matchNewId로 데체
+		if(!sessionedUser.matchNewId(id)) {
 			throw new IllegalStateException("You can update with only yours~!");
 		}
 

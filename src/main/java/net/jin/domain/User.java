@@ -19,8 +19,17 @@ public class User {
 	private String email;
 
 	//로그인 한 사용자가 다른 로그인 사용자 정보를 수정하지 못하게 특정하기 위한  getter
+	//아래에 id 체크하는 로직이 있으면 getId()로 id 체크 하지 않아도 됨 
 	public Long getId() { 
 		return id;
+	}
+	
+	//id 정보가 같은지 체크하는 로직
+	public boolean matchNewId(Long newId) {
+		if(newId == null) {
+			return false;
+		}
+		return newId.equals(id);
 	}
 	
 	public void setUserId(String userId) {
@@ -30,11 +39,20 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
+	//아래에 password 같은지 체크하는 로직으로 인해 필요가 없어짐.
 	public String getPassword() {
 		return password;
 	}
 
+	//password 정보가 같은지 체크하는 로직
+	public boolean matchNewPassword(String newPassword) {
+		if (newPassword == null) {
+			return false;
+		}
+		return newPassword.equals(password);
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
