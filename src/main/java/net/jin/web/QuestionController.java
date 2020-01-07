@@ -34,7 +34,7 @@ public class QuestionController {
 		}
 		
 		User sessionUser = HttpSessionUtils.getUserFromSession(session);
-		// Question newQuestion = new Question(sessionUser.getUserId(), title, contents);
+		//Question newQuestion = new Question(sessionUser.getUserId(), title, contents);
 		// Question.java 안에서 User와 관계를 맺었기 때문에 User객체를 바로 가져올수 있음(대박)
 		// 객체내에서 get으로 꺼내올 생각 말고 바로 객체를 가져오는 것을 고려하자~!
 		Question newQuestion = new Question(sessionUser, title, contents);
