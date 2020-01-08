@@ -5,10 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.domain.Question;
@@ -57,11 +57,17 @@ public class QuestionController {
 		return "/qna/updateForm";
 	}
 	
-	@PostMapping("/{id}") //선생은 Put으로 했으나 에러남 그래서 난 Post
+	@PostMapping("/{id}/update") //@PutMppping으로도 가능 그러나 꼼수임. 난 POST
 	public String update(@PathVariable Long id, String title, String contents) {
 		Question question = questionRepository.findById(id).get();
 		question.update(title, contents);
 		questionRepository.save(question);
 		return String.format("redirect:/questions/%d", id);
+	}
+	
+	@PostMapping("/{id}/delete") //@DeleteMapping 으로도 가능 그러나 꼼수임
+	public String delete(@PathVariable Long id) {
+		questionRepository.deleteById(id);
+		return "redirect:/";
 	}
 }
