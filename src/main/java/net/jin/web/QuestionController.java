@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.domain.Question;
@@ -50,4 +51,17 @@ public class QuestionController {
 		return "/qna/show";
 	}
 	
+	@GetMapping("/{id}/form")
+	public String updateForm(@PathVariable Long id, Model model) {
+		model.addAttribute("question", questionRepository.findById(id).get()); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
+		return "/qna/updateForm";
+	}
+	
+	@PostMapping("/{id}") //선생은 Put으로 했으나 에러남 그래서 난 Post
+	public String update(@PathVariable Long id, String title, String contents) {
+		Question question = questionRepository.findById(id).get();
+		question.update(title, contents);
+		questionRepository.save(question);
+		return String.format("redirect:/questions/%d", id);
+	}
 }
