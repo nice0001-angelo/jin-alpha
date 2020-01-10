@@ -57,6 +57,7 @@ public class QuestionController {
 		return "/qna/updateForm";
 	}
 	
+	//보안정책 적용 필요
 	@PostMapping("/{id}/update") //@PutMppping으로도 가능 그러나 꼼수임. 난 POST
 	public String update(@PathVariable Long id, String title, String contents) {
 		Question question = questionRepository.findById(id).get();
@@ -65,6 +66,7 @@ public class QuestionController {
 		return String.format("redirect:/questions/%d", id);
 	}
 	
+	//보안정책 적용 필요
 	@PostMapping("/{id}/delete") //@DeleteMapping 으로도 가능 그러나 꼼수임
 	public String delete(@PathVariable Long id) {
 		questionRepository.deleteById(id);
