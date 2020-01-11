@@ -54,20 +54,19 @@ public class QuestionController {
 	@GetMapping("/{id}/form")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
 		if(!HttpSessionUtils.isLoginUser(session)) {
-			return "/users/loginform";
+			return "/user/login";
 		}
 		
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
+//		User loginUser = HttpSessionUtils.getUserFromSession(session);
 		Question question = questionRepository.findById(id).get(); //refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		if (!question.isSameWriter(loginUser)) {
-			return "/users/loginform";
-		}
+//		if (!question.isSameWriter(loginUser)) {
+//			return "/users/loginform";
+//		}
 		
 		model.addAttribute("question", question); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
 		return "/qna/updateForm";
 	}
 	
-	//보안정책 적용 필요. 표준화 필요
 	@PostMapping("/{id}/update") //@PutMppping으로도 가능 그러나 꼼수임. 난 POST
 	public String update(@PathVariable Long id, String title, String contents) {
 		Question question = questionRepository.findById(id).get();
@@ -76,9 +75,13 @@ public class QuestionController {
 		return String.format("redirect:/questions/%d", id);
 	}
 	
-	//보안정책 적용 필요. 표준화 필요
+
 	@PostMapping("/{id}/delete") //@DeleteMapping 으로도 가능 그러나 꼼수임. 난 POST
-	public String delete(@PathVariable Long id) {
+	public String delete(@PathVariable Long id, HttpSession session) {
+		if(!HttpSessionUtils.isLoginUser(session)) {
+			return "/user/login";
+		}
+		
 		questionRepository.deleteById(id);
 		return "redirect:/";
 	}
