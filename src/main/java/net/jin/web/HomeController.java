@@ -15,7 +15,8 @@ public class HomeController {
 	
 	@GetMapping("")
 	public String home(Model model) {
-		model.addAttribute("questions", questionRepository.findAll()); //"questions" 라는 이름에 담아서 index.html에 전달 {{#questions}}{{/questions}} 이용
+		//question table의 모든 데이터를 "questions" 라는 이름에 담아서 index.html에 전달 {{#questions}}{{/questions}} 이용
+		model.addAttribute("questions", questionRepository.findAll()); 
 		return "index";
 	}
 
