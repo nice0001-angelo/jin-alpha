@@ -53,6 +53,8 @@ public class Question {
 	}
 
 	public boolean isSameWriter(User loginUser) {
-		return this.writer.equals(loginUser);
+		return this.writer.equals(loginUser); //equals 는 항상  false hashCode() 와 equals를 override 해야 제대로 작동한다
 	}
+	
+	
 }
