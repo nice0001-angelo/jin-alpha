@@ -59,7 +59,7 @@ public class QuestionController {
 			model.addAttribute("question", question); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
 			return "/qna/updateForm";
 		} catch(IllegalStateException e) {
-			model.addAttribute("errorMessage", e.getMessage()); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
+			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
 			return "/user/login";
 		}
 	}		
@@ -100,7 +100,7 @@ public class QuestionController {
 			questionRepository.save(question);
 			return String.format("redirect:/questions/%d", id);
 		} catch(IllegalStateException e) {
-			model.addAttribute("errorMessage", e.getMessage()); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
+			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
 			return "/user/login";
 		}
 		
@@ -120,7 +120,7 @@ public class QuestionController {
 			questionRepository.deleteById(id);
 			return "redirect:/";
 		} catch(IllegalStateException e) {
-			model.addAttribute("errorMessage", e.getMessage()); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
+			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
 			return "/user/login";
 		}
 
