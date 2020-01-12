@@ -2,6 +2,7 @@ package net.jin.domain;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 @Entity
 public class Question {
@@ -28,6 +31,9 @@ public class Question {
 	@Lob
 	private String contents;
 
+	@OneToMany(mappedBy = "question") //from Answer.java private Question question;
+	@OrderBy("id ASC")
+	private List<Answer> answers; //link to show.html {{#answer}}{{/answer}}
 	
 	private LocalDateTime createDate;
 	

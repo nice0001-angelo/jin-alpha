@@ -1,6 +1,7 @@
 package net.jin.domain;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -16,11 +17,16 @@ public class Answer {
 	@GeneratedValue
 	private Long Id;
 	
-	// User 객체와 관계를 맺음
+	// linked User object
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_answer_writer"))
 	private User writer;
 
+	// Question Object dependency
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_answer_to_question"))
+	private Question question;
+	
 	@Lob
 	private String contents;
 	
@@ -29,11 +35,21 @@ public class Answer {
 	public Answer() {
 	}
 	
-	public Answer(User writer, String contents) {
+	public Answer(User writer, Question question, String contents) {
 		this.writer = writer;
+		this.question = question;
 		this.contents = contents;
+		this.createDate = LocalDateTime.now();
 	}
 
+	public String getFormattedCreateDate() {
+		if (createDate == null) {
+			return "";
+		}
+		return createDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+	}
+	
+	//mouse right and source-generate hashcode() and equals()	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,7 +75,7 @@ public class Answer {
 		return true;
 	}
 
-	//mouse right and source toString()
+	//mouse right and source-toString()
 	@Override
 	public String toString() {
 		return "Answer [Id=" + Id + ", writer=" + writer + ", contents=" + contents + ", createDate=" + createDate

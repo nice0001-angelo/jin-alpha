@@ -38,7 +38,7 @@ public class QuestionController {
 		
 		User sessionUser = HttpSessionUtils.getUserFromSession(session);
 		//Question newQuestion = new Question(sessionUser.getUserId(), title, contents);
-		// Question.java 안에서 User와 관계를 맺었기 때문에 User객체를 바로 가져올수 있음(대박)
+		// Question.java 안에서 User와 관계를 맺었기 때문에 User객체를 바로 가져올수 있음
 		// 객체내에서 get으로 꺼내올 생각 말고 바로 객체를 가져오는 것을 고려하자~!
 		Question newQuestion = new Question(sessionUser, title, contents);
 		questionRepository.save(newQuestion);
@@ -76,7 +76,7 @@ public class QuestionController {
 		return "/qna/updateForm";
 	}
 	
-	@PostMapping("/{id}/update") //@PutMppping으로도 가능 그러나 꼼수임. 난 POST
+	@PostMapping("/{id}/update")
 	public String update(@PathVariable Long id, String title, String contents) {
 		Question question = questionRepository.findById(id).get();
 		question.update(title, contents);
