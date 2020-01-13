@@ -27,7 +27,7 @@ public class AnswerController {
 	@PostMapping("")
 	public String create(@PathVariable Long questionId, String contents, HttpSession session) {
 		if(!HttpSessionUtils.isLoginUser(session)) {
-			return "/user/login";
+			return "user/login";
 		}
 
 		
@@ -36,7 +36,7 @@ public class AnswerController {
 		Question question = questionRepository.findById(questionId).get();
 		Answer answer = new Answer(loginUser, question, contents);
 		answerRepository.save(answer);
-		return String.format("redirect:/questions/%d", questionId);
+		return String.format("redirect:questions/%d", questionId);
 	}
 
 }

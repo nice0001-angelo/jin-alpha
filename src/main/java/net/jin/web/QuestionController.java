@@ -25,7 +25,7 @@ public class QuestionController {
 	@GetMapping("/form")
 	public String form(HttpSession session) {
 		if(!HttpSessionUtils.isLoginUser(session)) {
-			return "/users/loginform";
+			return "users/loginform";
 		}
 		return "qna/form";
 	}
@@ -33,7 +33,7 @@ public class QuestionController {
 	@PostMapping("")
 	public String create(String title, String contents, HttpSession session) {
 		if(!HttpSessionUtils.isLoginUser(session)) {
-			return "/users/loginform";
+			return "users/loginform";
 		}
 		
 		User sessionUser = HttpSessionUtils.getUserFromSession(session);
@@ -48,7 +48,7 @@ public class QuestionController {
 	@GetMapping("/{id}")
 	public String show(@PathVariable Long id, Model model) {
 		model.addAttribute("question", questionRepository.findById(id).get());
-		return "/qna/show";
+		return "qna/show";
 	}
 	
 	@GetMapping("/{id}/form")
@@ -57,10 +57,10 @@ public class QuestionController {
 			Question question = questionRepository.findById(id).get(); //refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
 			hasPemission(session, question);
 			model.addAttribute("question", question); //해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
-			return "/qna/updateForm";
+			return "qna/updateForm";
 		} catch(IllegalStateException e) {
 			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
-			return "/user/login";
+			return "user/login";
 		}
 	}		
 
@@ -98,10 +98,10 @@ public class QuestionController {
 			hasPemission(session, question);
 			question.update(title, contents);
 			questionRepository.save(question);
-			return String.format("redirect:/questions/%d", id);
+			return String.format("redirect:questions/%d", id);
 		} catch(IllegalStateException e) {
 			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
-			return "/user/login";
+			return "user/login";
 		}
 		
 		//20200111 delete
@@ -121,7 +121,7 @@ public class QuestionController {
 			return "redirect:/";
 		} catch(IllegalStateException e) {
 			model.addAttribute("errorMessage", e.getMessage()); //Excception into errorMessage and return to /user/login.html
-			return "/user/login";
+			return "user/login";
 		}
 
 		//20200112 delete

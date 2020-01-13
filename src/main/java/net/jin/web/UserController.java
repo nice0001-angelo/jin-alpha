@@ -79,7 +79,7 @@ public class UserController {
 	public String create(User user) {
 		System.out.println("User: " + user);
 		userRepository.save(user);
-		return "redirect:/users"; // not real location. just for communication
+		return "redirect:users"; // not real location. just for communication
 	}
 
 	// list.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
@@ -105,7 +105,7 @@ public class UserController {
 		//Object tempUser = session.getAttribute("sessionedUser");
 		//if (tempUser == null) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
-			return "redirect:/users/loginForm";
+			return "redirect:users/loginForm";
 		}
 
 		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
@@ -139,7 +139,7 @@ public class UserController {
 		//Object tempUser = session.getAttribute("sessioneduser");
 		//if (tempUser == null) {  //세션관리 메소드를 만들아서 아래와 같이 체크 가능함
 		if (!HttpSessionUtils.isLoginUser(session)) {
-			return "redirect:/users/loginForm";
+			return "redirect:users/loginForm";
 		}
 
 		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
@@ -153,6 +153,6 @@ public class UserController {
 		User user = userRepository.findById(id).get();
 		user.update(updatedUser);
 		userRepository.save(user);
-		return "redirect:/users";
+		return "redirect:users";
 	}
 }
