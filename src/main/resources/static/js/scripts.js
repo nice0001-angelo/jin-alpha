@@ -24,6 +24,6 @@ function onError(){
 	
 }
 
-function onSuccess(){
-	
+function onSuccess(data, status){
+	console.log(data);
 }
