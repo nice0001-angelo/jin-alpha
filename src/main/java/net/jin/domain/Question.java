@@ -38,7 +38,7 @@ public class Question {
 	private String contents;
 
 	@OneToMany(mappedBy = "question") //from Answer.java private Question question;
-	@OrderBy("id ASC")
+	@OrderBy("id DESC")
 	private List<Answer> answers; //link to show.html {{#answer}}{{/answer}}
 	
 	private LocalDateTime createDate;
