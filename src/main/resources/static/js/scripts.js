@@ -29,7 +29,10 @@ function onSuccess(data, status) {
 	console.log(data);
 	var answerTemplate = $("#answerTemplate").html();
 	var template = answerTemplate.format(data.writer.userId, data.formattedCreateDate, data.contents, data.id, data.id);
-	$(".qna-comment-slipp-articles").prepend(template);
+	
+	$(".qna-comment-slipp-articles").prepend(template); //prepend with template
+	
+	$(".answer-write textarea").val(""); //refresh
 }
 
 
