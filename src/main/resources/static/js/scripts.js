@@ -28,7 +28,7 @@ function onError() {
 function onSuccess(data, status) {
 	console.log(data);
 	var answerTemplate = $("#answerTemplate").html(); // answerTemplate from show.html
-	var template = answerTemplate.format(data.writer.userId, data.formattedCreateDate, data.contents, data.id);
+	var template = answerTemplate.format(data.writer.userId, data.formattedCreateDate, data.contents, data.question.id, data.id);
 	
 	$(".qna-comment-slipp-articles").prepend(template); //prepend with template
 	
@@ -44,6 +44,18 @@ function deleteAnswer(e){
 	
 	var url = $(this).attr("href");
 	console.log("url : " + url);
+	
+	$.ajax({
+		type : 'delete',
+		url : url,
+		datatype : 'json',
+		error : function(xhr, status){
+			console.log("error");
+		},
+		success : function(data, status){
+			console.log("success");
+		}
+	});
 }
 	
 

@@ -18,7 +18,7 @@ public class Answer {
 	@Id
 	@GeneratedValue
 	@JsonProperty
-	private Long Id;
+	private Long id;
 	
 	// linked User object
 	@ManyToOne
