@@ -27,7 +27,7 @@ function onError() {
 
 function onSuccess(data, status) {
 	console.log(data);
-	var answerTemplate = $("#answerTemplate").html();
+	var answerTemplate = $("#answerTemplate").html(); // answerTemplate from show.html
 	var template = answerTemplate.format(data.writer.userId, data.formattedCreateDate, data.contents, data.id, data.id);
 	
 	$(".qna-comment-slipp-articles").prepend(template); //prepend with template
@@ -35,7 +35,7 @@ function onSuccess(data, status) {
 	$(".answer-write textarea").val(""); //refresh
 }
 
-
+//default function
 String.prototype.format = function() {
 	var args = arguments;
 	return this.replace(/{(\d+)}/g, function(match, number) {
