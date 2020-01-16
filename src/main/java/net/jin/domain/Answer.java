@@ -60,7 +60,7 @@ public class Answer {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -73,21 +73,26 @@ public class Answer {
 		if (getClass() != obj.getClass())
 			return false;
 		Answer other = (Answer) obj;
-		if (Id == null) {
-			if (other.Id != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!Id.equals(other.Id))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-
+	
+	
 	//mouse right and source-toString()
 	@Override
 	public String toString() {
-		return "Answer [Id=" + Id + ", writer=" + writer + ", contents=" + contents + ", createDate=" + createDate
-				+ "]";
+		return "Answer [id=" + id + ", writer=" + writer + ", question=" + question + ", contents=" + contents
+				+ ", createDate=" + createDate + "]";
 	}
-	
+
+
+
+
+
 	
 }
 
