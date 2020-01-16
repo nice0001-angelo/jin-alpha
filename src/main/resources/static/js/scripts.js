@@ -35,6 +35,19 @@ function onSuccess(data, status) {
 	$(".answer-write textarea").val(""); //refresh
 }
 
+
+
+$("a.link-Delete-article").click(deleteAnswer);
+
+function deleteAnswer(e){
+	e.preventDefault();
+}
+	
+
+
+
+
+
 //default function
 String.prototype.format = function() {
 	var args = arguments;

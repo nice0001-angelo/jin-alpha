@@ -72,11 +72,7 @@
 											<li><a class="link-modify-article"
 												href="/questions/413/answers/1405/form">Update</a></li>
 											<li>
-												<form class="delete-answer-form"
-													action="/questions/413/answers/1405" method="POST">
-													<input type="hidden" name="_method" value="DELETE">
-													<button type="submit" class="delete-answer-button">Delete</button>
-												</form>
+												<a class="link-Delete-article" href="/api/questions/{{id}}/answers">Delete</a>
 											</li>
 										</ul>
 									</div>
@@ -119,13 +115,10 @@
 		<div class="article-util">
 		<ul class="article-util-list">
 			<li>
-				<a class="link-modify-article" href="/api/qna/updateAnswer/{3}"Update</a>
+				<a class="link-modify-article" href="/api/qna/updateAnswer/{3}">Modify</a>
 			</li>
 			<li>
-				<form class="delete-answer-form" action="/api/questions/{3}/answers/{4}" method="POST">
-					<input type="hidden" name="_method" value="DELETE">
-                     <button type="submit" class="delete-answer-button">Delete/button>
-				</form>
+				<a class="link-Delete-article" href="/api/questions/{3}/answers">Delete</a>
 			</li>
 		</ul>
 		</div>
