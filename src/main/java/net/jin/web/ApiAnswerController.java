@@ -37,6 +37,7 @@ public class ApiAnswerController {
 		
 		Question question = questionRepository.findById(questionId).get();
 		Answer answer = new Answer(loginUser, question, contents);
+		question.addAnswer();
 		return answerRepository.save(answer);
 		
 	}
@@ -47,12 +48,15 @@ public class ApiAnswerController {
 			return Result.fail("You have to login first");
 		}
 		
+		Question question = questionRepository.findById(questionId).get();		
 		Answer answer = answerRepository.findById(id).get();
 		User loginUser = HttpSessionUtils.getUserFromSession(session);
 		if(!answer.isSameWriter(loginUser)) {
 			return Result.fail("You can delete only your answer");
 		}
 		answerRepository.deleteById(id);
+		question.deleteAnswer();
+		questionRepository.save(question);
 		return Result.ok();
 	}
 }

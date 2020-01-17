@@ -36,6 +36,9 @@ public class Question {
 	@Lob
 	@JsonProperty
 	private String contents;
+	
+	@JsonProperty
+	private Integer countOfAnswer = 0;
 
 	@OneToMany(mappedBy = "question") //from Answer.java private Question question;
 	@OrderBy("id DESC")
@@ -68,6 +71,14 @@ public class Question {
 
 	public boolean isSameWriter(User loginUser) {
 		return this.writer.equals(loginUser); //equals 는 항상  false hashCode() 와 equals를 override 해야 제대로 작동한다
+	}
+
+	public void addAnswer() {
+		this.countOfAnswer += 1;
+	}
+	
+	public void deleteAnswer() {
+		this.countOfAnswer -= 1;
 	}
 	
 	
