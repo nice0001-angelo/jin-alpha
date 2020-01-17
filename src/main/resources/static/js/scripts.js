@@ -57,6 +57,8 @@ function deleteAnswer(e){
 			console.log(data);
 			if(data.valid){
 				deleteBtn.closest("article").remove();
+			}else{
+				alert(data.errorMessage);
 			}
 		}
 	});
