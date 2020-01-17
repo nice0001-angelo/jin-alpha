@@ -55,6 +55,12 @@ public class Answer {
 		return createDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
 	}
 	
+
+	public boolean isSameWriter(User loginUser) {
+		return loginUser.equals(this.writer);
+	}
+
+
 	//mouse right and source-generate hashcode() and equals()	
 	@Override
 	public int hashCode() {
@@ -88,10 +94,6 @@ public class Answer {
 		return "Answer [id=" + id + ", writer=" + writer + ", question=" + question + ", contents=" + contents
 				+ ", createDate=" + createDate + "]";
 	}
-
-
-
-
 
 	
 }

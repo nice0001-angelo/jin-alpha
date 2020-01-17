@@ -3,6 +3,7 @@ package net.jin.web;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import net.jin.domain.Answer;
 import net.jin.domain.AnswerRepository;
 import net.jin.domain.Question;
 import net.jin.domain.QuestionRepository;
+import net.jin.domain.Result;
 import net.jin.domain.User;
 
 @RestController
@@ -39,6 +41,18 @@ public class ApiAnswerController {
 		
 	}
 
-	
-	
+	@DeleteMapping("/{id}")
+	public Result delete(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
+		if(!HttpSessionUtils.isLoginUser(session)) {
+			return Result.fail("You have to login first");
+		}
+		
+		Answer answer = answerRepository.findById(id).get();
+		User loginUser = HttpSessionUtils.getUserFromSession(session);
+		if(!answer.isSameWriter(loginUser)) {
+			return Result.fail("You can delete only your answer");
+		}
+		answerRepository.deleteById(id);
+		return Result.ok();
+	}
 }

@@ -42,7 +42,8 @@ $("a.link-Delete-article").click(deleteAnswer);
 function deleteAnswer(e){
 	e.preventDefault();
 	
-	var url = $(this).attr("href");
+	var deleteBtn = $(this); //ajax 안에서도 동일한 this유지하기 위해 선언
+	var url = deleteBtn.attr("href");
 	console.log("url : " + url);
 	
 	$.ajax({
@@ -53,7 +54,10 @@ function deleteAnswer(e){
 			console.log("error");
 		},
 		success : function(data, status){
-			console.log("success");
+			console.log(data);
+			if(data.valid){
+				deleteBtn.closest("article").remove();
+			}
 		}
 	});
 }
