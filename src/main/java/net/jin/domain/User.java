@@ -9,12 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-public class User {
-	@Id
-	@GeneratedValue
-	@JsonProperty
-	private Long id;
-	
+public class User extends AbstractEntity{
 	@Column(nullable=false, length=20, unique=true)
 	@JsonProperty
 	private String userId;
@@ -29,17 +24,17 @@ public class User {
 	private String email;
 
 	//로그인 한 사용자가 다른 로그인 사용자 정보를 수정하지 못하게 특정하기 위한  getter
-	//아래에 id 체크하는 로직이 있으면 getId()로 id 체크 하지 않아도 됨 
-	public Long getId() { 
-		return id;
-	}
+	//아래에 id 체크하는 로직이 있으면 getId()로 id 체크 하지 않아도 됨. AbstractEntity.java 에 정의 후 상속 
+//	public Long getId() { 
+//		return id;
+//	}
 	
 	//id 정보가 같은지 체크하는 로직
 	public boolean matchNewId(Long newId) {
 		if(newId == null) {
 			return false;
 		}
-		return newId.equals(id);
+		return newId.equals(getId());
 	}
 	
 	public void setUserId(String userId) {
@@ -84,35 +79,7 @@ public class User {
 	//mouse right and source toString()
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
+		return "User [" + super.toString()+ ", userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
-
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-
-
 
 }
