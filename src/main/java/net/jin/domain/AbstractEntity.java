@@ -32,11 +32,33 @@ public class AbstractEntity {
 		return id;
 	}
 	
+//	public String getFormattedCreateDate() {
+//		if (createDate == null) {
+//			return "";
+//		}
+//		return createDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+//	}
+//	
+//	public String getFormattedModifiedDate() {
+//		if (modifiedDate == null) {
+//			return "";
+//		}
+//		return modifiedDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+//	}
+	
 	public String getFormattedCreateDate() {
-		if (createDate == null) {
+		return getFormattedDate(createDate, "yyyy.MM.dd HH:mm");
+	}
+	
+	public String getFormattedModifiedDate() {
+		return getFormattedDate(modifiedDate, "yyyy.MM.dd HH:mm");
+	}
+	
+	public String getFormattedDate(LocalDateTime dateTime, String format) {
+		if (dateTime == null) {
 			return "";
 		}
-		return createDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+		return dateTime.format(DateTimeFormatter.ofPattern(format));
 	}
 	
 	//mouse right and source-generate hashcode() and equals()
