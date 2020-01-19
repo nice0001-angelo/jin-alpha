@@ -4,7 +4,7 @@ function addAnswer(e) {
 	e.preventDefault();
 	console.log("click me");
 
-	var queryString = $(".answer-write").serialize();//입력방식에 적힌 값을 쿼리 문자열로 바꿈
+	var queryString = $(".answer-write").serialize();//사용자 입력요소에 값을 입력한것을 'name1=value1@name2=value2'와 같은 쿼리스트링형식 데이터로 반환함(Ajax data 가공메소드)
 	console.log("query : " + queryString);
 
 	var url = $(".answer-write").attr("action"); // answer-write > action 속성 url 선택
