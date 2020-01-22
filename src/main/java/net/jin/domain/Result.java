@@ -1,10 +1,16 @@
 package net.jin.domain;
 
+import com.sun.xml.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
+
 public class Result {
 	private boolean valid;
 	private String errorMessage;
 	
 
+	private Result(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+	
 	private Result(boolean valid, String errorMessage) {
 		this.valid = valid;
 		this.errorMessage = errorMessage;
@@ -25,4 +31,5 @@ public class Result {
 	public static Result fail(String errorMessage) {
 		return new Result(false, errorMessage);
 	}
+	
 }
