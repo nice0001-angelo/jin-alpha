@@ -50,13 +50,13 @@ public class UserController {
 		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
 		if (user == null) {
 			System.out.println("Key in!");
-			return "redirect:/loginForm";
+			return "redirect:/users/loginForm";
 		}
 		//if (!password.equals(user.getPassword())) {
 		//user.java 에 matchNewPassword() 정의해서 로직으로 쓴다
 		if (!user.matchNewPassword(password)) {			
 			System.out.println("Login Failure!");
-			return "redirect:/loginForm";
+			return "redirect:/users/loginForm";
 		}
 
 		System.out.println("Login Success!");
