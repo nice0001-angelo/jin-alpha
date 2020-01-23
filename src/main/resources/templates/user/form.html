@@ -11,7 +11,7 @@
 				<form name="question" method="post" action="/users">
 					<div class="form-group">
 						<label for="userId">User ID</label> <input class="form-control"
-							id="userId" name="userId" placeholder="User ID">
+							id="userId" name="userId" placeholder="User ID" required>
 					</div>
 					<div class="form-group">
 						<label for="password">Password</label> <input type="password"
@@ -26,7 +26,7 @@
 						<label for="email">Email</label> <input type="email"
 							class="form-control" id="email" name="email" placeholder="Email">
 					</div>
-					<button type="submit" class="btn btn-success clearfix pull-right">Sign
+					<button type="submit" class="btn btn-success clearfix pull-right" onclick="signupValidate();">Sign
 						Up</button>
 					<div class="clearfix" />
 				</form>

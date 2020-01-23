@@ -78,6 +78,11 @@ public class UserController {
 	@PostMapping("") // not real location. just for communication
 	public String create(User user) {
 		System.out.println("User: " + user);
+		System.out.println("user.getUserId() : " + user.getUserId());
+		if (user.getUserId() == null) {
+			System.out.println("you have to input UserId");
+			return "user/form"; 
+		}
 		userRepository.save(user);
 		return "redirect:/users"; // not real location. just for communication
 	}
