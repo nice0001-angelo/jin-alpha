@@ -10,7 +10,7 @@
 			<div class="panel panel-default content-main">
 				{{#answer}}
 				<form class="answer-write" method="post"
-					action="/api/questions/{{id}}/answers{{id}}/update">
+					action="/answers/{{question.id}}/answers/{{id}}/update">
 					<div class="form-group" style="padding: 14px;">
 						<textarea class="form-control" placeholder="Update your status"
 							name="contents">{{contents}}</textarea>

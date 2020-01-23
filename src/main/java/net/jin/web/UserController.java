@@ -125,7 +125,7 @@ public class UserController {
 		User user = userRepository.findById(id).get();
 		// User user = userRepository.findById(sessionedUser.getId()).get();
 		model.addAttribute("user", user);
-		return "user/updateForm"; // real location(src/main/resources/static/user/updateForm.html)
+		return "user/updateForm"; // real location(src/main/resources/templates/user/updateForm.html)
 	}
 
 	// list.html로 부터 넘겨 받은 정보를 updateForm.html에서 수정한 후 저장하기 위한 메소드

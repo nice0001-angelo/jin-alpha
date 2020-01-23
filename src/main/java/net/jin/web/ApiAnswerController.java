@@ -44,23 +44,6 @@ public class ApiAnswerController {
 		
 	}
 
-	@GetMapping("/{id}/form")
-	public String update(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
-		if(!HttpSessionUtils.isLoginUser(session)) {
-			System.out.println("You have to login first");
-		}
-		
-		Question question = questionRepository.findById(questionId).get();		
-		Answer answer = answerRepository.findById(id).get();
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if(!answer.isSameWriter(loginUser)) {
-			System.out.println("You can delete only your answer");
-		}
-		
-		model.addAttribute("answer", answer); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
-		System.out.print(model);
-		return "qna/answerUpdateForm";
-	}
 	
 	@DeleteMapping("/{id}")
 	public Result delete(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
