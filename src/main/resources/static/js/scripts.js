@@ -70,6 +70,19 @@ function deleteAnswer(e) {
 	});
 }
 
+
+function loginValidate() {
+    var userid = document.getElementById("userId").value;
+    var password = document.getElementById("password").value;
+    if (userid == null || userid == "") {
+        alert("Please enter the User ID.");
+        return false;
+    }
+    alert('Sign Up successful');
+} 
+
+
+
 function signupValidate() {
     var userid = document.getElementById("userId").value;
     var password = document.getElementById("password").value;
