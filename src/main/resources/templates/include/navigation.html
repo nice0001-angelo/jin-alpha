@@ -51,10 +51,10 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse2">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/">Posts</a></li>
+                <li class="active"><a href="/" data-toggle="tooltip" data-placement="top" title="Main Page">Posts</a></li>
                 {{^sessionedUser}}
-                <li><a href="/users/loginForm" role="button">Log In</a></li>
-                <li><a href="/users/form" role="button">Sign Up</a></li>
+                <li><a href="/users/loginForm" role="button" data-toggle="tooltip" data-placement="top" title="Can Log In">Log In</a></li>
+                <li><a href="/users/form" role="button" data-toggle="tooltip" data-placement="top" title="Can make Accout">Sign Up</a></li>
                 {{/sessionedUser}}
                 {{#sessionedUser}}
                 <li><a href="/users/logout" role="button">Log Out</a></li>
