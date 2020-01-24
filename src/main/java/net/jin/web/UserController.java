@@ -20,13 +20,6 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
 
-	// profile.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header,
-	// footer를 공통으로 쓸 수 있음
-	@GetMapping("/profile")
-	public String profile() {
-		return "user/profile";
-	}
-
 	// login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
 	// 공통으로 쓸 수 있음
 	// navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
