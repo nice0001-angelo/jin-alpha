@@ -49,23 +49,7 @@ public class AnswerController {
 		return "qna/answerUpdateForm";
 	}
 	
-//	@PostMapping("/{id}/update")
-//	public String update(@PathVariable Long id, String title, String contents, Model model, HttpSession session) {
-//		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-//		Result result = valid(session, question);
-//		if (!result.isValid()) {
-//			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
-//																			// /user/login.html
-//			return "user/login";
-//		}
-//
-//		question.update(title, contents);
-//		questionRepository.save(question);
-//		return String.format("redirect:/questions/%d", id);
-//
-//	}
 
-	
 	
 	private Result valid(HttpSession session, Answer answer) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
