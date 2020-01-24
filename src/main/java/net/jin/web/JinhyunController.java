@@ -14,7 +14,11 @@ public class JinhyunController {
 	public String profile() {
 		return "jinhyun/profile";
 	}
-	
+
+	@GetMapping("/calendar")
+	public String calendar() {
+		return "jinhyun/calendar";
+	}
 	
 
 }

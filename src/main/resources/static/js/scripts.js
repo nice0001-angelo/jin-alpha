@@ -103,6 +103,13 @@ $(function() {
 	});
 });
 
+
+$( function() {
+    $( "#datepicker" ).datepicker({
+      numberOfMonths: 3,
+      showButtonPanel: true
+    });
+  } );
 // default function
 String.prototype.format = function() {
 	var args = arguments;
