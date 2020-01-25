@@ -1,3 +1,9 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : Question.java
+ * Created by : Jinhyun
+ * Created on : Dec 2019
+ */
 package net.jin.domain;
 
 import java.time.LocalDateTime;

@@ -1,3 +1,9 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : User.java
+ * Created by : Jinhyun
+ * Created on : Dec 2019
+ */
 package net.jin.domain;
 
 import javax.persistence.Column;
