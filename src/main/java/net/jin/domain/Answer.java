@@ -1,3 +1,9 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : Answer.java
+ * Created by : Jinhyun
+ * Created on : Dec 2019
+ */
 package net.jin.domain;
 
 import java.time.LocalDateTime;
@@ -31,9 +37,11 @@ public class Answer extends AbstractEntity {
 	@JsonProperty
 	private String contents;
 	
+	//basic Constructor
 	public Answer() {
 	}
 	
+	//Constructor
 	public Answer(User writer, Question question, String contents) {
 		this.writer = writer;
 		this.question = question;
