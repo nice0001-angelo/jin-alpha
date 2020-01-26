@@ -47,14 +47,21 @@ public class PageMaker {
 	public int getStartPage() {
 		return startPage;
 	}
-	public void setStartPage(int currentblock) { //current page block's first page
+	public void setStartPage(int currentblock) { //Setting currentBlock's Start page
 		this.startPage = (currentblock*5)-4;
+		//1/1 2 3 4 5 --> 1
+		//2/6 7 8 9 10 --> 6
+		//3/11 12 13 14 15 ->11
 	}
 	public int getEndPage() {
 		return endPage;
 	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
+	public void setEndPage(int getlastblock, int getcurrentblock) {//Setting currentBlock's End page
+		if (getlastblock == getcurrentblock) {
+			this.endPage = calcpage(getTotalcount(), getContentnum());
+		} else {
+		this.endPage = getStartPage()+4;
+		}
 	}
 	public boolean isPrev() {
 		return prev;
@@ -71,14 +78,27 @@ public class PageMaker {
 	public int getCurrentblock() {
 		return currentblock;
 	}
-	public void setCurrentblock(int currentblock) {
-		this.currentblock = currentblock;
+	public void setCurrentblock(int pagenum) {
+		//현재 페이지 번호를 통해 구한다
+		//1/5=0.2 -> 0.2 > 0 -> 0+1 = 1
+		//10/5=0 -> 0 == 0 -> 2+0 = 2
+		//11/5=0.2 -> 0.2 > 0 -> 2+1 = 3
+		this.currentblock = pagenum/5;
+		if(pagenum%5>0) {
+			this.currentblock++;
+		}
 	}
 	public int getLastblock() {
 		return lastblock;
 	}
-	public void setLastblock(int lastblock) {
-		this.lastblock = lastblock;
+	public void setLastblock(int totalcount) {
+		//페이지당 10개 게시물, 블록당 5페이지 그러므로 10*5=50개 게시물
+		//totalcount = 125, contnum=10 일때  this.lastblock = 125/(5*10) = 2.5 -> (int)2.5 = 2
+		//totalcount%(5*this.contentnum)= 0.25 > 0 -> this.lastblock++ ->< 2+1 = 3 
+		this.lastblock = totalcount/(5*this.contentnum);
+		if(totalcount%(5*this.contentnum)>0) {
+			this.lastblock++;
+		}
 	}
 	
 	
