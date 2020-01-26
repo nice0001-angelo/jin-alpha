@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : PageMaker.java
+ * Created by : Jinhyun
+ * Created on : Dec 2019
+ * Contents : index.html write board paging
+ */
 package net.jin.dao;
 
 public class PageMaker {
@@ -11,6 +18,13 @@ public class PageMaker {
 	private int currentblock;//현재 페이지 블록
 	private int lastblock;//마지막 페이지 블록
 	
+	public int calcpage(int totalcount, int contentnum) { // totalpage calculation method
+		int totalpage = totalcount/contentnum;
+		if(totalcount%contentnum > 0) {
+			totalpage++;
+		}
+		return totalpage;
+	}
 	
 	public int getTotalcount() {
 		return totalcount;
@@ -33,8 +47,8 @@ public class PageMaker {
 	public int getStartPage() {
 		return startPage;
 	}
-	public void setStartPage(int startPage) {
-		this.startPage = startPage;
+	public void setStartPage(int currentblock) { //current page block's first page
+		this.startPage = (currentblock*5)-4;
 	}
 	public int getEndPage() {
 		return endPage;

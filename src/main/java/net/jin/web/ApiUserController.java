@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : ApiUserController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the "/api/users" call controller
+ */
 package net.jin.web;
 
 import org.springframework.beans.factory.annotation.Autowired;

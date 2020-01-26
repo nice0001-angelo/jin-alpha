@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : QuestionController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the "/questions" call controller
+ */
 //Exception delete refactoring
 
 package net.jin.web;

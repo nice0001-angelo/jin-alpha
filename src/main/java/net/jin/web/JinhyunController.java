@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : JinhyunController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the jinhyun Controller in navibar
+ */
 package net.jin.web;
 
 import org.springframework.stereotype.Controller;

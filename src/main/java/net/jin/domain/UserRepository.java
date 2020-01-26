@@ -2,7 +2,8 @@
  * This is a Jin-alpha Project
  * File name : UserRepository.java
  * Created by : Jinhyun
- * Created on : Dec 2019
+ * Created on : Jan 2020
+ * Contents : for user table Repository object
  */
 package net.jin.domain;
 

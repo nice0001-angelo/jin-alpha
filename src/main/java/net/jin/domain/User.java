@@ -2,7 +2,8 @@
  * This is a Jin-alpha Project
  * File name : User.java
  * Created by : Jinhyun
- * Created on : Dec 2019
+ * Created on : Jan 2020
+ * Contents : for user table object
  */
 package net.jin.domain;
 

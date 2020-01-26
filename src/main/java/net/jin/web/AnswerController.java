@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : AnswerController.java
+ * Created by : Jinhyun
+ * Created on : Dec 2019
+ * Contents : for the "/answers/{questionId}/answers" call controller
+ */
 package net.jin.web;
 
 import javax.servlet.http.HttpSession;

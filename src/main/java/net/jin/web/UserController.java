@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : UserController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the "/users" call controller
+ */
 package net.jin.web;
 
 import javax.servlet.http.HttpSession;

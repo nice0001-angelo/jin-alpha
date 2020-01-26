@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : ApiAnsewerController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the "/api/questions/{questionId}/answers" call controller
+ */
 package net.jin.web;
 
 import javax.servlet.http.HttpSession;

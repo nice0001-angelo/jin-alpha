@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : HttpSessionUtils.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for HttpSession home page controller
+ */
 package net.jin.web;
 
 import javax.servlet.http.HttpSession;

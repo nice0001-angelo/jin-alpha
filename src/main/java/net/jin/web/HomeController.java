@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : HomeController.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : for the main home page controller
+ */
 package net.jin.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
