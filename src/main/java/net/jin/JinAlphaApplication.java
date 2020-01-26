@@ -1,3 +1,10 @@
+/*
+ * This is a Jin-alpha Project
+ * File name : JinAlpahApplication.java
+ * Created by : Jinhyun
+ * Created on : Jan 2020
+ * Contents : This is the main Springboot Application and for swagger
+ */
 package net.jin;
 
 
