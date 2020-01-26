@@ -10,13 +10,28 @@ package net.jin.dao;
 public class PageMaker {
 	private int totalcount;//전체 게시물 갯수
 	private int pagenum;//현재 페이지 번호
-	private int contentnum;//한 페이지에 몇개 표시할지
-	private int startPage;//현재 페이지 블록의 시작 페이지
-	private int endPage;//현재 페이지 블록의 마지막 페이지
-	private boolean prev;//이전 페이지로 가는 화살표
+	private int contentnum=10;//한 페이지에 몇개 표시할지
+	private int startPage=1;//현재 페이지 블록의 시작 페이지
+	private int endPage=5;//현재 페이지 블록의 마지막 페이지
+	private boolean prev=false;//이전 페이지로 가는 화살표
 	private boolean next;//다음 페이지로 가는 화살표
 	private int currentblock;//현재 페이지 블록
 	private int lastblock;//마지막 페이지 블록
+	
+	public void prenext(int pagenum) {
+		if(pagenum > 0 && pagenum < 6) {
+			setPrev(false);
+			setNext(true);
+		}
+		else if(getLastblock() == getCurrentblock()) {
+			setPrev(true);
+			setNext(false);
+		}
+		else {
+			setPrev(true);
+			setNext(true);
+		}
+	}
 	
 	public int calcpage(int totalcount, int contentnum) { // totalpage calculation method
 		int totalpage = totalcount/contentnum;
