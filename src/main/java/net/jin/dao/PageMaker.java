@@ -2,7 +2,7 @@
  * This is a Jin-alpha Project
  * File name : PageMaker.java
  * Created by : Jinhyun
- * Created on : Dec 2019
+ * Created on : Jan 2020
  * Contents : index.html write board paging
  */
 package net.jin.dao;

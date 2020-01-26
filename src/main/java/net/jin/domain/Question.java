@@ -41,6 +41,9 @@ public class Question extends AbstractEntity{
 	
 	@JsonProperty
 	private Integer countOfAnswer = 0;
+	
+	@JsonProperty
+	private Integer number = 0;
 
 	@OneToMany(mappedBy = "question") //from Answer.java private Question question;
 	@OrderBy("id DESC")
