@@ -26,7 +26,7 @@ public class HomeController {
 	@RequestMapping("")
 	// spring-data-jpa를 활용하여 Pageable로 페이지 처리
 	// PageableDefault 로 한페이지당 보이는 갯수, Sort 방식 정의
-	public String home(Model model, @PageableDefault(sort = {"id"}, direction= Direction.DESC, size=5) Pageable pageable) {
+	public String home(Model model, @PageableDefault(sort = {"id"}, direction=Direction.DESC, size=5) Pageable pageable) {
 		//question table의 모든 데이터를 "questions" 라는 이름에 담아서 index.html에 전달 {{#questions}}{{/questions}} 이용
 		model.addAttribute("questions", questionRepository.findAll(pageable)); 
 		return "index";
