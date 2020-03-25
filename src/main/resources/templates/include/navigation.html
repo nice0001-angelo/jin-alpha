@@ -37,7 +37,7 @@
 				<li><a href="/users"><i class="glyphicon glyphicon-user"></i></a></li>
 			</ul>
 
-			
+
 		</div>
 	</div>
 </nav>
@@ -71,18 +71,17 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse2">
 			<ul class="nav navbar-nav navbar-left">
 				<li class="active">
-								<li>
-				<a href="/" data-toggle="tooltip" data-placement="top" title="Main Page">Home</a>
-				</li>
-				<li>
-				<a href="/" data-toggle="tooltip" data-placement="top" title="Main Page">About</a>
-				</li> 
-				<li>
-				<a href="/" data-toggle="tooltip" data-placement="top" title="Can Log In">Recipes</a>
-				</li>
+				<li><a href="/" data-toggle="tooltip" data-placement="top"
+					title="Main Page">Home</a></li>
+				<li><a href="/" data-toggle="tooltip" data-placement="top"
+					title="Main Page">About</a></li>
+				<li><a href="/" data-toggle="tooltip" data-placement="top"
+					title="Can Log In">Recipes</a></li>
+				<li><a href="/" data-toggle="tooltip" data-placement="top"
+					title="Can Log In">Board</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-			 {{^sessionedUser}}
+				{{^sessionedUser}}
 				<li><a href="/users/loginForm" role="button"
 					data-toggle="tooltip" data-placement="top" title="Can Log In">Log
 						In</a></li>
@@ -94,6 +93,6 @@
 						Update</a></li> {{/sessionedUser}}
 			</ul>
 		</div>
-		
+
 	</div>
 </div>
