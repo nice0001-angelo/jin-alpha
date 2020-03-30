@@ -34,6 +34,6 @@ public class HomeController {
 
 	@RequestMapping("/board")
 	public String board() {
-		return "/navigation/board";
+		return "navigation/board";
 	}
 }
