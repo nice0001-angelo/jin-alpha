@@ -32,8 +32,13 @@ public class HomeController {
 		return "index";
 	}
 
+	@RequestMapping("/about")
+	public String about() {
+		return "/navigation/about";
+	}
+	
 	@RequestMapping("/board")
 	public String board() {
-		return "navigation/board";
+		return "/navigation/board";
 	}
 }
