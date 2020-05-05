@@ -42,8 +42,8 @@ public class HomeController {
 		return "/navigation/board";
 	}
 	
-	@RequestMapping("/recipes")
+	@RequestMapping("/foodblog")
 	public String recipes() {
-		return "/navigation/recipes";
+		return "/navigation/foodblog";
 	}
 }
