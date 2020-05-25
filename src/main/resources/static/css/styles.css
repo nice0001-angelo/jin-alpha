@@ -201,3 +201,14 @@ h3,h4,h5 {
     padding-right: 2.5em;
 }
 
+#wrap {
+	overflow: hidden;
+}
+
+#image {
+	float: left;
+}
+
+#youtube {
+	float: left;
+}
