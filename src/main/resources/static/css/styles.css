@@ -207,8 +207,10 @@ h3,h4,h5 {
 
 #image {
 	float: left;
+	margin: 20px;
 }
 
 #youtube {
-	float: left;
+	float: right;
+	margin: 20px;
 }
