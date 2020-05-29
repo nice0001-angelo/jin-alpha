@@ -34,16 +34,16 @@ public class HomeController {
 
 	@RequestMapping("/about")
 	public String about() {
-		return "/navigation/about";
+		return "navigation/about";
 	}
 	
 	@RequestMapping("/board")
 	public String board() {
-		return "/navigation/board";
+		return "navigation/board";
 	}
 	
 	@RequestMapping("/foodblog")
 	public String recipes() {
-		return "/navigation/foodblog";
+		return "navigation/foodblog";
 	}
 }
