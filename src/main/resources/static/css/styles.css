@@ -214,3 +214,25 @@ h3,h4,h5 {
 	float: right;
 	margin: 20px;
 }
+
+a.jcm-top { 
+    position: fixed; 
+    right: 15px; 
+    bottom: 15px; 
+    border-radius: 5px; 
+    color: #ffffff; 
+    text-align: center; 
+    width: 45px; 
+    height: 45px; 
+    font-size: 40px; 
+    /*background-color: rgba(50,50,50,0.5);*/ 
+    background-color:#323232; 
+    opacity:0.5; 
+    filter:alpha(opacity=50); 
+    /*ie8 호환을 위한코드 위와 동일한 것임 호환필요없으면 한줄로 rgba적으면됨*/ 
+    z-index: 999; 
+    display: block; 
+    }
+a.jcm-top:hover{
+    background-color:#000
+    }
