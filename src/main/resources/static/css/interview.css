@@ -1,0 +1,97 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ul {
+    list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#wrap {
+    background: #fff;
+    font-family: "Jeju Gothic", serif;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 1.8em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+p {
+    font-size: 1.0em;
+    line-height: 2.0;
+    padding-right: 32px;
+    width: 90%;
+}
+
+ol > li {
+    margin-left: 16px;
+    width: 90%;
+}
+
+/* 모바일 - 767px 이하 */
+header {
+ 
+}
+
+section {
+    position: relative;
+    width: 100%;
+    padding: 15px 5% 10px 5%;
+}
+
+/* 태블릿 - 768px 이상 */
+@media screen and (min-width:760px) {
+header {
+   
+}
+}
+
+/* PC - 992px 이상 */
+@media screen and (min-width:992px) {
+header {
+      
+    }
+}

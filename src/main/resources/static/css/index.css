@@ -1,0 +1,316 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
+
+/* Global */
+#wrap {
+    background: #fff;
+    font-family: "Jeju Gothic", serif;
+    overflow: hidden;
+}
+#container {
+    width: 100%;
+    margin: 0 auto;
+}
+header {
+    width: 100%;
+    height: 300px;
+    background: url(../images/header.jpg) center no-repeat;
+    background-size: cover;
+    margin: 0;
+}
+nav {
+    height: 50px;
+    background: #000;
+}
+nav a:link, nav a:visited {
+    color: #fff;
+}
+nav a:active {
+    color: yellow;
+}
+#main-nav {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+#main-nav li {
+    display: inline-block;		
+    color: #fff;
+    font-family: "맑은 고딕", 돋움;
+    font-size: 0.8em;
+    margin: 5px 15px;
+}
+section {
+    position: relative;
+    width: 100%;
+    padding: 15px 5% 10px 5%;
+}	
+#container section:nth-child(odd) {
+    background: #eee;
+}
+a {
+    text-decoration: none;
+}
+.page-title {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    padding: 30px 50px;
+}
+.page-title h1 {
+    margin-bottom: 30px;
+    }		
+.content {
+    margin: 80px auto 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 90%;
+    padding: 20px;
+    position: relative;
+}	
+.content ol {
+    margin-top: 20px;
+}
+.photo {
+    display: none;
+}
+h1 {
+    font-size: 1.8em;
+}
+h2 {
+    font-size: 1.3em;
+}
+p {
+    font-size: 1.3em;
+    line-height: 2.5;
+}
+li {
+    font-size: 1em;
+    line-height: 2;
+}
+#portfolio {
+    position: fixed;
+    width: 100%;
+    padding: 15px 10% 10px 5%;
+}	
+#portfolio a:link, #portfolio a:visited {
+    color: #fff;
+}
+#portfolio a:active {
+    color: yellow;
+}
+.prod-list {
+    list-style:none;
+    margin:0;
+    padding:0;
+   }
+    .prod-list li {
+      position: relative;
+      float: left;
+      padding: 0;
+      margin: 10px;
+      overflow: hidden;
+    }
+  .prod-list img {
+    margin:0;
+    padding:0;
+    width: 350px;
+    height: 220px;
+    float:left;
+    z-index:5;
+  }   
+   .prod-list .caption {
+    position: absolute;
+    top:200px;
+    width:350px;
+    height:220px;
+    padding-top:20px;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    z-index:10;
+    text-align: center;
+  }
+  .prod-list li:hover .caption {
+    opacity: 1;
+    -moz-transform: translateY(-200px);
+    -ms-transform: translateY(-200px);
+    -o-transform: translateY(-200px);
+    -webkit-transform: translateY(-200px);
+    transform: translateY(-200px);
+  }     
+.prod-list .caption a {
+    color: #fff;
+    font: 2em sans-serif;
+  }  
+.prod-list .caption h1, .prod-list .caption p {
+    color: #fff;
+    text-align: center;
+  }
+a.jcm-top { 
+    position: fixed; 
+    right: 15px; 
+    bottom: 15px; 
+    border-radius: 5px; 
+    color: #ffffff; 
+    text-align: center; 
+    width: 45px; 
+    height: 45px; 
+    font-size: 40px; 
+    /*background-color: rgba(50,50,50,0.5);*/ 
+    background-color:#323232; 
+    opacity:0.5; 
+    filter:alpha(opacity=50); 
+    /*ie8 호환을 위한코드 위와 동일한 것임 호환필요없으면 한줄로 rgba적으면됨*/ 
+    z-index: 999; 
+    display: block; 
+    }
+a.jcm-top:hover{
+    background-color:#000
+    }
+footer {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background: #000;
+}		
+footer p {
+    font-family: 'Oleo Script', cursive;
+    font-size: 1.5em;
+    line-height: 100px;
+    color: white;
+    text-align: center;
+}
+footer > a {
+    font-family: 'Oleo Script', cursive;
+    font-size: 1.5em;
+    line-height: 20px;
+    color: black;
+    text-align: right;
+}
+
+
+/* Tablet - 768px More */
+@media screen and (min-width:768px) {
+header {
+        height: 400px;
+}
+#intro, #map {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    height: 400px;
+    float: left;
+    margin: 0;
+    border: 1px dotted #ccc;
+}
+#choice, #portfolio {
+    clear: left;
+}
+}
+
+
+/* PC - 960px More */
+@media screen and (min-width:960px) {
+#container {
+        width: 995px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+    }
+header {
+        height: 500px;
+    }
+#intro, #map, #choice, #portfolio {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 420px;
+    padding: 15px 2% 10px 5%;
+}
+.content {
+    margin: 80px auto 10px;
+    width: 90%;
+    padding: 20px;
+}
+.photo {
+    width: 42%;
+    display: block;
+    }
+.photo > img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 30px;
+}
+.link1 {
+    width: 42%;
+    display: block;
+    }
+.link1 > a {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.link2 {
+    width: 42%;
+    display: block;
+    }
+.link2 > a {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 30px;
+}
+.text {
+    width: 42%;
+}
+#intro .photo, #map .photo {
+    float: left;
+    margin-right: 5%;
+}
+#intro .text, #map .text {
+    float: left;
+}
+#choice .photo {
+    float: right;
+    margin-right: 5%;
+}
+#choice .text {
+    float: left;
+}
+
+#portfolio .link1 {
+    float: left;
+    margin-right: 5%;
+}
+#portfolio .link2 {
+    float: left;
+    margin-right: 5%;
+}
+.topButton {
+    right: 30px;
+    bottom: 30px;
+    width: 56px;
+    height: 56px;
+    border: solid 1px #dbdee3;
+    background: #FFF url(//cdn.lezhin.com/files/assets/img/home_top_d2.png) no-repeat 50% 50%;
+    background-size: 64px;
+    border-radius: 100%;
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+} 
+footer {
+    height: 120px;
+    clear: both;
+}
+}
