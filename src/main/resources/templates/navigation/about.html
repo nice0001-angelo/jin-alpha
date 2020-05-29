@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>{{> include/header}}
-	<title>Angelo</title>
-	<link rel = "stylesheet" href="/css/reset.css" type="text/css">		
-	<link rel = "stylesheet" href="/css/index.css" type="text/css">	
-    <script src = "./js/jquery.js"></script>
+<head>
+{{> include/header}}
+<title>Angelo</title>
+<link rel="stylesheet" href="/css/reset.css" type="text/css">
+<link rel="stylesheet" href="/css/index.css" type="text/css">
+<script src="./js/jquery.js"></script>
 </head>
 
 <body>
 	{{> include/navigation}}
 	<div>
-
 
 		<div
 			style="font-family: 'comic sans ms', sans-serif; font-size: 50.0px; color: #112987; height: 60px;"></div>
@@ -19,7 +19,7 @@
 			<br />
 			<div class="row content">
 				<div class="col-sm-3 sidenav"
-					style="background-color: #c4f9fc; height: 16000px;">
+					style="background-color: #c4f9fc; height: 2300px;">
 					<br />
 					<h3 align="center">
 						<div style="color: #0d26be;">The Table of Contents</div>
@@ -33,125 +33,126 @@
 					</ul>
 				</div>
 
-				<di
-				<div id="wrap">
-					<div id="container">
+				<div class="col-sm-9">
+					<div id="wrap">
+						<div id="container">
 
-						<header>
-							<nav>
-								<ul id="main-nav">
-									<li><a href="#intro">Who am I</a></li>
-									<li><a href="#map">Where am I</a></li>
-									<li><a href="#choice">What am I</a></li>
-									<li><a href="#portfolio">Portfolio</a></li>
-								</ul>
-							</nav>
-						</header>
+							<header>
+								<nav>
+									<ul id="main-nav">
+										<li><a href="#intro">Who am I</a></li>
+										<li><a href="#map">Where am I</a></li>
+										<li><a href="#choice">What am I</a></li>
+										<li><a href="#portfolio">Portfolio</a></li>
+									</ul>
+								</nav>
+							</header>
 
 
-						<section id="intro">
-							<div class="page-title">
-								<h1>Who am I</h1>
-							</div>
-							<div class="content">
-								<div class="photo">
-									<img src="images/coffee.jpg" alt="coffee">
+							<section id="intro">
+								<div class="page-title">
+									<h1>Who am I</h1>
 								</div>
-								<div class="text">
-									<p>I’m the man who doesn’t give up challenges, enjoy
-										working with co-worker, and I always love the job that
-										challenges me to improve or solve programs when I meet
-										unexpected problems.</p>
+								<div class="content">
+									<div class="photo">
+										<img src="images/coffee.jpg" alt="coffee">
+									</div>
+									<div class="text">
+										<p>I’m the man who doesn’t give up challenges, enjoy
+											working with co-worker, and I always love the job that
+											challenges me to improve or solve programs when I meet
+											unexpected problems.</p>
+									</div>
 								</div>
-							</div>
-						</section>
+							</section>
 
 
-						<section id="map">
-							<div class="page-title">
-								<h1>Where am I</h1>
-							</div>
-							<div class="content">
-								<div class="photo">
-									<img src="images/map1.jpg"
-										alt="direct connected with subway Station">
+							<section id="map">
+								<div class="page-title">
+									<h1>Where am I</h1>
 								</div>
-								<div class="text">
-									<p>5162 Yonge St, North York</p>
-									<p>Near by North York Centre Station</p>
+								<div class="content">
+									<div class="photo">
+										<img src="images/map1.jpg"
+											alt="direct connected with subway Station">
+									</div>
+									<div class="text">
+										<p>5162 Yonge St, North York</p>
+										<p>Near by North York Centre Station</p>
+									</div>
 								</div>
-							</div>
-						</section>
+							</section>
 
 
-						<section id="choice">
-							<div class="page-title">
-								<h1>What am I</h1>
-							</div>
-							<div class="content">
-								<div class="photo">
-									<img src="images/ice.jpg" alt="Ice coffee"
-										style="border: 1px solid white; border-radius: 50%">
+							<section id="choice">
+								<div class="page-title">
+									<h1>What am I</h1>
 								</div>
-								<div class="text">
-									<h2>FullStack Developer/Data Analyst</h2>
-									<ol>
-										<li>FullStack Developer.
-											<ul>Developer : From Front to Back.
-											</ul>
-											<ul>HTML5/CSS3/JavaScript/Java/Python/OracleDB.
-											</ul>
-										</li>
-										<li>Analyst : BigData/Deep Learning.
-											<ul>Web Scrapping/Data Pre-processing.
-											</ul>
-											<ul>Visualization/DeepLearning Algorithm.
-											</ul>
-										</li>
-									</ol>
+								<div class="content">
+									<div class="photo">
+										<img src="images/ice.jpg" alt="Ice coffee"
+											style="border: 1px solid white; border-radius: 50%">
+									</div>
+									<div class="text">
+										<h2>FullStack Developer/Data Analyst</h2>
+										<ol>
+											<li>FullStack Developer.
+												<ul>Developer : From Front to Back.
+												</ul>
+												<ul>HTML5/CSS3/JavaScript/Java/Python/OracleDB.
+												</ul>
+											</li>
+											<li>Analyst : BigData/Deep Learning.
+												<ul>Web Scrapping/Data Pre-processing.
+												</ul>
+												<ul>Visualization/DeepLearning Algorithm.
+												</ul>
+											</li>
+										</ol>
+									</div>
 								</div>
-							</div>
-						</section>
+							</section>
 
-						<section id="portfolio">
-							<div class="page-title">
-								<h1>Portfolio</h1>
-							</div>
-							<div class="content">
-								<ul class="prod-list">
-									<li><img src="images/JTLoan.jpg">
-										<div class="caption">
-											<a href="http://landing.loan.jtchinae-bank.co.kr"
-												target="_blank">JT Loan Site</a>
-											<h1>portfolio 1</h1>
-											<p>Direct Loan Site for Customer</p>
-											<p>Wep Application Developer</p>
-										</div></li>
-									<li><img src="images/JTBank.jpg">
-										<div class="caption">
-											<a href="http://jt-bank.co.kr" target="_blank">JT Bank</a>
-											<h1>portpolio 2</h1>
-											<p>JT Bank Official Homepage</p>
-											<p>Wep Application Developer</p>
-										</div></li>
-								</ul>
-							</div>
-						</section>
+							<section id="portfolio">
+								<div class="page-title">
+									<h1>Portfolio</h1>
+								</div>
+								<div class="content">
+									<ul class="prod-list">
+										<li><img src="images/JTLoan.jpg">
+											<div class="caption">
+												<a href="http://landing.loan.jtchinae-bank.co.kr"
+													target="_blank">JT Loan Site</a>
+												<h1>portfolio 1</h1>
+												<p>Direct Loan Site for Customer</p>
+												<p>Wep Application Developer</p>
+											</div></li>
+										<li><img src="images/JTBank.jpg">
+											<div class="caption">
+												<a href="http://jt-bank.co.kr" target="_blank">JT Bank</a>
+												<h1>portpolio 2</h1>
+												<p>JT Bank Official Homepage</p>
+												<p>Wep Application Developer</p>
+											</div></li>
+									</ul>
+								</div>
+							</section>
 
 
-						<!-- 이미지로 버튼만들려면 -->
-						<a href="#" class="jcm-top"> <img src="./images/arrow-up.png"
-							style="margin-bottom: 24px; width: 25px;">
-						</a>
+							<!-- 이미지로 버튼만들려면 -->
+							<a href="#" class="jcm-top"> <img src="./images/arrow-up.png"
+								style="margin-bottom: 24px; width: 25px;">
+							</a>
 
-						<footer>
-							<p>Always God bless us~!</p>
-							<a href="./interview.html">interview</a>
-						</footer>
+							<footer>
+								<p>Always God bless us~!</p>
+								<a href="./interview.html">interview</a>
+							</footer>
 
+						</div>
 					</div>
+					<hr />
 				</div>
-				<hr />
 			</div>
 		</div>
 	</div>
