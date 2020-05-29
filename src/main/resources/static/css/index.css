@@ -89,15 +89,15 @@ li {
     font-size: 1em;
     line-height: 2;
 }
-#portfolio {
+#no4 {
     position: fixed;
     width: 100%;
     padding: 15px 10% 10px 5%;
 }	
-#portfolio a:link, #portfolio a:visited {
+#no4 a:link, #no4 a:visited {
     color: #fff;
 }
-#portfolio a:active {
+#no4 a:active {
     color: yellow;
 }
 .prod-list {
@@ -199,7 +199,7 @@ footer > a {
 header {
         height: 400px;
 }
-#intro, #map {
+#no1, #no2 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -209,7 +209,7 @@ header {
     margin: 0;
     border: 1px dotted #ccc;
 }
-#choice, #portfolio {
+#no3, #no4 {
     clear: left;
 }
 }
@@ -225,7 +225,7 @@ header {
 header {
         height: 500px;
     }
-#intro, #map, #choice, #portfolio {
+#no1, #no2, #no3, #no4 {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -274,26 +274,26 @@ header {
 .text {
     width: 42%;
 }
-#intro .photo, #map .photo {
+#no1 .photo, #no2 .photo {
     float: left;
     margin-right: 5%;
 }
-#intro .text, #map .text {
+#no1 .text, #no2 .text {
     float: left;
 }
-#choice .photo {
+#no3 .photo {
     float: right;
     margin-right: 5%;
 }
-#choice .text {
+#no3 .text {
     float: left;
 }
 
-#portfolio .link1 {
+#no4 .link1 {
     float: left;
     margin-right: 5%;
 }
-#portfolio .link2 {
+#no4 .link2 {
     float: left;
     margin-right: 5%;
 }
