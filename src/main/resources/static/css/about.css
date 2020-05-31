@@ -273,6 +273,7 @@ header {
 }
 .text {
     width: 42%;
+    font-size: 12px;
 }
 #no1 .photo, #no2 .photo {
     float: left;
