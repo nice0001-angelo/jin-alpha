@@ -23,7 +23,7 @@ nav {
     background: #000;
 }
 nav a:link, nav a:visited {
-    color: #fff;
+    color: #428bca;
 }
 nav a:active {
     color: yellow;
