@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for Answer table Repository object
  */
-package net.jin.domain;
+package net.jin.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

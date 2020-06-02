@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.jin.domain.Answer;
-import net.jin.domain.AnswerRepository;
-import net.jin.domain.Question;
-import net.jin.domain.QuestionRepository;
-import net.jin.domain.Result;
-import net.jin.domain.User;
+import net.jin.model.Answer;
+import net.jin.model.AnswerRepository;
+import net.jin.model.Question;
+import net.jin.model.QuestionRepository;
+import net.jin.model.Result;
+import net.jin.model.User;
 
 @RestController
 @RequestMapping("/api/questions/{questionId}/answers")

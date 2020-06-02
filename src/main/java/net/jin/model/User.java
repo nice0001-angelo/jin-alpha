@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for user table object
  */
-package net.jin.domain;
+package net.jin.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

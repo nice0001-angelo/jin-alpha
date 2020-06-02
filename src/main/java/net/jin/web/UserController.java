@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.jin.domain.User;
-import net.jin.domain.UserRepository;
+import net.jin.model.User;
+import net.jin.model.UserRepository;
 
 @Controller
 @RequestMapping("/users")

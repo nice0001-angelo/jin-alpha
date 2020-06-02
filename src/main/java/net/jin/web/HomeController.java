@@ -15,7 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.jin.domain.QuestionRepository;
+import net.jin.model.QuestionRepository;
 
 @Controller
 public class HomeController {

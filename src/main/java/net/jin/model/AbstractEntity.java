@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the AbstractEntity(for example createDate, modifiedDate)
  */
-package net.jin.domain;
+package net.jin.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

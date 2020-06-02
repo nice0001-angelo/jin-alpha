@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.jin.domain.Question;
-import net.jin.domain.QuestionRepository;
-import net.jin.domain.Result;
-import net.jin.domain.User;
+import net.jin.model.Question;
+import net.jin.model.QuestionRepository;
+import net.jin.model.Result;
+import net.jin.model.User;
 
 @Controller
 @RequestMapping("/questions")

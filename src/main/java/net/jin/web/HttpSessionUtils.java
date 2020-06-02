@@ -9,7 +9,7 @@ package net.jin.web;
 
 import javax.servlet.http.HttpSession;
 
-import net.jin.domain.User; //User 객체를 가져오기 위한 import
+import net.jin.model.User;
 
 public class HttpSessionUtils {
 	//자주 쓰는 sessonedUser를 상수로 선언하여 공통 관리

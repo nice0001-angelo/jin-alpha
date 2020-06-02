@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.jin.domain.User;
-import net.jin.domain.UserRepository;
+import net.jin.model.User;
+import net.jin.model.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")

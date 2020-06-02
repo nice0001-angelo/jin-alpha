@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for result
  */
-package net.jin.domain;
+package net.jin.model;
 
 import com.sun.xml.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 
