@@ -7,7 +7,7 @@
  */
 //Exception delete refactoring
 
-package net.jin.web;
+package net.jin.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +23,7 @@ import net.jin.model.Question;
 import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.repository.QuestionRepository;
+import net.jin.util.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/questions")

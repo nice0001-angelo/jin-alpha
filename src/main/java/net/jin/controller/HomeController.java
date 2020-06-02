@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the main home page controller
  */
-package net.jin.web;
+package net.jin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

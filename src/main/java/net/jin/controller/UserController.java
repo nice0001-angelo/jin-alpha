@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the "/users" call controller
  */
-package net.jin.web;
+package net.jin.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
+import net.jin.util.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/users")

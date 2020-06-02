@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the jinhyun Controller in navibar
  */
-package net.jin.web;
+package net.jin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -5,7 +5,7 @@
  * Created on : Dec 2019
  * Contents : for the "/answers/{questionId}/answers" call controller
  */
-package net.jin.web;
+package net.jin.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +23,7 @@ import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.repository.AnswerRepository;
 import net.jin.repository.QuestionRepository;
+import net.jin.util.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/answers/{questionId}/answers")
