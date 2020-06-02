@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.jin.model.User;
-import net.jin.model.UserRepository;
+import net.jin.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")

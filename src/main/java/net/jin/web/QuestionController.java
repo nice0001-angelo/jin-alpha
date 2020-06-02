@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.Question;
-import net.jin.model.QuestionRepository;
 import net.jin.model.Result;
 import net.jin.model.User;
+import net.jin.repository.QuestionRepository;
 
 @Controller
 @RequestMapping("/questions")

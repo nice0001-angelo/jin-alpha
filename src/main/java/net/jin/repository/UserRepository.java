@@ -5,9 +5,11 @@
  * Created on : Jan 2020
  * Contents : for user table Repository object
  */
-package net.jin.model;
+package net.jin.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import net.jin.model.User;
 
 //<class 명, 타입>
 //User.java 의 Class를 Long 타입으로 모두 가져옮

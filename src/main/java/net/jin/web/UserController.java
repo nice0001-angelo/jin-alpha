@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.User;
-import net.jin.model.UserRepository;
+import net.jin.repository.UserRepository;
 
 @Controller
 @RequestMapping("/users")
