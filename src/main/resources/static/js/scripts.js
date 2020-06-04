@@ -118,8 +118,17 @@ String.prototype.format = function() {
 	});
 };
 
-/* Raphael plugin SVG tag */
+/* Raphael plugin SVG tag for South Korean Map*/
 $(document).ready(function() {
+	//Create Function
+	function randomColor() {
+		var letters = '0123456789ABCDEF'.split('');
+		var color = '#';
+		for (var i = 0; i < 6; i++)
+			
+		
+	}
+	
 	var canvas = document.getElementById('map_image');
 	var paper = Raphael(canvas, 500, 716);
 	
