@@ -117,3 +117,9 @@ String.prototype.format = function() {
 		return typeof args[number] != 'undefined' ? args[number] : match;
 	});
 };
+
+/* Raphael plugin SVG tag */
+$(document).ready(function() {
+	var canvas = document.getElementById('map_image');
+	var paper = Raphael(canvas, 500, 716);
+});
