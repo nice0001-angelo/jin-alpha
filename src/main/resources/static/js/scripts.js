@@ -122,4 +122,14 @@ String.prototype.format = function() {
 $(document).ready(function() {
 	var canvas = document.getElementById('map_image');
 	var paper = Raphael(canvas, 500, 716);
+	
+	$.each(koreaMapPathData, function (index, item) {
+		//Create Path
+		var path = paper.path(item['d']);
+		
+		//Fill @ Stroke Path
+		path.attr('fill', item['fill']);
+		path.attr('stroke', item['stroke']);
+	});
 });
+
