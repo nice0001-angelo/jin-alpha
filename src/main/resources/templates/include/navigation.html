@@ -1,100 +1,102 @@
-<nav class="navbar navbar-fixed-top header">
-	<div class="col-md-12">
-		<div class="navbar-header">
+<div>
+	<nav class="navbar navbar-fixed-top header">
+		<div class="col-md-12">
+			<div class="navbar-header">
 
-			<a href="/" class="navbar-brand">Jin Navi</a>
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#navbar-collapse1">
-				<i class="glyphicon glyphicon-search"></i>
-			</button>
+				<a href="/" class="navbar-brand">Jin Navi</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse1">
+					<i class="glyphicon glyphicon-search"></i>
+				</button>
 
-		</div>
-		<div class="collapse navbar-collapse" id="navbar-collapse1">
-			<form class="navbar-form pull-left">
-				<div class="input-group" style="max-width: 470px;">
-					<input type="text" class="form-control" placeholder="Search"
-						name="srch-term" id="srch-term">
-					<div class="input-group-btn">
-						<button class="btn btn-default btn-primary" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse1">
+				<form class="navbar-form pull-left">
+					<div class="input-group" style="max-width: 470px;">
+						<input type="text" class="form-control" placeholder="Search"
+							name="srch-term" id="srch-term">
+						<div class="input-group-btn">
+							<button class="btn btn-default btn-primary" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
 					</div>
-				</div>
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-						class="glyphicon glyphicon-bell"></i></a>
-					<ul class="dropdown-menu">
-						<li><a href="http://angelo.co.kr" target="_blank">Angelo</a></li>
-						<li><a
-							href="https://www.linkedin.com/in/jinhyun-nam-406542173"
-							target="_blank">Linkedin</a></li>
-						<li><a href="https://github.com/nice0001-angelo"
-							target="_blank">Github</a></li>
-						<li><a href="https://nice0001-angelo.github.io"
-							target="_blank">Blog</a></li>
-					</ul></li>
-				<li><a href="/users"><i class="glyphicon glyphicon-user"></i></a></li>
-			</ul>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+							class="glyphicon glyphicon-bell"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="http://angelo.co.kr" target="_blank">Angelo</a></li>
+							<li><a
+								href="https://www.linkedin.com/in/jinhyun-nam-406542173"
+								target="_blank">Linkedin</a></li>
+							<li><a href="https://github.com/nice0001-angelo"
+								target="_blank">Github</a></li>
+							<li><a href="https://nice0001-angelo.github.io"
+								target="_blank">Blog</a></li>
+						</ul></li>
+					<li><a href="/users"><i class="glyphicon glyphicon-user"></i></a></li>
+				</ul>
 
 
+			</div>
 		</div>
-	</div>
-</nav>
-<div class="navbar navbar-default" id="subnav">
-	<div class="col-md-12">
-		<div class="navbar-header">
-			<a href="#" style="margin-left: 15px;"
-				class="navbar-btn btn btn-default btn-plus dropdown-toggle"
-				data-toggle="dropdown"><i class="glyphicon glyphicon-home"
-				style="color: #dd1111;"></i> Who Am I <small><i
-					class="glyphicon glyphicon-chevron-down"></i></small></a>
-			<ul class="nav dropdown-menu">
-				<li><a href="/jinhyun/profile"><i
-						class="glyphicon glyphicon-user" style="color: #1111dd;"></i>
-						Profile</a></li>
-				<li class="nav-divider"></li>
-				<li><a href="/jinhyun/calendar"><i
-						class="glyphicon glyphicon-user" style="color: #1111dd;"></i>
-						Calendar</a></li>
-				<li class="nav-divider"></li>
-				<li><a href="#"><i class="glyphicon glyphicon-cog"
-						style="color: #dd1111;"></i> Settings</a></li>
-			</ul>
-			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#navbar-collapse2">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-		</div>
-		<div class="collapse navbar-collapse" id="navbar-collapse2">
-			<ul class="nav navbar-nav navbar-left">
-				<li class="active">
-				<li><a href="/" data-toggle="tooltip" data-placement="top"
-					title="Main Page">Home</a></li>
-				<li><a href="/about" data-toggle="tooltip" data-placement="top"
-					title="About">About</a></li>
-				<li><a href="/foodblog" data-toggle="tooltip"
-					data-placement="top" title="FoodBlog">FoodBlog</a></li>
-				<li><a href="/board" data-toggle="tooltip" data-placement="top"
-					title="Board">Board</a></li>
-				<li><a href="/koreamap" data-toggle="tooltip" data-placement="top"
-					title="KoreaMap">Korea Map</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				{{^sessionedUser}}
-				<li><a href="/users/loginForm" role="button"
-					data-toggle="tooltip" data-placement="top" title="Can Log In">Log
-						In</a></li>
-				<li><a href="/users/form" role="button" data-toggle="tooltip"
-					data-placement="top" title="Can make Accout">Sign Up</a></li>
-				{{/sessionedUser}} {{#sessionedUser}}
-				<li><a href="/users/logout" role="button">Log Out</a></li>
-				<li><a href="/users/{{id}}/f;orm" role="button">Information
-						Update</a></li> {{/sessionedUser}}
-			</ul>
-		</div>
+	</nav>
+	<div class="navbar navbar-default" id="subnav">
+		<div class="col-md-12">
+			<div class="navbar-header">
+				<a href="#" style="margin-left: 15px;"
+					class="navbar-btn btn btn-default btn-plus dropdown-toggle"
+					data-toggle="dropdown"><i class="glyphicon glyphicon-home"
+					style="color: #dd1111;"></i> Who Am I <small><i
+						class="glyphicon glyphicon-chevron-down"></i></small></a>
+				<ul class="nav dropdown-menu">
+					<li><a href="/jinhyun/profile"><i
+							class="glyphicon glyphicon-user" style="color: #1111dd;"></i>
+							Profile</a></li>
+					<li class="nav-divider"></li>
+					<li><a href="/jinhyun/calendar"><i
+							class="glyphicon glyphicon-user" style="color: #1111dd;"></i>
+							Calendar</a></li>
+					<li class="nav-divider"></li>
+					<li><a href="#"><i class="glyphicon glyphicon-cog"
+							style="color: #dd1111;"></i> Settings</a></li>
+				</ul>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse2">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse2">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active">
+					<li><a href="/" data-toggle="tooltip" data-placement="top"
+						title="Main Page">Home</a></li>
+					<li><a href="/about" data-toggle="tooltip"
+						data-placement="top" title="About">About</a></li>
+					<li><a href="/foodblog" data-toggle="tooltip"
+						data-placement="top" title="FoodBlog">FoodBlog</a></li>
+					<li><a href="/board" data-toggle="tooltip"
+						data-placement="top" title="Board">Board</a></li>
+					<li><a href="/koreamap" data-toggle="tooltip"
+						data-placement="top" title="KoreaMap">Korea Map</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{{^sessionedUser}}
+					<li><a href="/users/loginForm" role="button"
+						data-toggle="tooltip" data-placement="top" title="Can Log In">Log
+							In</a></li>
+					<li><a href="/users/form" role="button" data-toggle="tooltip"
+						data-placement="top" title="Can make Accout">Sign Up</a></li>
+					{{/sessionedUser}} {{#sessionedUser}}
+					<li><a href="/users/logout" role="button">Log Out</a></li>
+					<li><a href="/users/{{id}}/f;orm" role="button">Information
+							Update</a></li> {{/sessionedUser}}
+				</ul>
+			</div>
 
+		</div>
 	</div>
 </div>
