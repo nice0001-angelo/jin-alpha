@@ -37,13 +37,18 @@ public class HomeController {
 		return "navigation/about";
 	}
 	
+	@RequestMapping("/foodblog")
+	public String recipes() {
+		return "navigation/foodblog";
+	}
+	
 	@RequestMapping("/board")
 	public String board() {
 		return "navigation/board";
 	}
 	
-	@RequestMapping("/foodblog")
-	public String recipes() {
-		return "navigation/foodblog";
+	@RequestMapping("/koreamap")
+	public String koreamap() {
+		return "navigation/koreamap";
 	}
 }
