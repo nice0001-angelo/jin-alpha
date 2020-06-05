@@ -1,4 +1,7 @@
-#koreamap {width: 960px; margin: 0 auto;}
+#koreamap {
+	width: 960px; 
+	margin: 0 auto; 
+	margin-top: 110px;}
 
 #map_section {overflow: hidden;}
 #main_article {
