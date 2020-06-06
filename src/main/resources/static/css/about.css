@@ -81,7 +81,7 @@ h1 {
 h2 {
     font-size: 1.3em;
 }
-p {
+p1 {
     font-size: 1.3em;
     line-height: 2.5;
 }
@@ -172,6 +172,7 @@ a.jcm-top {
 a.jcm-top:hover{
     background-color:#000
     }
+/* 2020.06.06 - style.css 를 우선 적용되도록 하기 위해   
 footer {
     position: relative;
     width: 100%;
@@ -192,7 +193,7 @@ footer > a {
     color: black;
     text-align: right;
 }
-
+*/
 
 /* Tablet - 768px More */
 @media screen and (min-width:768px) {
@@ -310,8 +311,10 @@ header {
     -webkit-transform: translateY(100px);
     transform: translateY(100px);
 } 
+/* 2020.06.06 - style.css 를 우선 적용되도록 하기 위해
 footer {
     height: 120px;
     clear: both;
 }
+*/
 }
