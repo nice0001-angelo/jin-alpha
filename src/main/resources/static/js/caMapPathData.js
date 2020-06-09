@@ -1,4 +1,4 @@
-var canadaMapPathData = [
+var caMapPathData = [
 		{
 			"id" : "CA-AB",
 			"fill" : "#B9B9B9",

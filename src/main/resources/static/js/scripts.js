@@ -146,7 +146,7 @@ $(document).ready(function() {
 });
 
 
-/* Raphael plugin SVG tag for South Korean Map */
+/* Raphael plugin SVG tag for Canada Map */
 $(document).ready(function() {
 	// Create Function
 	function randomColor() {
@@ -160,7 +160,7 @@ $(document).ready(function() {
 	var canvas = document.getElementById('canadamap_image');
 	var paper = Raphael(canvas, 500, 716);
 	
-	$.each(koreaMapPathData, function (index, item) {
+	$.each(caMapPathData, function (index, item) {
 		// Create Path
 		var path = paper.path(item['d']);
 		
