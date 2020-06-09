@@ -1,14 +1,28 @@
-#map_section {overflow: hidden;}
+#map_section {
+	overflow: hidden;
+}
+
 #main_article {
-	width: 430px; 
+	width: 430px;
 	float: left;
-	}
+}
+
 #koreamap_image {
-	width: 500px; 
+	width: 500px;
 	float: right;
-	}
+}
+
+#usamap_image {
+	width: 500px;
+	float: right;
+}
+
 #canadamap_image {
-	width: 500px; 
+	width: 500px;
 	float: right;
-	}	
-figure {margin: 0; padding: 0;}
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}

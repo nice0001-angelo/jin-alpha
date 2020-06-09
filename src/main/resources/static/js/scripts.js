@@ -146,6 +146,33 @@ $(document).ready(function() {
 });
 
 
+/* Raphael plugin SVG tag for USA Map */
+$(document).ready(function() {
+	// Create Function
+	function randomColor() {
+		var letters = '0123456789ABCDEF'.split('');
+		var color = '#';
+		for (var i = 0; i < 6; i++)
+			color = color + letters[Math.round(Math.random()*15)];
+		return color;
+	}
+	
+	var canvas = document.getElementById('usamap_image');
+	var paper = Raphael(canvas, 500, 716);
+	
+	$.each(usaMapPathData, function (index, item) {
+		// Create Path
+		var path = paper.path(item['d']);
+		
+		// Stroke Path
+		path.attr('stroke', item['stroke']);
+		// Fill Path
+		if(item['fill'] != 'none') {
+				path.attr('fill', randomColor());		
+		}
+	});
+});
+
 /* Raphael plugin SVG tag for Canada Map */
 $(document).ready(function() {
 	// Create Function
@@ -160,7 +187,7 @@ $(document).ready(function() {
 	var canvas = document.getElementById('canadamap_image');
 	var paper = Raphael(canvas, 500, 716);
 	
-	$.each(caMapPathData, function (index, item) {
+	$.each(canadaMapPathData, function (index, item) {
 		// Create Path
 		var path = paper.path(item['d']);
 		
@@ -172,3 +199,4 @@ $(document).ready(function() {
 		}
 	});
 });
+
