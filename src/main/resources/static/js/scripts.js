@@ -129,7 +129,7 @@ $(document).ready(function() {
 		return color;
 	}
 	
-	var canvas = document.getElementById('map_image');
+	var canvas = document.getElementById('koreamap_image');
 	var paper = Raphael(canvas, 500, 716);
 	
 	$.each(koreaMapPathData, function (index, item) {

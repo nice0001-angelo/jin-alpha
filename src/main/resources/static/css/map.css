@@ -8,8 +8,12 @@
 	width: 430px; 
 	float: left;
 	}
-#map_image {
+#koreamap_image {
 	width: 500px; 
 	float: right;
 	}
+#canadamap_image {
+	width: 500px; 
+	float: right;
+	}	
 figure {margin: 0; padding: 0;}
