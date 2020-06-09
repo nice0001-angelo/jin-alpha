@@ -145,3 +145,30 @@ $(document).ready(function() {
 	});
 });
 
+
+/* Raphael plugin SVG tag for South Korean Map */
+$(document).ready(function() {
+	// Create Function
+	function randomColor() {
+		var letters = '0123456789ABCDEF'.split('');
+		var color = '#';
+		for (var i = 0; i < 6; i++)
+			color = color + letters[Math.round(Math.random()*15)];
+		return color;
+	}
+	
+	var canvas = document.getElementById('canadamap_image');
+	var paper = Raphael(canvas, 500, 716);
+	
+	$.each(koreaMapPathData, function (index, item) {
+		// Create Path
+		var path = paper.path(item['d']);
+		
+		// Stroke Path
+		path.attr('stroke', item['stroke']);
+		// Fill Path
+		if(item['fill'] != 'none') {
+				path.attr('fill', randomColor());		
+		}
+	});
+});
