@@ -184,7 +184,7 @@ $(document).ready(function() {
 		return color;
 	} 
 	
-	var canvas = document.getElementById('canadaamap_image');
+	var canvas = document.getElementById('canadamap_image');
 	var paper = Raphael(canvas, 1000, 716);
 	
 	$.each(canadaMapPathData, function (index, item) {
