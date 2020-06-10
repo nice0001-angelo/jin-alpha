@@ -182,10 +182,10 @@ $(document).ready(function() {
 		for (var i = 0; i < 6; i++)
 			color = color + letters[Math.round(Math.random()*15)];
 		return color;
-	}
+	} 
 	
 	var canvas = document.getElementById('canadaamap_image');
-	var paper = Raphael(canvas, 500, 716);
+	var paper = Raphael(canvas, 1000, 716);
 	
 	$.each(canadaMapPathData, function (index, item) {
 		// Create Path
