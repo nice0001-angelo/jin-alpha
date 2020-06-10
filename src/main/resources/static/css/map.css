@@ -8,6 +8,7 @@
 }
 
 #worldamap_image {
+	overflow: inherit !important;
 	width: 500px;
 	float: right;
 }

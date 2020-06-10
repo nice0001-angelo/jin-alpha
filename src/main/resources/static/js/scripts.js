@@ -121,6 +121,8 @@ String.prototype.format = function() {
 
 /* Raphael plugin SVG tag for World Map */
 $(document).ready(function() {
+	
+	
 	// Create Function
 	function randomColor() {
 		var letters = '0123456789ABCDEF'.split('');
@@ -131,7 +133,9 @@ $(document).ready(function() {
 	}
 	
 	var canvas = document.getElementById('worldmap_image');
-	var paper = Raphael(canvas, 2000, 950);
+	var paper = Raphael(canvas, 1000, 700);
+	
+	$("*").css("overflow","inherit !important");//overflow inherit 강제화
 	
 	$.each(worldMapPathData, function (index, item) {
 		// Create Path
