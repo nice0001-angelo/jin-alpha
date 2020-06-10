@@ -7,6 +7,11 @@
 	float: left;
 }
 
+#worldamap_image {
+	width: 500px;
+	float: right;
+}
+
 #koreamap_image {
 	width: 500px;
 	float: right;
