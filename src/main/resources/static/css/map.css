@@ -3,7 +3,7 @@
 }
 
 #main_article {
-	width: 430px;
+	width: 500px;
 	float: left;
 }
 
@@ -14,7 +14,6 @@
 
 #usamap_image {
 	width: 500px;
-	float: right;
 }
 
 #canadamap_image {
@@ -26,3 +25,13 @@ figure {
 	margin: 0;
 	padding: 0;
 }
+
+.float_top {
+	width: 100% !important; /* 다른 규칙을 벗어나 !important를 최우선으로 먹게함*/
+}
+
+.float_bottom {
+	width: 100% !important; /* 다른 규칙을 벗어나 !important를 최우선으로 먹게함*/
+}
+		
+	

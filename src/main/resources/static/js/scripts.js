@@ -158,7 +158,7 @@ $(document).ready(function() {
 	}
 	
 	var canvas = document.getElementById('usamap_image');
-	var paper = Raphael(canvas, 500, 716);
+	var paper = Raphael(canvas, 1000, 716);
 	
 	$.each(usaMapPathData, function (index, item) {
 		// Create Path
@@ -184,7 +184,7 @@ $(document).ready(function() {
 		return color;
 	}
 	
-	var canvas = document.getElementById('canadamap_image');
+	var canvas = document.getElementById('canadaamap_image');
 	var paper = Raphael(canvas, 500, 716);
 	
 	$.each(canadaMapPathData, function (index, item) {
