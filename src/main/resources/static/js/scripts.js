@@ -135,7 +135,7 @@ $(document).ready(function() {
 	var canvas = document.getElementById('worldmap_image');
 	var paper = Raphael(canvas, 1000, 700);
 	
-	$("*").css("overflow","inherit !important");//overflow inherit 강제화
+	$("#worldmap_image").css("left", "210");//overflow inherit 강제화
 	
 	$.each(worldMapPathData, function (index, item) {
 		// Create Path

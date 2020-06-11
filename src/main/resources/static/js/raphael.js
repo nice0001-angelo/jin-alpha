@@ -6858,7 +6858,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             R._g.doc.body.appendChild(cnvs);
             isFloating = 1;
         } else {
-            cnvs.style.cssText = css + "position:relative";
+            cnvs.style.cssText = css + "position:relative;";
             if (container.firstChild) {
                 container.insertBefore(cnvs, container.firstChild);
             } else {
