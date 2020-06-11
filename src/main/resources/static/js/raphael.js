@@ -6839,7 +6839,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
             width = con.width,
             height = con.height,
             cnvs = $("svg"),
-            css = "overflow:hidden;",
+            //css = "overflow:hidden;", display 세팅때문에 바꿈 -> inherit
+            css = "overflow:inherit;",
             isFloating;
         x = x || 0;
         y = y || 0;
