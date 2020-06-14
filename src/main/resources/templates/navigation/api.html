@@ -35,13 +35,12 @@
 			data: {query: "미움받을 용기"},
 			headers: {Authorization: "KakaoAK e5e613251210cc286e07c17499ed3047"}
 		}).done(function(msg) {
-			//alert("Data Saved: " + msg);
-			console.log(msg.documents[0].title);
-			console.log(msg.documents[0].thumbnail);
 			$("#api1").append("<br /><br /> title: "+msg.documents[0].title);
 			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[0].thumbnail+"'/>");
 			$("#api1").append("<br /><br /> title: "+msg.documents[1].title);
 			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[1].thumbnail+"'/>");
+			$("#api1").append("<br /><br /> title: "+msg.documents[2].title);
+			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[2].thumbnail+"'/>");
 		});
 	</script>
 
