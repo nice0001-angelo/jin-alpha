@@ -6,17 +6,7 @@
 </head>
 
 <body>
-	<script>
-		$.ajax({
-			method : "GET",
-			url : "https://dapi.kakao.com/v3/search/book?target=title",
-			data : {query : "미움받을 용기"},
-			headers : {"Authorization: KakaoAK e5e613251210cc286e07c17499ed3047"}
-		}).done(function(msg) {
-			alert("Data Saved: " + msg);
-			console.log.(mag);
-		});
-	</script>
+
 	{{> include/navigation}}
 	<div class="container">
 		<h2>Dynamic Pills</h2>
@@ -36,6 +26,17 @@
 				<h3>HOME</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<script>
+		$.ajax({
+			method : "GET",
+			url : "https://dapi.kakao.com/v3/search/book?target=title",
+			data : {query : "미움받을 용기"},
+			headers : {"Authorization: KakaoAK e5e613251210cc286e07c17499ed3047"}
+		}).done(function(msg) {
+			alert("Data Saved: " + msg);
+			console.log.(mag);
+		});
+	</script>
 
 			</div>
 			<div id="menu1" class="tab-pane fade">
