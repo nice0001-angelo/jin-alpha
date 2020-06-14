@@ -29,12 +29,15 @@
 				<script>
 		$.ajax({
 			method : "GET",
-			url : "https://dapi.kakao.com/v3/search/book?target=title",
-			data : {query : "미움받을 용기"},
-			headers : {"Authorization: KakaoAK e5e613251210cc286e07c17499ed3047"}
+			url: "https://dapi.kakao.com/v3/search/book?target=title",
+			data: {query: "미움받을 용기"},
+			headers: {Authorization: "KakaoAK e5e613251210cc286e07c17499ed3047"}
 		}).done(function(msg) {
-			alert("Data Saved: " + msg);
-			console.log.(mag);
+			//alert("Data Saved: " + msg);
+			console.log(msg.documents[0].title);
+			console.log(msg.documents[0].thumbnail);
+			$("p").append("<br /><br /> title: "+msg.documents[0].title);
+			$("p").append("<br /><br /> image: <img src='"+msg.documents[0].thumbnail+"'/>");
 		});
 	</script>
 
