@@ -6,6 +6,16 @@
 </head>
 
 <body>
+	<script>
+		$.ajax({
+			method : "GET",
+			url : "https://dapi.kakao.com/v3/search/book?target=title",
+			data : {query : "미움받을 용기"},
+			headers : {"Authorization: KakaoAK e5e613251210cc286e07c17499ed3047"}
+		}).done(function(msg) {
+			alert("Data Saved: " + msg);
+		});
+	</script>
 	{{> include/navigation}}
 	<div class="container">
 		<h2>Dynamic Pills</h2>
@@ -80,7 +90,7 @@
 				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
 					laboris nisi ut aliquip ex ea commodo consequat.</p>
 				<section id="map_section">
-						<article id="main_article" class="float_bottom">
+					<article id="main_article" class="float_bottom">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							Aenean imperdiet, lacus non tristique volutpat, metus dolor
 							varius dolor, eu venenatis justo lacus id ligula. Suspendisse
