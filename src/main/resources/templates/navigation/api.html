@@ -26,27 +26,67 @@
 				<h3>HOME</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<article id = "api1"></article>						
+				<div class="form-group">
+					<label for="usr">Name:</label> <input type="text"
+						class="form-control" id="usr">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label> <input type="password"
+						class="form-control" id="pwd">
+				</div>
+				<article id="api1"></article>
 				<script>
-				
-		$.ajax({
-			method : "GET",
-			url: "https://dapi.kakao.com/v3/search/book?target=title",
-			data: {query: "미움받을 용기"},
-			headers: {Authorization: "KakaoAK e5e613251210cc286e07c17499ed3047"}
-		}).done(function(msg) {
-			$("#api1").append("<br /><br /> title: "+msg.documents[0].title);
-			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[0].thumbnail+"'/>");
-			$("#api1").append("<br /><br /> title: "+msg.documents[1].title);
-			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[1].thumbnail+"'/>");
-			$("#api1").append("<br /><br /> title: "+msg.documents[2].title);
-			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[2].thumbnail+"'/>");
-			$("#api1").append("<br /><br /> title: "+msg.documents[3].title);
-			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[3].thumbnail+"'/>");
-			$("#api1").append("<br /><br /> title: "+msg.documents[4].title);
-			$("#api1").append("<br /><br /> image: <img src='"+msg.documents[4].thumbnail+"'/>");
-		});
-	</script>
+					$
+							.ajax(
+									{
+										method : "GET",
+										url : "https://dapi.kakao.com/v3/search/book?target=title",
+										data : {
+											query : "미움받을 용기"
+										},
+										headers : {
+											Authorization : "KakaoAK e5e613251210cc286e07c17499ed3047"
+										}
+									})
+							.done(
+									function(msg) {
+										$("#api1")
+												.append(
+														"<br /><br /> title: "
+																+ msg.documents[0].title);
+										$("#api1")
+												.append(
+														"<br /><br /> image: <img src='"+msg.documents[0].thumbnail+"'/>");
+										$("#api1")
+												.append(
+														"<br /><br /> title: "
+																+ msg.documents[1].title);
+										$("#api1")
+												.append(
+														"<br /><br /> image: <img src='"+msg.documents[1].thumbnail+"'/>");
+										$("#api1")
+												.append(
+														"<br /><br /> title: "
+																+ msg.documents[2].title);
+										$("#api1")
+												.append(
+														"<br /><br /> image: <img src='"+msg.documents[2].thumbnail+"'/>");
+										$("#api1")
+												.append(
+														"<br /><br /> title: "
+																+ msg.documents[3].title);
+										$("#api1")
+												.append(
+														"<br /><br /> image: <img src='"+msg.documents[3].thumbnail+"'/>");
+										$("#api1")
+												.append(
+														"<br /><br /> title: "
+																+ msg.documents[4].title);
+										$("#api1")
+												.append(
+														"<br /><br /> image: <img src='"+msg.documents[4].thumbnail+"'/>");
+									});
+				</script>
 
 			</div>
 			<div id="menu1" class="tab-pane fade">
