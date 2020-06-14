@@ -48,9 +48,9 @@ public class HomeController {
 		return "navigation/worldmap";
 	}
 	
-	@RequestMapping("/koreadmap")
-	public String koreamap() {
-		return "navigation/koreamap";
+	@RequestMapping("/api")
+	public String api() {
+		return "navigation/api";
 	}
 	
 
