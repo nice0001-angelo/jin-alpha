@@ -63,6 +63,7 @@ function submitFormReady() {
 															"	image: <img src='"
 																	+ msg.documents[4].thumbnail
 																	+ "'/>");
+
 										});
 					});
-}
+};
