@@ -26,7 +26,7 @@
 				<h3>HOME</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				<form>
+			<!-- 	<form>
 					<div class="input-group">
 						<input id = "bookName" type="text" class="form-control" placeholder="Search Books">
 						<div class="input-group-btn">
@@ -35,7 +35,9 @@
 							</button>
 						</div>
 					</div>
-				</form>
+				</form> -->
+				<input id = "bookName" value="" type="text">
+				<button id = "searchButton">검색</button>
 				<article id="api1"></article>
 				<script>
 					$
@@ -45,7 +47,7 @@
 										url : "https://dapi.kakao.com/v3/search/book?target=title",
 										dataType : "json",
 										data : {
-											query : "미움받을 용기"
+											query: $("#bookName").val()
 										},
 										headers : {
 											Authorization : "KakaoAK e5e613251210cc286e07c17499ed3047"
