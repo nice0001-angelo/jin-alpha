@@ -4,8 +4,7 @@
 {{> include/header}}
 <script src="/js/api.js"></script>
 </head>
-
-<body onload="submitFormReady();">
+<body onclick = submitFormReady();>
 
 	{{> include/navigation}}
 	<div class="container">
@@ -26,11 +25,12 @@
 				<h3>HOME</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
 					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			 	<form>
+				<form>
 					<div class="input-group">
-						<input id = "bookName" type="text" value = "" class="form-control" placeholder="Search Books">
+						<input id="bookName" type="text" value="" class="form-control"
+							placeholder="Search Books">
 						<div class="input-group-btn">
-							<button id = "searchButton" class="btn btn-default" type="button">
+							<button id="searchButton" class="btn btn-default" type="button">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
@@ -39,67 +39,6 @@
 				<!-- <input id = "bookName" value="" type="text">
 				<button id = "searchButton" >검색</button> -->
 				<article id="api1"></article>
-				<!-- <script>
-				
-				$("#searchButton").click(function(){
-					var bookname = $("#bookName").val();
-					alert(bookname);
-					$
-					.ajax(
-							{
-								type : "GET",
-								url : "https://dapi.kakao.com/v3/search/book?target=title",
-								dataType : "json",
-								data : {
-									query: bookname
-								},
-								headers : {
-									Authorization : "KakaoAK e5e613251210cc286e07c17499ed3047"
-								}
-							})
-					.done(
-							function(msg) {
-								$("#api1")
-										.append(
-												"<br /><br /> title: "
-														+ msg.documents[0].title);
-								$("#api1")
-										.append(
-												" image: <img src='"+msg.documents[0].thumbnail+"'/>");
-								$("#api1")
-										.append(
-												"<br /><br /> title: "
-														+ msg.documents[1].title);
-								$("#api1")
-										.append(
-												" image: <img src='"+msg.documents[1].thumbnail+"'/>");
-								$("#api1")
-										.append(
-												"<br /><br /> title: "
-														+ msg.documents[2].title);
-								$("#api1")
-										.append(
-												"< image: <img src='"+msg.documents[2].thumbnail+"'/>");
-								$("#api1")
-										.append(
-												"<br /><br /> title: "
-														+ msg.documents[3].title);
-								$("#api1")
-										.append(
-												" image: <img src='"+msg.documents[3].thumbnail+"'/>");
-								$("#api1")
-										.append(
-												"<br /><br /> title: "
-														+ msg.documents[4].title);
-								$("#api1")
-										.append(
-												" image: <img src='"+msg.documents[4].thumbnail+"'/>");
-							});
-				});
-				
-				
-				</script> -->
-
 			</div>
 			<div id="menu1" class="tab-pane fade">
 				<h3>API 1</h3>
