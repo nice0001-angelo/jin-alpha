@@ -34,6 +34,10 @@ $(document)
 																					+ msg.documents[0].thumbnail
 																					+ "'/>");
 															$("#api1")
+															.append(
+																	" price: "
+																			+ msg.documents[0].price+"Won");
+															$("#api1")
 																	.append(
 																			"<br /><br /> title: "
 																					+ msg.documents[1].title);
@@ -42,6 +46,10 @@ $(document)
 																			"	image: <img src='"
 																					+ msg.documents[1].thumbnail
 																					+ "'/>");
+															$("#api1")
+															.append(
+																	" price: "
+																			+ msg.documents[1].price+"Won");
 															$("#api1")
 																	.append(
 																			"<br /><br /> title: "
@@ -52,6 +60,10 @@ $(document)
 																					+ msg.documents[2].thumbnail
 																					+ "'/>");
 															$("#api1")
+															.append(
+																	" price: "
+																			+ msg.documents[2].price+"Won");
+															$("#api1")
 																	.append(
 																			"<br /><br /> title: "
 																					+ msg.documents[3].title);
@@ -61,6 +73,10 @@ $(document)
 																					+ msg.documents[3].thumbnail
 																					+ "'/>");
 															$("#api1")
+															.append(
+																	" price: "
+																			+ msg.documents[3].price+"Won");
+															$("#api1")
 																	.append(
 																			"<br /><br /> title: "
 																					+ msg.documents[4].title);
@@ -69,6 +85,10 @@ $(document)
 																			"	image: <img src='"
 																					+ msg.documents[4].thumbnail
 																					+ "'/>");
+															$("#api1")
+															.append(
+																	" price: "
+																			+ msg.documents[4].price+"Won");
 
 														});
 									})
