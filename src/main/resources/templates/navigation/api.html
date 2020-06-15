@@ -41,8 +41,9 @@
 					$
 							.ajax(
 									{
-										method : "GET",
+										type : "GET",
 										url : "https://dapi.kakao.com/v3/search/book?target=title",
+										dataType : "json",
 										data : {
 											query : "미움받을 용기"
 										},
