@@ -12,13 +12,13 @@ $(document)
 												.ajax(
 														{
 															type : "GET",
-															url : "https://dapi.kakao.com/v3/search/book?target=title",
+															url : "https://dapi.kakao.com/v2/search/image",
 															dataType : "json",
 															data : {
 																query : bookname
 															},
 															headers : {
-																Authorization : "KakaoAK e5e613251210cc286e07c17499ed3047"
+																Authorization : "KakaoAK 372e38774d57a8d9694e1f24e92a4a6d"
 															}
 														})
 												.done(
