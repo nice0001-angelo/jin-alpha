@@ -4,7 +4,7 @@
 $(document)
 		.ready(
 				function() {
-					$("#searchButton")
+					$("#bookSearchButton")
 							.click(
 									function() {
 										var bookname = $("#bookName").val();

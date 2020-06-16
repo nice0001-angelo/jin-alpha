@@ -4,10 +4,10 @@
 $(document)
 		.ready(
 				function() {
-					$("#searchButton")
+					$("#imageSearchButton")
 							.click(
 									function() {
-										var bookname = $("#bookName").val();
+										var bookname = $("#imageName").val();
 										$
 												.ajax(
 														{
@@ -23,73 +23,77 @@ $(document)
 														})
 												.done(
 														function(msg) {
-															$("#api1").html("");
-															$("#api1")
+															$("#api2").html("");
+															$("#api2")
 																	.append(
-																			"<br /><br /> title: "
-																					+ msg.documents[0].title);
-															$("#api1")
+																			"<br /><br /> collection: "
+																					+ msg.documents[0].collection);
+															$("#api2")
+																	.append(
+																			"	thumbnail image: <img src='"
+																					+ msg.documents[0].thumbnail_url
+																					+ "'/>");
+															$("#api2")
 																	.append(
 																			"	image: <img src='"
-																					+ msg.documents[0].thumbnail
+																					+ msg.documents[0].image_url
 																					+ "'/>");
-															$("#api1")
-															.append(
-																	" price: "
-																			+ msg.documents[0].price+"Won");
-															$("#api1")
+															$("#api2")
 																	.append(
-																			"<br /><br /> title: "
-																					+ msg.documents[1].title);
-															$("#api1")
+																			"<br /><br /> collection: "
+																					+ msg.documents[1].collection);
+															$("#api2")
+																	.append(
+																			"	thumbnail image: <img src='"
+																					+ msg.documents[1].thumbnail_url
+																					+ "'/>");
+															$("#api2")
 																	.append(
 																			"	image: <img src='"
-																					+ msg.documents[1].thumbnail
+																					+ msg.documents[1].image_url
 																					+ "'/>");
-															$("#api1")
-															.append(
-																	" price: "
-																			+ msg.documents[1].price+"Won");
-															$("#api1")
+															$("#api2")
 																	.append(
-																			"<br /><br /> title: "
-																					+ msg.documents[2].title);
-															$("#api1")
+																			"<br /><br /> collection: "
+																					+ msg.documents[2].collection);
+															$("#api2")
+																	.append(
+																			"	thumbnail image: <img src='"
+																					+ msg.documents[2].thumbnail_url
+																					+ "'/>");
+															$("#api2")
 																	.append(
 																			"	image: <img src='"
-																					+ msg.documents[2].thumbnail
+																					+ msg.documents[2].image_url
 																					+ "'/>");
-															$("#api1")
-															.append(
-																	" price: "
-																			+ msg.documents[2].price+"Won");
-															$("#api1")
+															$("#api2")
 																	.append(
-																			"<br /><br /> title: "
-																					+ msg.documents[3].title);
-															$("#api1")
+																			"<br /><br /> collection: "
+																					+ msg.documents[3].collection);
+															$("#api2")
+																	.append(
+																			"	thumbnail image: <img src='"
+																					+ msg.documents[3].thumbnail_url
+																					+ "'/>");
+															$("#api2")
 																	.append(
 																			"	image: <img src='"
-																					+ msg.documents[3].thumbnail
+																					+ msg.documents[3].image_url
 																					+ "'/>");
-															$("#api1")
-															.append(
-																	" price: "
-																			+ msg.documents[3].price+"Won");
-															$("#api1")
+															$("#api2")
 																	.append(
-																			"<br /><br /> title: "
-																					+ msg.documents[4].title);
-															$("#api1")
+																			"<br /><br /> collection: "
+																					+ msg.documents[4].collection);
+															$("#api2")
+																	.append(
+																			"	thumbnail image: <img src='"
+																					+ msg.documents[4].thumbnail_url
+																					+ "'/>");
+															$("#api2")
 																	.append(
 																			"	image: <img src='"
-																					+ msg.documents[4].thumbnail
+																					+ msg.documents[4].image_url
 																					+ "'/>");
-															$("#api1")
-															.append(
-																	" price: "
-																			+ msg.documents[4].price+"Won");
-
 														});
 									})
 				});

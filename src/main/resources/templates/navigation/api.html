@@ -3,6 +3,7 @@
 <head>
 {{> include/header}}
 <script src="/js/bookSearchApi.js"></script>
+<script src="/js/imageSearchApi.js"></script>
 </head>
 <!-- <body onclick = submitFormReady();> -->
 <body>
@@ -16,7 +17,7 @@
 		<ul class="nav nav-pills">
 			<li class="active"><a data-toggle="pill" href="#home">Book
 					Search</a></li>
-			<li><a data-toggle="pill" href="#menu1">API 1</a></li>
+			<li><a data-toggle="pill" href="#menu1">Image Search</a></li>
 			<li><a data-toggle="pill" href="#menu2">API 2</a></li>
 			<li><a data-toggle="pill" href="#menu3">API 3</a></li>
 		</ul>
@@ -31,14 +32,13 @@
 						<input id="bookName" type="text" value="" class="form-control"
 							placeholder="Search Books">
 						<div class="input-group-btn">
-							<button id="searchButton" class="btn btn-default" type="button">
+							<button id="bookSearchButton" class="btn btn-default"
+								type="button">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
 					</div>
 				</form>
-				<!-- <input id = "bookName" value="" type="text">
-				<button id = "searchButton" >검색</button> -->
 				<article id="api1"></article>
 			</div>
 			<div id="menu1" class="tab-pane fade">
@@ -50,12 +50,14 @@
 						<input id="imageName" type="text" value="" class="form-control"
 							placeholder="Search Images">
 						<div class="input-group-btn">
-							<button id="searchButton" class="btn btn-default" type="button">
+							<button id="imageSearchButton" class="btn btn-default"
+								type="button">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>
 					</div>
 				</form>
+				<article id="api2"></article>
 			</div>
 			<div id="menu2" class="tab-pane fade">
 				<h3>API 2</h3>
