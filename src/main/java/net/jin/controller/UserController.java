@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
-import net.jin.util.HttpSessionUtils;
+import net.jin.util.service.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/users")

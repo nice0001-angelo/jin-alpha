@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for HttpSession home page controller
  */
-package net.jin.util;
+package net.jin.util.service;
 
 import javax.servlet.http.HttpSession;
 
