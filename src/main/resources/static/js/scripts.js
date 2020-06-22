@@ -78,7 +78,7 @@ function loginValidate() {
         alert("Please enter the User ID.");
         return false;
     }
-    alert('Sign Up successful');
+    alert('Login In successful');
 } 
 
 
