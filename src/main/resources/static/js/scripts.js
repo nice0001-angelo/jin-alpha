@@ -82,6 +82,7 @@ function loginValidate() {
         return false;
     }
     alert('Login In successful');
+    $("#loginForm").submit();
 } 
 
 
@@ -105,7 +106,7 @@ function signupValidate() {
     	return false;
     }
     alert('Sign Up successful');
-    $("#signupform").submit();
+    $("#signupForm").submit();
 } 
 
 
