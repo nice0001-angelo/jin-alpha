@@ -89,16 +89,23 @@ function loginValidate() {
 function signupValidate() {
     var userid = document.getElementById("userId").value;
     var password = document.getElementById("password").value;
-    var name = document.getElementById("password").value;
-    var email = document.getElementById("password").value;
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
     if (userid == null || userid == "") {
         alert("Please enter the User ID.");
         return false;
     } else if (password == null || password == ""){
-    	alert("Please enter the Password");
+    	alert("Please enter the Password.");
     	return false;
-    } else if ()
+    } else if (name == null || name == ""){
+    	alert("Please enter the Name.");
+    	return false;
+    } else if (email == null || email == ""){
+    	alert("Please enter the Email.");
+    	return false;
+    }
     alert('Sign Up successful');
+    $("#question").submit();
 } 
 
 
