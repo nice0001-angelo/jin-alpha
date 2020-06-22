@@ -77,6 +77,9 @@ function loginValidate() {
     if (userid == null || userid == "") {
         alert("Please enter the User ID.");
         return false;
+    } else if (password == null || password == "") {
+    	alert("Please enter Password.");
+        return false;
     }
     alert('Login In successful');
 } 
@@ -86,10 +89,15 @@ function loginValidate() {
 function signupValidate() {
     var userid = document.getElementById("userId").value;
     var password = document.getElementById("password").value;
+    var name = document.getElementById("password").value;
+    var email = document.getElementById("password").value;
     if (userid == null || userid == "") {
         alert("Please enter the User ID.");
         return false;
-    }
+    } else if (password == null || password == ""){
+    	alert("Please enter the Password");
+    	return false;
+    } else if ()
     alert('Sign Up successful');
 } 
 
