@@ -33,7 +33,7 @@ public class UserController {
 	// navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
 	@GetMapping("/loginForm")
 	public String loginForm() {
-		return "user/login";
+		return "user/loginForm";
 	}
 
 	// form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
