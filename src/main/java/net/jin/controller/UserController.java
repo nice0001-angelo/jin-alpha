@@ -39,9 +39,9 @@ public class UserController {
 	// form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
 	// 공통으로 쓸 수 있음
 	// navigation의 sign up button 클릭시 a href="/users/form" 통해서 호출
-	@GetMapping("/form")
+	@GetMapping("/signupForm")
 	public String form() {
-		return "user/form";
+		return "user/signupForm";
 	}
 
 	// login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
