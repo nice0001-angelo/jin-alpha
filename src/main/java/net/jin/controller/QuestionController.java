@@ -23,7 +23,7 @@ import net.jin.model.Question;
 import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.repository.QuestionRepository;
-import net.jin.util.service.HttpSessionUtils;
+import net.jin.util.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/questions")
