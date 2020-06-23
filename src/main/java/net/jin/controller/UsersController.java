@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
 import net.jin.user.service.LoginService;
+import net.jin.user.service.SignupService;
 import net.jin.util.HttpSessionUtils;
 
 @Controller
@@ -33,24 +34,19 @@ public class UsersController {
 	@Autowired
 	private LoginService loginService;
 
-	// login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
-	// 공통으로 쓸 수 있음
-	// navigation의 log in button 클릭시 a href="/users/loginForm" 통해서 호출
+	@Autowired
+	private SignupService signupService;
+	
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "user/loginForm";
 	}
 
-	// form.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
-	// 공통으로 쓸 수 있음
-	// navigation의 sign up button 클릭시 a href="/users/form" 통해서 호출
 	@GetMapping("/signupForm")
 	public String form() {
 		return "user/signupForm";
 	}
 
-	// login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
-	// ligin.html 의 method="post" action="/users/login" 을 통해서 호출됨
 	@PostMapping("/loginRequest")
 	public String loginRequest(String userId, String password, HttpSession session) {
 			String page = loginService.loginUser(userId, password, session);
@@ -64,14 +60,12 @@ public class UsersController {
 		return "redirect:/";
 	}
 
-	// form.html에서 입력한 사용자정보를 DB에 저장하기 위한 메소드
-	// form.html 의 method="post" action="/users" 을 통해서 호출됨
 	@PostMapping("/signupRequest") // not real location. just for communication
-	public String create(User user) {
+	public String signupRequest(User user) {
 		System.out.println("User: " + user);
 		System.out.println("user.getUserId() : " + user.getUserId());
-		userRepository.save(user);
-		return "redirect:/users/list"; // not real location. just for communication
+		String page = signupService.SignupUser(user);
+		return page;
 	}
 
 	// list.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
