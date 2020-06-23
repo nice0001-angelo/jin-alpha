@@ -29,6 +29,9 @@ import net.jin.util.HttpSessionUtils;
 public class UsersController {
 
 	@Autowired
+	private HttpServletRequest httpServletRequest;
+	
+	@Autowired
 	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
 	
 	@Autowired
@@ -61,10 +64,8 @@ public class UsersController {
 	}
 
 	@PostMapping("/signupRequest") // not real location. just for communication
-	public String signupRequest(User user) {
-		System.out.println("User: " + user);
-		System.out.println("user.getUserId() : " + user.getUserId());
-		String page = signupService.SignupUser(user);
+	public String signupRequest(HttpServletRequest httpServletRequest) {
+		String page = signupService.SignupUser(httpServletRequest);
 		return page;
 	}
 

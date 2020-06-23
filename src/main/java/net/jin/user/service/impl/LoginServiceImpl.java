@@ -16,7 +16,7 @@ public class LoginServiceImpl implements LoginService{
 	@Autowired
 	private UserRepository userRepository;
 	
-	
+	@Override
 	public String loginUser(String userId, String password, HttpSession session) {
 		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
 		if (user == null) {
