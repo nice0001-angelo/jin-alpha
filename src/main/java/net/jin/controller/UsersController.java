@@ -7,6 +7,7 @@
  */
 package net.jin.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
+import net.jin.user.service.LoginService;
 import net.jin.util.HttpSessionUtils;
 
 @Controller
@@ -27,6 +29,9 @@ public class UsersController {
 
 	@Autowired
 	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
+	
+	@Autowired
+	private LoginService loginService;
 
 	// login.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
 	// 공통으로 쓸 수 있음
@@ -47,24 +52,9 @@ public class UsersController {
 	// login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
 	// ligin.html 의 method="post" action="/users/login" 을 통해서 호출됨
 	@PostMapping("/loginForm")
-	public String login(String userId, String password, HttpSession session) {
-		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
-		if (user == null) {
-			System.out.println("Key in!");
-			return "redirect:/users/loginForm";
-		}
-		//if (!password.equals(user.getPassword())) {
-		//user.java 에 matchNewPassword() 정의해서 로직으로 쓴다
-		if (!user.matchNewPassword(password)) {			
-			System.out.println("Login Failure!");
-			return "redirect:/users/loginForm";
-		}
-
-		System.out.println("Login Success!");
-		//session.setAttribute("sessionedUser", user);
-		session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-				
-		return "redirect:/";
+	public String loginForm(String userId, String password, HttpSession session) {
+			String page = loginService.loginUser(userId, password, session);
+			return page;
 	}
 
 	@GetMapping("/logout")
