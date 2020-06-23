@@ -106,7 +106,7 @@ function signupValidate() {
     	return false;
     }
     alert('Sign Up successful');
-    $("#signupForm").submit();
+    $("#signupRequest").submit();
 } 
 
 

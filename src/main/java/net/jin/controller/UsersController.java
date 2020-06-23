@@ -66,7 +66,7 @@ public class UsersController {
 
 	// form.html에서 입력한 사용자정보를 DB에 저장하기 위한 메소드
 	// form.html 의 method="post" action="/users" 을 통해서 호출됨
-	@PostMapping("") // not real location. just for communication
+	@PostMapping("/signRequest") // not real location. just for communication
 	public String create(User user) {
 		System.out.println("User: " + user);
 		System.out.println("user.getUserId() : " + user.getUserId());
