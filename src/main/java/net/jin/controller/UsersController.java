@@ -71,7 +71,7 @@ public class UsersController {
 		System.out.println("User: " + user);
 		System.out.println("user.getUserId() : " + user.getUserId());
 		userRepository.save(user);
-		return "redirect:/users"; // not real location. just for communication
+		return "redirect:/users/list"; // not real location. just for communication
 	}
 
 	// list.html 을 Template 폴더 밑에 두고 호출하기 위한 메소드 : 이래야 navigation, header, footer를
@@ -80,7 +80,7 @@ public class UsersController {
 	// navigation.html에서 오른쪽 상단의 user 아이콘 클릭시 db로부터 정보를 가져다가 보여줌
 	// DB 에 있는 모든 사용자 정보를 가져다가 list.html 화면에 Disply
 	// return "redirect:/users" 을 통해서 호출됨
-	@GetMapping("") // not real location. just for communication
+	@GetMapping("/list") // not real location. just for communication
 	public String list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
 		return "user/list"; // real location(src/main/resources/static/user/list.html)
