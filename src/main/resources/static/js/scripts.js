@@ -82,7 +82,7 @@ function loginValidate() {
         return false;
     }
     alert('Login In successful');
-    $("#loginForm").submit();
+    $("#loginRequest").submit();
 } 
 
 
