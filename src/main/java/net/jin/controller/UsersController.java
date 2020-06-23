@@ -51,8 +51,8 @@ public class UsersController {
 
 	// login.html 에서 로그인 정보가 DB에 있는 정보와 같은지 체크하기 위한 메소드
 	// ligin.html 의 method="post" action="/users/login" 을 통해서 호출됨
-	@PostMapping("/loginForm")
-	public String loginForm(String userId, String password, HttpSession session) {
+	@PostMapping("/loginRequest")
+	public String loginRequest(String userId, String password, HttpSession session) {
 			String page = loginService.loginUser(userId, password, session);
 			return page;
 	}
