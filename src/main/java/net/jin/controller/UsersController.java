@@ -23,7 +23,7 @@ import net.jin.util.HttpSessionUtils;
 
 @Controller
 @RequestMapping("/users")
-public class UserController {
+public class UsersController {
 
 	@Autowired
 	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
