@@ -5,5 +5,5 @@ import javax.servlet.http.HttpServletRequest;
 import net.jin.model.User;
 
 public interface SignupService {
-	public String SignupUser(HttpServletRequest httpServletRequest);
+	public String SignupUser(User user);
 }

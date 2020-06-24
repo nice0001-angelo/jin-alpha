@@ -64,8 +64,8 @@ public class UsersController {
 	}
 
 	@PostMapping("/signupRequest") // not real location. just for communication
-	public String signupRequest(HttpServletRequest httpServletRequest) {
-		String page = signupService.SignupUser(httpServletRequest);
+	public String signupRequest(User user) {
+		String page = signupService.SignupUser(user);
 		return page;
 	}
 
