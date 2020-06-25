@@ -13,8 +13,7 @@ public class SignupServiceImpl implements SignupService{
 	@Autowired
 	private UserRepository userRepository;
 	
-	
-	@Override
+		@Override
 	public String SignupUser(User user) {
 		//String userId = httpServletRequest.getParameter();
 		userRepository.save(user);
