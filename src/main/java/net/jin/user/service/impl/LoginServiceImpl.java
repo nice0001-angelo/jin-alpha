@@ -37,7 +37,6 @@ public class LoginServiceImpl implements LoginService{
 
 		System.out.println("Login Success!");
 		session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
-				
 		return "redirect:/";
 	}
 }

@@ -28,9 +28,7 @@ import net.jin.util.HttpSessionUtils;
 @RequestMapping("/users")
 public class UsersController {
 
-	@Autowired
-	private HttpServletRequest httpServletRequest;
-	
+
 	@Autowired
 	private UserRepository userRepository; // UserRepository는 스프링부트에서 알아서 생성해줌
 	
@@ -49,14 +47,6 @@ public class UsersController {
 	public String form() {
 		return "user/signupForm";
 	}
-
-	/*
-	 * @PostMapping("/loginRequest") 
-	 * public String loginRequest(String userId, String password, HttpSession session) { 
-	 * String page = loginService.loginUser(userId, password, session); 
-	 * return page; 
-	 * }
-	 */
 	
 	@PostMapping("/loginRequest") 
 	public String loginRequest(HttpServletRequest httpServletRequest) { 
@@ -66,14 +56,19 @@ public class UsersController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
-		//session.removeAttribute("sessionedUser"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
 		session.removeAttribute(HttpSessionUtils.USER_SESSION_KEY); // HttpSessionUtils.java 에 상수 선언하고 가져다 씀
 		return "redirect:/";
 	}
 
+	/*
+	 * @PostMapping("/signupRequest") // not real location. just for communication
+	 * public String signupRequest(User user) { String page =
+	 * signupService.SignupUser(user); return page; }
+	 */
+	
 	@PostMapping("/signupRequest") // not real location. just for communication
-	public String signupRequest(User user) {
-		String page = signupService.SignupUser(user);
+	public String signupRequest(HttpServletRequest httpServletRequest ) {
+		String page = signupService.signupUser(httpServletRequest);
 		return page;
 	}
 
