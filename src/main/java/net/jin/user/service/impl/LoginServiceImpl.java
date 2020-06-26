@@ -18,6 +18,7 @@ public class LoginServiceImpl implements LoginService{
 	
 	@Override
 	// HttpServletRequest로 session 까지 포함하여 post하는것이 일반적임. 서버에서 가져올때는 HttpServletResponce를 많이 씀)
+	// HttpServletResponse는 화면을 아예 그려주므로 자유도를 높히기 위해서 어씽크 방식으로 Ajax 타입으로 데이터만 보내서 화면을 그림
 	public String loginUser(String userId, String password, HttpSession session) {
 		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
 		if (user == null) {
