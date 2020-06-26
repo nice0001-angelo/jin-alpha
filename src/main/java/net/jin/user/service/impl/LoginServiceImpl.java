@@ -17,16 +17,17 @@ public class LoginServiceImpl implements LoginService{
 	private UserRepository userRepository;
 	
 	@Override
+	// HttpServletRequest로 session 까지 포함하여 post하는것이 일반적임. 서버에서 가져올때는 HttpServletResponce를 많이 씀)
 	public String loginUser(String userId, String password, HttpSession session) {
 		User user = userRepository.findByUserId(userId); // UserRepository.java에 정의
 		if (user == null) {
-			System.out.println("Key in!");
+			System.out.println("There is no matched User Id~!");
 			return "redirect:/users/loginForm";
 		}
 		//if (!password.equals(user.getPassword())) {
 		//user.java 에 matchNewPassword() 정의해서 로직으로 쓴다
 		if (!user.matchNewPassword(password)) {			
-			System.out.println("Login Failure!");
+			System.out.println("Wrong password~!");
 			return "redirect:/users/loginForm";
 		}
 
