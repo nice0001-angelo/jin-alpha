@@ -50,12 +50,20 @@ public class UsersController {
 		return "user/signupForm";
 	}
 
-	@PostMapping("/loginRequest")
-	public String loginRequest(String userId, String password, HttpSession session) {
-			String page = loginService.loginUser(userId, password, session);
-			return page;
+	/*
+	 * @PostMapping("/loginRequest") 
+	 * public String loginRequest(String userId, String password, HttpSession session) { 
+	 * String page = loginService.loginUser(userId, password, session); 
+	 * return page; 
+	 * }
+	 */
+	
+	@PostMapping("/loginRequest") 
+	public String loginRequest(HttpServletRequest httpServletRequest) { 
+		String page = loginService.loginUser(httpServletRequest); 
+		return page; 
 	}
-
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		//session.removeAttribute("sessionedUser"); // session.setAttribute("sessioneduser", user); 의 "user"과 이름이 같아야 함
