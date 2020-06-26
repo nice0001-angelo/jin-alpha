@@ -22,7 +22,7 @@ public class SignupServiceImpl implements SignupService{
     	String name = httpServletRequest.getParameter("name");
     	String email = httpServletRequest.getParameter("email");
     	
-    	if(userId.equals("")||password.equals("")||name.equals("")||email.equals("")) {
+    	if (userId.equals("")||password.equals("")||name.equals("")||email.equals("")) {
     		return "signupForm";
     	}
     	   	
