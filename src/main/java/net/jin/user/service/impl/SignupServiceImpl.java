@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
 import net.jin.user.service.SignupService;
+import net.jin.util.SecurityUtils;
 
 @Service
 public class SignupServiceImpl implements SignupService{
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private SecurityUtils securityUtils;
 	
     @Override
 	public String signupUser(HttpServletRequest httpServletRequest) {
@@ -27,9 +31,11 @@ public class SignupServiceImpl implements SignupService{
     	}
 
     	User user = new User();
+    	String hashedPassword = securityUtils.encryptSHA256(password);
+    	
     	user.setUserId(userId);
     	user.setName(name);
-    	user.setPassword(password);
+    	user.setPassword(hashedPassword);
     	user.setEmail(email);
     	
 		userRepository.save(user);
