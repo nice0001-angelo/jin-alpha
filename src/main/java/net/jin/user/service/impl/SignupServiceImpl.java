@@ -25,9 +25,13 @@ public class SignupServiceImpl implements SignupService{
     	if (userId.equals("")||password.equals("")||name.equals("")||email.equals("")) {
     		return "signupForm";
     	}
-    	   	
-    	
+
     	User user = new User();
+    	user.setUserId(userId);
+    	user.setName(name);
+    	user.setPassword(password);
+    	user.setEmail(email);
+    	
 		userRepository.save(user);
 		return "redirect:/users/list"; // not real location. just for communication
 	}
