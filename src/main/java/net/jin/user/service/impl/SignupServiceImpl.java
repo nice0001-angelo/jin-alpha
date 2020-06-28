@@ -39,6 +39,7 @@ public class SignupServiceImpl implements SignupService{
       	user.setPassword(password);
     	user.setEmail(email);
     	
+    	System.out.println("password :"+user.getPassword());
 		userRepository.save(user);
 		return "redirect:/users/list"; // not real location. just for communication
 	}
