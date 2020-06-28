@@ -38,7 +38,6 @@ public class SignupServiceImpl implements SignupService{
     	user.setUserId(userId);
     	user.setName(name);
     	user.setPassword(hashedPassword);
-      	user.setPassword(password);
     	user.setEmail(email);
     	
     	System.out.println("user.getPassword() :"+user.getPassword());
