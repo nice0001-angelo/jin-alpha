@@ -60,12 +60,6 @@ public class UsersController {
 		return "redirect:/";
 	}
 
-	/*
-	 * @PostMapping("/signupRequest") // not real location. just for communication
-	 * public String signupRequest(User user) { String page =
-	 * signupService.SignupUser(user); return page; }
-	 */
-	
 	@PostMapping("/signupRequest") // not real location. just for communication
 	public String signupRequest(HttpServletRequest httpServletRequest ) {
 		String page = signupService.signupUser(httpServletRequest);
@@ -89,7 +83,6 @@ public class UsersController {
 	// list.html 화면에서 update 버튼 클릭시 a href="users/{{id}}/form" 를 통해서 호출됨
 	@GetMapping("/{id}/form")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
-
 		// login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null 일때는 수정이 안되고 login 화면으로
 		// 이동토록 함
 		//Object tempUser = session.getAttribute("sessionedUser");
@@ -123,7 +116,6 @@ public class UsersController {
 	// action="/users/{{id}}" 을 통해서 호출됨
 	@PostMapping("/{id}")
 	public String update(@PathVariable Long id, User updatedUser, HttpSession session) {
-
 		// login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null 일때는 수정이 안되고 login 화면으로
 		// 이동토록 함
 		//Object tempUser = session.getAttribute("sessioneduser");
