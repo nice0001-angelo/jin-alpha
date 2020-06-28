@@ -9,8 +9,11 @@ package net.jin.util;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Service;
+
 import net.jin.model.User;
 
+@Service
 public class HttpSessionUtils {
 	//자주 쓰는 sessonedUser를 상수로 선언하여 공통 관리
 	public static final String USER_SESSION_KEY = "sessionedUser";

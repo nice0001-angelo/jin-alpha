@@ -16,8 +16,8 @@ public class SignupServiceImpl implements SignupService{
 	@Autowired
 	private UserRepository userRepository;
 	
-//	@Autowired
-	//private SecurityUtils securityUtils;
+	@Autowired
+	private SecurityUtils securityUtils;
 	
     @Override
 	public String signupUser(HttpServletRequest httpServletRequest) {
@@ -31,11 +31,11 @@ public class SignupServiceImpl implements SignupService{
     	}
 
     	User user = new User();
-//    	String hashedPassword = securityUtils.encryptSHA256(password);
+    	String hashedPassword = securityUtils.getSHA256(password);
     	
     	user.setUserId(userId);
     	user.setName(name);
-//    	user.setPassword(hashedPassword);
+    	user.setPassword(hashedPassword);
       	user.setPassword(password);
     	user.setEmail(email);
     	
