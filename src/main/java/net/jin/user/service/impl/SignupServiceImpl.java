@@ -33,7 +33,7 @@ public class SignupServiceImpl implements SignupService{
     	User user = new User();
     	String hashedPassword = securityUtils.getSHA256(password);
     	
-    	System.out.println("hashedPassword :");
+    	System.out.println("hashedPassword : "+hashedPassword );
     	
     	user.setUserId(userId);
     	user.setName(name);
