@@ -72,11 +72,11 @@ public class UsersController {
 		return "user/userList"; // real location(src/main/resources/static/user/list.html)
 	}
 
-	// userList.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateForm.html에 전달하기 위한 메소드
+	// userList.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateUserForm.html에 전달하기 위한 메소드
 	// id를 unique key로 해서 전체 값을 넘김
 	@GetMapping("/{id}/updateUserForm")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
-	
+		System.out.println("session value :"+ session);
 		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:/users/loginForm";
 		}
