@@ -72,10 +72,9 @@ public class UsersController {
 		return "user/userList"; // real location(src/main/resources/static/user/list.html)
 	}
 
-	// list.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateForm.html에 전달하기 위한 메소드
+	// userList.html 화면에서 특정 사용자 정보를 update하기 위한 정보를 updateForm.html에 전달하기 위한 메소드
 	// id를 unique key로 해서 전체 값을 넘김
-	// list.html 화면에서 update 버튼 클릭시 a href="users/{{id}}/form" 를 통해서 호출됨
-	@GetMapping("/{id}/form")
+	@GetMapping("/{id}/updateUserForm")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
 	
 		if (!HttpSessionUtils.isLoginUser(session)) {
@@ -98,7 +97,7 @@ public class UsersController {
 		User user = userRepository.findById(id).get();
 		// User user = userRepository.findById(sessionedUser.getId()).get();
 		model.addAttribute("user", user);
-		return "user/updateForm"; // real location(src/main/resources/templates/user/updateForm.html)
+		return "user/updateUserForm"; // real location(src/main/resources/templates/user/updateForm.html)
 	}
 
 	// list.html로 부터 넘겨 받은 정보를 updateForm.html에서 수정한 후 저장하기 위한 메소드
