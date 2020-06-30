@@ -1,4 +1,4 @@
-package net.jin.user.service;
+package net.jin.overwatch.service;
 
 public interface OverWatch {
 	void name(); // 추상 메소드

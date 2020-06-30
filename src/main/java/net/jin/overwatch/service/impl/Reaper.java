@@ -1,6 +1,6 @@
-package net.jin.user.service.impl;
+package net.jin.overwatch.service.impl;
 
-import net.jin.user.service.OverWatch;
+import net.jin.overwatch.service.OverWatch;
 
 public class Reaper implements OverWatch {
 	public void name() { // 오버라이딩
