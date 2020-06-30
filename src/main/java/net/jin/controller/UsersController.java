@@ -75,7 +75,7 @@ public class UsersController {
 		return "user/userList"; // real location(src/main/resources/static/user/list.html)
 	}
 
-	@GetMapping("/{id}/updateUserForm")
+	@GetMapping("/{id}/goUpdateUserForm")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:/users/loginForm";
