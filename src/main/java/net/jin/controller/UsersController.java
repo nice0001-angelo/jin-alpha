@@ -94,42 +94,21 @@ public class UsersController {
 	// 저장후 list.html 화면을 호출하여 정보를 display 하도록 함.
 	// updateForm.html 화면에서 Information update 버튼 클릭시 method="post"
 	// action="/users/{{id}}" 을 통해서 호출됨
-	@PostMapping("/{id}/signUpdate")
-	public String signupUpdate(HttpServletRequest httpServletRequest, User updatedUser) {
-		HttpSession session = httpServletRequest.getSession();
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return "redirect:/users/loginForm";
-		}
-
-		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
-		String userId = httpServletRequest.getParameter(userId);
-		User sessionedUser = HttpSessionUtils.getUserFromSession(session);
-		if(!sessionedUser.matchNewId(userId)) {
-			throw new IllegalStateException("You can update with only yours~!");
-		}
-
-		User user = userRepository.findById(userId).get();
-		user.update(updatedUser);
-		userRepository.save(user);
-		return "redirect:/users";
-	}
-	
-	/*
-	 * public String signupUpdate(@PathVariable Long id, User updatedUser,
-	 * HttpSession session) { // login이 되어 있는 상태에서만 개인정보를 수정할 수 있도록 함. session이 null
-	 * 일때는 수정이 안되고 login 화면으로 // 이동토록 함 //Object tempUser =
-	 * session.getAttribute("sessioneduser"); //if (tempUser == null) { //세션관리 메소드를
-	 * 만들아서 아래와 같이 체크 가능함 if (!HttpSessionUtils.isLoginUser(session)) { return
-	 * "redirect:/users/loginForm"; }
-	 * 
-	 * // 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거) //User
-	 * sessionedUser = (User) tempUser; User sessionedUser =
-	 * HttpSessionUtils.getUserFromSession(session); //if
-	 * (!id.equals(sessionedUser.getId())) { // User.java 에 getId 생성 했음 아래에
-	 * matchNewId로 데체 if(!sessionedUser.matchNewId(id)) { throw new
-	 * IllegalStateException("You can update with only yours~!"); }
-	 * 
-	 * User user = userRepository.findById(id).get(); user.update(updatedUser);
-	 * userRepository.save(user); return "redirect:/users"; }
-	 */
+	@PostMapping("/{id}/updateUser")
+	  public String signupUpdate(@PathVariable Long id, User updatedUser, HttpSession session) { 
+       if (!HttpSessionUtils.isLoginUser(session)) { 
+    	   return "redirect:/users/loginForm"; }
+	  
+	  // 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거) 
+      //User sessionedUser = (User) tempUser; 
+	  User sessionedUser = HttpSessionUtils.getUserFromSession(session); 
+	  //if (!id.equals(sessionedUser.getId())) { 
+	  // User.java 에 getId 생성 했음 아래에  matchNewId로 대체 
+	  if(!sessionedUser.matchNewId(id)) { 
+		  throw new IllegalStateException("You can update with only yours~!"); 
+		  }
+	  
+	  User user = userRepository.findById(id).get(); user.update(updatedUser);
+	  userRepository.save(user); return "redirect:/users"; 
+	  }
 }
