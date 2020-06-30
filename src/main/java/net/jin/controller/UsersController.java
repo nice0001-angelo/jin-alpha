@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.User;
 import net.jin.repository.UserRepository;
+import net.jin.user.service.GoUpdateUserFormService;
 import net.jin.user.service.LoginService;
 import net.jin.user.service.SignupService;
 import net.jin.user.service.UpdateUserService;
@@ -41,6 +42,10 @@ public class UsersController {
 	@Autowired
 	private UpdateUserService updateUserService;
 
+	
+	@Autowired
+	private GoUpdateUserFormService goUpdateUserFormService;
+	
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "user/loginForm";
@@ -76,21 +81,9 @@ public class UsersController {
 	}
 
 	@GetMapping("/{id}/goUpdateUserForm")
-	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return "redirect:/users/loginForm";
-		}
-
-		// 자기 ID로 로그인한 정보만 수정할 수 있도록 로직 추가(로그인 상태에서 다른 아이디도 수정할 수 있는 문제점 제거)
-		User sessionedUser = HttpSessionUtils.getUserFromSession(session);
-		if (!sessionedUser.matchNewId(id)) {
-			System.out.println("You can update with only yours~!");
-			return "redirect:/users/userList";
-		}
-
-		User user = userRepository.findById(id).get();
-		model.addAttribute("user", user);
-		return "user/updateUserForm";
+	public String goUpdateUserForm(@PathVariable Long id, Model model, HttpSession session) {
+		String page = goUpdateUserFormService.goUpdateUserForm(id, model, session);
+		return page;
 	}
 
 	// list.html로 부터 넘겨 받은 정보를 updateForm.html에서 수정한 후 저장하기 위한 메소드
