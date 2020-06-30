@@ -77,7 +77,7 @@ public class UsersController {
 	@GetMapping("/userList")
 	public String list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "user/userList"; // real location(src/main/resources/static/user/list.html)
+		return "user/userList"; 
 	}
 
 	@GetMapping("/{id}/goUpdateUserForm")
