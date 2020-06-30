@@ -37,6 +37,7 @@ public class JinAlphaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JinAlphaApplication.class, args);
 		
+// 다형성 테스트(OverWatch)		
 		OverWatch ow; // 인터페이스 객체 선언
 		System.out.println("플레이할 캐릭터 번호 선택(1. 메이, 2. 리퍼, 3. 맥크리)");
 		Scanner sc = new Scanner(System.in); // 스캐너 객체
