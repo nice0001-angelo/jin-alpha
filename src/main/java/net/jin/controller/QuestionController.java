@@ -74,7 +74,7 @@ public class QuestionController {
 		}
 
 		model.addAttribute("question", question); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
-		return "qna/updateForm";
+		return "qna/updateQuestionForm";
 
 	}
 
