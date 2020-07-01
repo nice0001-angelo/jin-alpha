@@ -19,5 +19,4 @@ public class GoQuestionFormServiceImpl implements GoQuestionFormSerivce{
 		}
 		return "qna/form";
 	}
-
 }
