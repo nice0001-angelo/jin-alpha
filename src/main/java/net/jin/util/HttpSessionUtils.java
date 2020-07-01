@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import net.jin.model.Question;
+import net.jin.model.Result;
 import net.jin.model.User;
 
 @Service
@@ -37,4 +39,5 @@ public class HttpSessionUtils {
 		//return sessionedUser;
 		return (User)session.getAttribute(USER_SESSION_KEY);
 	}
+
 }

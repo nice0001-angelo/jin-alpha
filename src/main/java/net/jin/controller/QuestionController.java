@@ -25,6 +25,7 @@ import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.question.service.CreateQuestionService;
 import net.jin.question.service.GoQuestionFormSerivce;
+import net.jin.question.service.GoUpdateQuestionFormService;
 import net.jin.question.service.ShowQuestionService;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
@@ -45,6 +46,9 @@ public class QuestionController {
 	@Autowired
 	private ShowQuestionService showQuestionService;
 	
+	@Autowired
+	private GoUpdateQuestionFormService goUpdateQuestionFormService;
+	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
 		String page = goQuestionFormService.goQuestionForm(httpServletRequest);
@@ -64,29 +68,9 @@ public class QuestionController {
 	}
 
 	@GetMapping("/{id}/form")
-	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
-		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		Result result = valid(session, question);
-		if (!result.isValid()) {
-			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
-																			// /user/login.html
-			return "user/login";
-		}
-
-		model.addAttribute("question", question); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
-		return "qna/updateQuestionForm";
-
-	}
-
-	private Result valid(HttpSession session, Question question) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return Result.fail("You have to do this after login");
-		}
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if (!question.isSameWriter(loginUser)) {
-			return Result.fail("Your login is not matched");
-		}
-		return Result.ok();
+	public String goUpdateQuestionForm(@PathVariable Long id, Model model, HttpSession session) {
+		String page = goUpdateQuestionForm(id, model, session);
+		return page;
 	}
 
 	private boolean hasPemission(HttpSession session, Question question) {
@@ -98,6 +82,17 @@ public class QuestionController {
 			throw new IllegalStateException("Your login is not matched");
 		}
 		return true;
+	}
+	
+	public Result valid(HttpSession session, Question question) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
+			return Result.fail("You have to do this after login");
+		}
+		User loginUser = HttpSessionUtils.getUserFromSession(session);
+		if (!question.isSameWriter(loginUser)) {
+			return Result.fail("Your login is not matched");
+		}
+		return Result.ok();
 	}
 
 	@PostMapping("/{id}/update")
