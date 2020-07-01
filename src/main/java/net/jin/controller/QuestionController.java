@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.jin.model.Question;
 import net.jin.model.Result;
 import net.jin.model.User;
+import net.jin.question.service.CreateQuestionService;
 import net.jin.question.service.GoQuestionFormSerivce;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
@@ -37,6 +38,9 @@ public class QuestionController {
 	@Autowired
 	private GoQuestionFormSerivce goQuestionFormService;
 	
+	@Autowired
+	private CreateQuestionService createQuestionService;
+	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
 		String page = goQuestionFormService.goQuestionForm(httpServletRequest);
@@ -44,20 +48,10 @@ public class QuestionController {
 	}
 
 	@PostMapping("")
-	public String create(String title, String contents, HttpSession session) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return "redirect:/users/loginform";
+	public String createQuestion(String title, String contents, HttpSession session) {
+		String page = createQuestionService.createQuestion(title, contents, session);
+		return page;
 		}
-
-		User sessionUser = HttpSessionUtils.getUserFromSession(session);
-		// Question newQuestion = new Question(sessionUser.getUserId(), title,
-		// contents);
-		// Question.java 안에서 User와 관계를 맺었기 때문에 User객체를 바로 가져올수 있음
-		// 객체내에서 get으로 꺼내올 생각 말고 바로 객체를 가져오는 것으로 수정
-		Question newQuestion = new Question(sessionUser, title, contents);
-		questionRepository.save(newQuestion);
-		return "redirect:/";
-	}
 
 	@GetMapping("/{id}")
 	public String show(@PathVariable Long id, Model model) {
