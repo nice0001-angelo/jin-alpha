@@ -17,6 +17,6 @@ public class GoQuestionFormServiceImpl implements GoQuestionFormSerivce{
 		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:/users/loginForm";
 		}
-		return "qna/form";
+		return "qna/questionForm";
 	}
 }

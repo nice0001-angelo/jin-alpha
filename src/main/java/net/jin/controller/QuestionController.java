@@ -35,11 +35,11 @@ public class QuestionController {
 	private QuestionRepository questionRepository; // 스프링프레임워크가 questionRepository라는 구현체를 만들어서 알아서 관리해줌
 
 	@Autowired
-	private GoQuestionFormSerivce goquestionFormService;
+	private GoQuestionFormSerivce goQuestionFormService;
 	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
-		String page = goquestionFormService.goQuestionForm(httpServletRequest);
+		String page = goQuestionFormService.goQuestionForm(httpServletRequest);
 		return page;
 	}
 
