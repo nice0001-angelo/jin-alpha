@@ -53,10 +53,10 @@ public class QuestionController {
 		return page;
 		}
 
-	@GetMapping("/{id}")
-	public String show(@PathVariable Long id, Model model) {
+	@GetMapping("/{id}/showQuestion")
+	public String showQuestion(@PathVariable Long id, Model model) {
 		model.addAttribute("question", questionRepository.findById(id).get());
-		return "qna/show";
+		return "qna/showQuestion";
 	}
 
 	@GetMapping("/{id}/form")
