@@ -25,6 +25,7 @@ import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.question.service.CreateQuestionService;
 import net.jin.question.service.GoQuestionFormSerivce;
+import net.jin.question.service.ShowQuestionService;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
 
@@ -41,6 +42,9 @@ public class QuestionController {
 	@Autowired
 	private CreateQuestionService createQuestionService;
 	
+	@Autowired
+	private ShowQuestionService showQuestionService;
+	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
 		String page = goQuestionFormService.goQuestionForm(httpServletRequest);
@@ -55,8 +59,8 @@ public class QuestionController {
 
 	@GetMapping("/{id}/showQuestion")
 	public String showQuestion(@PathVariable Long id, Model model) {
-		model.addAttribute("question", questionRepository.findById(id).get());
-		return "qna/showQuestion";
+		String page = showQuestionService.showQuestion(id, model);
+		return page;
 	}
 
 	@GetMapping("/{id}/form")
