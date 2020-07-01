@@ -48,8 +48,8 @@ public class QuestionController {
 	}
 
 	@PostMapping("/createQuestion")
-	public String createQuestion(String title, String contents, HttpSession session) {
-		String page = createQuestionService.createQuestion(title, contents, session);
+	public String createQuestion(HttpServletRequest httpServletRequest) {
+		String page = createQuestionService.createQuestion(httpServletRequest);
 		return page;
 		}
 
