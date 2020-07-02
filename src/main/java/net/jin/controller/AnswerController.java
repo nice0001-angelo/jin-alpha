@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.Answer;
 import net.jin.model.Question;
-import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.repository.AnswerRepository;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
+import net.jin.util.ResultUtils;
 
 @Controller
 @RequestMapping("/answers/{questionId}/answers")
@@ -39,7 +39,7 @@ public class AnswerController {
 	public String updateForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
 		Answer answer = answerRepository.findById(id).get();
 		Question question = questionRepository.findById(questionId).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		Result result = valid(session, answer);
+		ResultUtils result = valid(session, answer);
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
 																			// /user/login.html
@@ -59,15 +59,15 @@ public class AnswerController {
 	
 
 	
-	private Result valid(HttpSession session, Answer answer) {
+	private ResultUtils valid(HttpSession session, Answer answer) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
-			return Result.fail("You have to do this after login");
+			return ResultUtils.fail("You have to do this after login");
 		}
 		User loginUser = HttpSessionUtils.getUserFromSession(session);
 		if (!answer.isSameWriter(loginUser)) {
-			return Result.fail("Your login is not matched");
+			return ResultUtils.fail("Your login is not matched");
 		}
-		return Result.ok();
+		return ResultUtils.ok();
 	}
 	
 }

@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.jin.model.Answer;
 import net.jin.model.Question;
-import net.jin.model.Result;
 import net.jin.model.User;
 import net.jin.repository.AnswerRepository;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
+import net.jin.util.ResultUtils;
 
 @RestController
 @RequestMapping("/api/questions/{questionId}/answers")
@@ -54,20 +54,20 @@ public class ApiAnswerController {
 
 	
 	@DeleteMapping("/{id}")
-	public Result delete(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
+	public ResultUtils delete(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
 		if(!HttpSessionUtils.isLoginUser(session)) {
-			return Result.fail("You have to login first");
+			return ResultUtils.fail("You have to login first");
 		}
 		
 		Question question = questionRepository.findById(questionId).get();		
 		Answer answer = answerRepository.findById(id).get();
 		User loginUser = HttpSessionUtils.getUserFromSession(session);
 		if(!answer.isSameWriter(loginUser)) {
-			return Result.fail("You can delete only your answer");
+			return ResultUtils.fail("You can delete only your answer");
 		}
 		answerRepository.deleteById(id);
 		question.deleteAnswer();
 		questionRepository.save(question);
-		return Result.ok();
+		return ResultUtils.ok();
 	}
 }

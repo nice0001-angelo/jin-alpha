@@ -5,20 +5,20 @@
  * Created on : Jan 2020
  * Contents : for result
  */
-package net.jin.model;
+package net.jin.util;
 
 import com.sun.xml.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 
-public class Result {
+public class ResultUtils {
 	private boolean valid;
 	private String errorMessage;
 	
 
-	private Result(String errorMessage) {
+	private ResultUtils(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
 	
-	private Result(boolean valid, String errorMessage) {
+	private ResultUtils(boolean valid, String errorMessage) {
 		this.valid = valid;
 		this.errorMessage = errorMessage;
 	}
@@ -31,12 +31,12 @@ public class Result {
 		return errorMessage;
 	}
 	
-	public static Result ok() {
-		return new Result(true, null);
+	public static ResultUtils ok() {
+		return new ResultUtils(true, null);
 	}
 	
-	public static Result fail(String errorMessage) {
-		return new Result(false, errorMessage);
+	public static ResultUtils fail(String errorMessage) {
+		return new ResultUtils(false, errorMessage);
 	}
 	
 }
