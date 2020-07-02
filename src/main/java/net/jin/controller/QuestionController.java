@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import net.jin.model.Question;
 import net.jin.model.User;
 import net.jin.question.service.CreateQuestionService;
+import net.jin.question.service.DeleteQuestionService;
 import net.jin.question.service.GoQuestionFormSerivce;
 import net.jin.question.service.GoUpdateQuestionFormService;
 import net.jin.question.service.ShowQuestionService;
@@ -52,6 +53,9 @@ public class QuestionController {
 	
 	@Autowired
 	private UpdateQuestionService updateQuestionService;
+	
+	@Autowired
+	private DeleteQuestionService deleteQuestionService;
 	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
@@ -83,18 +87,10 @@ public class QuestionController {
 		return page;
 		}
 	
-	@PostMapping("/{id}/delete")
-	public String delete(@PathVariable Long id, Model model, HttpSession session) {
-		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		ResultUtils result = valid(session, question);
-		if (!result.isValid()) {
-			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
-																			// /user/login.html
-			return "user/login";
-		}
-
-		questionRepository.deleteById(id);
-		return "redirect:/";
+	@PostMapping("/{id}/deleteQuestion")
+	public String deleteQuestion(@PathVariable Long id, Model model, HttpSession session) {
+		String page = deleteQuestionService.deleteQuestion(id, model, session);
+		return page;
 	}
 
 	private boolean hasPemission(HttpSession session, Question question) {
