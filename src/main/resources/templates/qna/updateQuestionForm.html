@@ -9,10 +9,12 @@
 		<div class="col-md-12 col-sm-12 col-lg-10 col-lg-offset-1">
 			<div class="panel panel-default content-main">
 				{{#question}}
-				<form name="question" method="post" action="/questions/{{id}}/update">
+				<form name="question" method="post"
+					action="/questions/{{id}}/update">
 					<div class="form-group">
 						<label for="title">Title</label> <input type="text"
-							class="form-control" id="title" name="title" value={{title}} placeholder="Title" />
+							class="form-control" id="title" name="title" value={{title}}
+							placeholder="Title" />
 					</div>
 					<div class="form-group">
 						<label for="contents">Contents</label>
@@ -25,8 +27,7 @@
 				{{/question}}
 			</div>
 		</div>
+		{{> include/footer}}
 	</div>
-
-	{{> include/footer}}
 </body>
 </html>
