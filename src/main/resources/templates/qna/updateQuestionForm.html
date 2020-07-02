@@ -10,11 +10,10 @@
 			<div class="panel panel-default content-main">
 				{{#question}}
 				<form name="question" method="post"
-					action="/questions/{{id}}/update">
+					action="/questions/{{id}}/updateQuestion">
 					<div class="form-group">
 						<label for="title">Title</label> <input type="text"
-							class="form-control" id="title" name="title" value={{title}}
-							placeholder="Title" />
+							class="form-control" id="title" name="title" placeholder="{{title}}"/>
 					</div>
 					<div class="form-group">
 						<label for="contents">Contents</label>
