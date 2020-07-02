@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>{{> include/header}}
+<script type="text/javascript">
+$(document).ready(function(){
+	// 서비스 콜 지점
+	// url 여기서 ajax call => JSON Object
+	var url = "/api/questions/201/answers";
+	var data = {"id":"201"};
+	$.ajax({
+		type:"post"
+		,url:url
+		,data:data
+		,success:successFunc
+		,error:failFunc
+		,dataType:"json"
+	});
+});
+
+function successFunc(resData){
+	alert("success");
+	alert(JSON.stringify(resData));
+}
+function failFunc(xhr, textStatus, errorThrown){
+	alert("fail");
+	alert("textStatus:"+textStatus);
+	alert("errorThrown:"+errorThrown);
+}
+</script>
+
 </head>
 <body>
 	{{> include/navigation}}

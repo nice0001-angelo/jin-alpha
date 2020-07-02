@@ -7,8 +7,6 @@
  */
 package net.jin.util;
 
-import com.sun.xml.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
-
 public class ResultUtils {
 	private boolean valid;
 	private String errorMessage;

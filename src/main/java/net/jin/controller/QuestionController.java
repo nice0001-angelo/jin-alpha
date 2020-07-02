@@ -93,17 +93,6 @@ public class QuestionController {
 		return page;
 	}
 
-	private boolean hasPemission(HttpSession session, Question question) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			throw new IllegalStateException("You have to do this after login");
-		}
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if (!question.isSameWriter(loginUser)) {
-			throw new IllegalStateException("Your login is not matched");
-		}
-		return true;
-	}
-	
 	public ResultUtils valid(HttpSession session, Question question) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
 			return ResultUtils.fail("You have to do this after login");
