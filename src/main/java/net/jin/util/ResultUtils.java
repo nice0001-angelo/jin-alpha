@@ -7,11 +7,23 @@
  */
 package net.jin.util;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import net.jin.model.Question;
+import net.jin.model.User;
+
 public class ResultUtils {
 	private boolean valid;
 	private String errorMessage;
 	
-
+	@Autowired
+	HttpSession session;
+	
+	@Autowired
+	Question question;
+	
 	private ResultUtils(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
@@ -37,4 +49,14 @@ public class ResultUtils {
 		return new ResultUtils(false, errorMessage);
 	}
 	
+	public ResultUtils valid(HttpSession session, Question question) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
+			return ResultUtils.fail("You have to do this after login");
+		}
+		User loginUser = HttpSessionUtils.getUserFromSession(session);
+		if (!question.isSameWriter(loginUser)) {
+			return ResultUtils.fail("Your login is not matched");
+		}
+		return ResultUtils.ok();
+	}
 }

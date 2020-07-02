@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import net.jin.controller.QuestionController;
 import net.jin.model.Question;
 import net.jin.question.service.GoUpdateQuestionFormService;
 import net.jin.repository.QuestionRepository;
@@ -20,12 +19,12 @@ public class GoUpdateQuestionFormServiceImpl implements GoUpdateQuestionFormServ
 	QuestionRepository questionRepository;
 	
 	@Autowired
-	QuestionController questionController;
+	ResultUtils resultUtils;
 	
 	@Override
 	public String goUpdateQuestionForm(@PathVariable Long id, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		ResultUtils result = questionController.valid(session, question);
+		ResultUtils result = resultUtils.valid(session, question);
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
 																			// /user/login.html
