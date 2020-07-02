@@ -74,7 +74,7 @@ public class QuestionController {
 	}
 	
 	@PostMapping("/{id}/updateQuestion")
-	public String update(@PathVariable Long id, String title, String contents, Model model, HttpSession session) {
+	public String updateQuestion(@PathVariable Long id, String title, String contents, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
 		ResultUtils result = valid(session, question);
 		if (!result.isValid()) {
