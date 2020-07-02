@@ -67,34 +67,12 @@ public class QuestionController {
 		return page;
 	}
 
-	@GetMapping("/{id}/form")
+	@GetMapping("/{id}/goUpdateQuestionForm")
 	public String goUpdateQuestionForm(@PathVariable Long id, Model model, HttpSession session) {
 		String page = goUpdateQuestionFormService.goUpdateQuestionForm(id, model, session);
 		return page;
 	}
-
-	private boolean hasPemission(HttpSession session, Question question) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			throw new IllegalStateException("You have to do this after login");
-		}
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if (!question.isSameWriter(loginUser)) {
-			throw new IllegalStateException("Your login is not matched");
-		}
-		return true;
-	}
 	
-	public ResultUtils valid(HttpSession session, Question question) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return ResultUtils.fail("You have to do this after login");
-		}
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if (!question.isSameWriter(loginUser)) {
-			return ResultUtils.fail("Your login is not matched");
-		}
-		return ResultUtils.ok();
-	}
-
 	@PostMapping("/{id}/update")
 	public String update(@PathVariable Long id, String title, String contents, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
@@ -124,4 +102,28 @@ public class QuestionController {
 		questionRepository.deleteById(id);
 		return "redirect:/";
 	}
+
+	private boolean hasPemission(HttpSession session, Question question) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
+			throw new IllegalStateException("You have to do this after login");
+		}
+		User loginUser = HttpSessionUtils.getUserFromSession(session);
+		if (!question.isSameWriter(loginUser)) {
+			throw new IllegalStateException("Your login is not matched");
+		}
+		return true;
+	}
+	
+	public ResultUtils valid(HttpSession session, Question question) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
+			return ResultUtils.fail("You have to do this after login");
+		}
+		User loginUser = HttpSessionUtils.getUserFromSession(session);
+		if (!question.isSameWriter(loginUser)) {
+			return ResultUtils.fail("Your login is not matched");
+		}
+		return ResultUtils.ok();
+	}
+
+
 }
