@@ -85,8 +85,7 @@ public class QuestionController {
 
 		question.update(title, contents);
 		questionRepository.save(question);
-		return String.format("redirect:/questions/%d", id);
-
+		return String.format("redirect:/questions/%d/showQuestion", id);
 	}
 
 	@PostMapping("/{id}/delete")
