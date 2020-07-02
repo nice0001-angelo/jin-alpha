@@ -26,6 +26,7 @@ import net.jin.question.service.CreateQuestionService;
 import net.jin.question.service.GoQuestionFormSerivce;
 import net.jin.question.service.GoUpdateQuestionFormService;
 import net.jin.question.service.ShowQuestionService;
+import net.jin.question.service.UpdateQuestionService;
 import net.jin.repository.QuestionRepository;
 import net.jin.util.HttpSessionUtils;
 import net.jin.util.ResultUtils;
@@ -48,6 +49,9 @@ public class QuestionController {
 	
 	@Autowired
 	private GoUpdateQuestionFormService goUpdateQuestionFormService;
+	
+	@Autowired
+	private UpdateQuestionService updateQuestionService;
 	
 	@GetMapping("/goQuestionForm")
 	public String goQuestionForm(HttpServletRequest httpServletRequest) {
@@ -75,19 +79,10 @@ public class QuestionController {
 	
 	@PostMapping("/{id}/updateQuestion")
 	public String updateQuestion(@PathVariable Long id, String title, String contents, Model model, HttpSession session) {
-		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		ResultUtils result = valid(session, question);
-		if (!result.isValid()) {
-			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
-																			// /user/login.html
-			return "user/login";
+		String page = updateQuestionService.updateQuestion(id, title, contents, model, session);
+		return page;
 		}
-
-		question.update(title, contents);
-		questionRepository.save(question);
-		return String.format("redirect:/questions/%d/showQuestion", id);
-	}
-
+	
 	@PostMapping("/{id}/delete")
 	public String delete(@PathVariable Long id, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
