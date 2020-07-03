@@ -22,8 +22,8 @@ public class DeleteQuestionServiceImpl implements DeleteQuestionService{
 	public String deleteQuestion(@PathVariable Long id, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get();
 
-		//ResultUtils result = resultUtils.valid(session, question);
-		ResultUtils result = ResultUtils.valid(session, question); // static 직접접근
+		//ResultUtils result = resultUtils.valid(session, question); 이런식으로 하려면 @Autowired로 접근해야함 하지만 Static은 그런식으로 접근 안됨
+		ResultUtils result = ResultUtils.valid(session, question); // static 직접접근방법(class명.method명)
 		
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage());

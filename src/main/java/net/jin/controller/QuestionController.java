@@ -33,9 +33,6 @@ import net.jin.repository.QuestionRepository;
 public class QuestionController {
 
 	@Autowired // 스프링프레임워크가 사용하고 싶으니 나에게 인자를 전달해달라는 어노테이션
-	private QuestionRepository questionRepository; // 스프링프레임워크가 questionRepository라는 구현체를 만들어서 알아서 관리해줌
-
-	@Autowired
 	private GoQuestionFormSerivce goQuestionFormService;
 	
 	@Autowired
