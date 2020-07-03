@@ -9,8 +9,6 @@ package net.jin.util;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import net.jin.model.Question;
 import net.jin.model.User;
 
@@ -18,16 +16,12 @@ public class ResultUtils {
 	private boolean valid;
 	private String errorMessage;
 	
-	@Autowired
-	HttpSession session;
-	
-	@Autowired
-	Question question;
-	
+	//생성자
 	private ResultUtils(String errorMessage) {
 		this.errorMessage = errorMessage;
 	}
 	
+	//생성자
 	private ResultUtils(boolean valid, String errorMessage) {
 		this.valid = valid;
 		this.errorMessage = errorMessage;
@@ -49,7 +43,7 @@ public class ResultUtils {
 		return new ResultUtils(false, errorMessage);
 	}
 	
-	public ResultUtils valid(HttpSession session, Question question) {
+	public static ResultUtils valid(HttpSession session, Question question) {
 		if (!HttpSessionUtils.isLoginUser(session)) {
 			return ResultUtils.fail("You have to do this after login");
 		}

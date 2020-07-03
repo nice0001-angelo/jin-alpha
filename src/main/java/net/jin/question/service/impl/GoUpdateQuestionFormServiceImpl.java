@@ -18,13 +18,10 @@ public class GoUpdateQuestionFormServiceImpl implements GoUpdateQuestionFormServ
 	@Autowired
 	QuestionRepository questionRepository;
 	
-	@Autowired
-	ResultUtils resultUtils;
-	
 	@Override
 	public String goUpdateQuestionForm(@PathVariable Long id, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		ResultUtils result = resultUtils.valid(session, question);
+		ResultUtils result = ResultUtils.valid(session, question);
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
 																			// /user/login.html

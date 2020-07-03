@@ -18,13 +18,13 @@ public class DeleteQuestionServiceImpl implements DeleteQuestionService{
 	@Autowired
 	QuestionRepository questionRepository;
 	
-	@Autowired
-	ResultUtils resultUtils;
-	
 	@Override
 	public String deleteQuestion(@PathVariable Long id, Model model, HttpSession session) {
 		Question question = questionRepository.findById(id).get();
-		ResultUtils result = resultUtils.valid(session, question);
+
+		//ResultUtils result = resultUtils.valid(session, question);
+		ResultUtils result = ResultUtils.valid(session, question); // static 직접접근
+		
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage());
 			return "user/login";

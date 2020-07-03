@@ -14,6 +14,7 @@ import net.jin.util.HttpSessionUtils;
 
 @Service
 public class UpdateUserServiceImpl implements UpdateUserService {
+	
 	@Autowired
 	private UserRepository userRepository;
 	

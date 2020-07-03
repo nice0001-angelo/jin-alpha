@@ -21,15 +21,12 @@ public class UpdateQuestionServiceImpl implements UpdateQuestionService {
 
 	@Autowired
 	QuestionController questionController;
-	
-	@Autowired
-	ResultUtils resultUtils;
 
 	@Override
 	public String updateQuestion(@PathVariable Long id, String title, String contents, Model model,
 			HttpSession session) {
 		Question question = questionRepository.findById(id).get();
-		ResultUtils result = resultUtils.valid(session, question);
+		ResultUtils result = ResultUtils.valid(session, question);
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage());
 			return "user/login";
