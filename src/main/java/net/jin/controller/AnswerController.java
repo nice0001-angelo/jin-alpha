@@ -14,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.model.Answer;
@@ -36,7 +35,7 @@ public class AnswerController {
 	private AnswerRepository answerRepository;
 	
 	@GetMapping("/{id}/goUpdateAnswerForm")
-	public String updateForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
+	public String goUpdateForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
 		Answer answer = answerRepository.findById(id).get();
 		Question question = questionRepository.findById(questionId).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
 		ResultUtils result = valid(session, answer);
