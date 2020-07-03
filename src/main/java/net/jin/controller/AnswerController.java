@@ -35,7 +35,7 @@ public class AnswerController {
 	@Autowired
 	private AnswerRepository answerRepository;
 	
-	@GetMapping("/{id}/form")
+	@GetMapping("/{id}/goUpdateAnswerForm")
 	public String updateForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
 		Answer answer = answerRepository.findById(id).get();
 		Question question = questionRepository.findById(questionId).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
@@ -54,7 +54,7 @@ public class AnswerController {
 		
 		model.addAttribute("answer", answer); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
 		System.out.print(model);
-		return "qna/answerUpdateForm";
+		return "qna/updateAnswerForm";
 	}
 	
 
