@@ -26,7 +26,6 @@ import net.jin.question.service.GoQuestionFormSerivce;
 import net.jin.question.service.GoUpdateQuestionFormService;
 import net.jin.question.service.ShowQuestionService;
 import net.jin.question.service.UpdateQuestionService;
-import net.jin.repository.QuestionRepository;
 
 @Controller
 @RequestMapping("/questions")

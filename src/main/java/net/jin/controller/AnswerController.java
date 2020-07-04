@@ -16,57 +16,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.jin.model.Answer;
-import net.jin.model.Question;
-import net.jin.model.User;
-import net.jin.repository.AnswerRepository;
-import net.jin.repository.QuestionRepository;
-import net.jin.util.HttpSessionUtils;
-import net.jin.util.ResultUtils;
+import net.jin.answer.service.GoUpdateAnswerFormService;
 
 @Controller
 @RequestMapping("/answers/{questionId}/answers")
 public class AnswerController {
 
 	@Autowired
-	private QuestionRepository questionRepository;
-	
-	@Autowired
-	private AnswerRepository answerRepository;
+	private GoUpdateAnswerFormService goUpdateAnswerFormService;
 	
 	@GetMapping("/{id}/goUpdateAnswerForm")
-	public String goUpdateForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
-		Answer answer = answerRepository.findById(id).get();
-		Question question = questionRepository.findById(questionId).get(); // refactoring 의 local variable를 통해서 추출하고 자동 변경된것임
-		ResultUtils result = valid(session, answer);
-		if (!result.isValid()) {
-			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
-																			// /user/login.html
-			return "user/login";
-		}
-
-
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if(!answer.isSameWriter(loginUser)) {
-			System.out.println("You can update only your answer");
-		}
-		
-		model.addAttribute("answer", answer); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
-		System.out.print(model);
-		return "qna/updateAnswerForm";
+	public String goUpdateAnswerForm(@PathVariable Long questionId, @PathVariable Long id, HttpSession session, Model model) {
+		String page = goUpdateAnswerFormService.goUpdateAnswerForm(questionId, id, session, model);
+		return page;
 	}
-	
-
-	
-	private ResultUtils valid(HttpSession session, Answer answer) {
-		if (!HttpSessionUtils.isLoginUser(session)) {
-			return ResultUtils.fail("You have to do this after login");
-		}
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		if (!answer.isSameWriter(loginUser)) {
-			return ResultUtils.fail("Your login is not matched");
-		}
-		return ResultUtils.ok();
-	}
-	
 }

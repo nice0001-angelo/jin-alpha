@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import net.jin.controller.QuestionController;
 import net.jin.model.Question;
 import net.jin.question.service.UpdateQuestionService;
 import net.jin.repository.QuestionRepository;
@@ -18,9 +17,6 @@ public class UpdateQuestionServiceImpl implements UpdateQuestionService {
 
 	@Autowired
 	QuestionRepository questionRepository;
-
-	@Autowired
-	QuestionController questionController;
 
 	@Override
 	public String updateQuestion(@PathVariable Long id, String title, String contents, Model model,
