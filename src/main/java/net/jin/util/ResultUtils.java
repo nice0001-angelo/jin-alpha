@@ -54,13 +54,4 @@ public class ResultUtils {
 		}
 		return ResultUtils.ok();
 	}
-	
-	/*
-	 * //validAnswer private static ResultUtils validAnswer(HttpSession session,
-	 * Answer answer) { if (!HttpSessionUtils.isLoginUser(session)) { return
-	 * ResultUtils.fail("You have to do this after login"); } User loginUser =
-	 * HttpSessionUtils.getUserFromSession(session); if
-	 * (!answer.isSameWriter(loginUser)) { return
-	 * ResultUtils.fail("Your login is not matched"); } return ResultUtils.ok(); }
-	 */
 }

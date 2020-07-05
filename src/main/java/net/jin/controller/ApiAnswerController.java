@@ -10,9 +10,7 @@ package net.jin.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +30,7 @@ public class ApiAnswerController {
 	@Autowired
 	private QuestionRepository questionRepository;
 	
-	@Autowired //Autowired annotation alot value to anwserRepository from AnwerRepository under Spring Framework
+	@Autowired
 	private AnswerRepository answerRepository;
 	
 	
