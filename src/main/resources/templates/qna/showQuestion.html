@@ -11,20 +11,21 @@ $(document).ready(function(){
 		type:"post"
 		,url:url
 		,data:data
-		,success:successFunc
-		,error:failFunc
 		,dataType:"json"
+		,error:failFunc
+		,success:successFunc
 	});
 });
 
-function successFunc(resData){
-	alert("success");
-	alert(JSON.stringify(resData));
-}
 function failFunc(xhr, textStatus, errorThrown){
 	alert("fail");
 	alert("textStatus:"+textStatus);
 	alert("errorThrown:"+errorThrown);
+}
+
+function successFunc(resData){
+	alert("success");
+	alert(JSON.stringify(resData));
 }
 </script>
 
