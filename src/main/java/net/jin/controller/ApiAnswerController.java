@@ -35,7 +35,8 @@ public class ApiAnswerController {
 	
 	
 	@PostMapping("")
-	public Answer create(@PathVariable Long questionId, String contents, HttpSession session) {
+	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
+		System.out.println("**************Stsrt API createAnswer************");
 		if(!HttpSessionUtils.isLoginUser(session)) {
 			return null;
 		}
@@ -52,7 +53,8 @@ public class ApiAnswerController {
 
 	
 	@DeleteMapping("/{id}")
-	public ResultUtils delete(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
+	public ResultUtils deleteAnswer(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
+		System.out.println("**************Stsrt API deleteAnswer************");
 		if(!HttpSessionUtils.isLoginUser(session)) {
 			return ResultUtils.fail("You have to login first");
 		}
