@@ -32,7 +32,7 @@ public class GoUpdateAnswerFormServiceImpl implements GoUpdateAnswerFormService{
 		if (!result.isValid()) {
 			model.addAttribute("errorMessage", result.getErrorMessage()); // Excception into errorMessage and return to
 																			// /user/login.html
-			return "user/login";
+			return "user/loginForm";
 		}
 
 		model.addAttribute("answer", answer); // 해당 id에 해당하는 data를 question 테이블에서 가져다가 return 한다
