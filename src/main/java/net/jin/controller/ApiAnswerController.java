@@ -36,8 +36,9 @@ public class ApiAnswerController {
 	
 	@PostMapping("")
 	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
-		System.out.println("**************Stsrt API createAnswer************");
+		System.out.println("**************Start API createAnswer************");
 		if(!HttpSessionUtils.isLoginUser(session)) {
+		System.out.println("**************You are Not login User************");
 			return null;
 		}
 
