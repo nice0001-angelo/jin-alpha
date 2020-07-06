@@ -5,15 +5,21 @@
 $(document).ready(function(){
 	// 서비스 콜 지점
 	// url 여기서 ajax call => JSON Object
-	var url = "/api/questions/201/answers";
-	var data = {"id":"201"};
-	$.ajax({
-		type:"post"
-		,url:url
-		,data:data
-		,dataType:"json"
-		,error:failFunc
-		,success:successFunc
+	
+	
+	$("#btnSubmit").click(function(){
+		var reqId = $(this).attr("data-id");
+		var url = "/api/questions/"+reqId+"/answers";
+		var contents = $("#contents").val();
+		var data = {"id":reqId, "contents":contents};
+		$.ajax({
+			type:"post"
+			,url:url
+			,data:data
+			,dataType:"json"
+			,error:failFunc
+			,success:successFunc
+		});	
 	});
 });
 
@@ -24,8 +30,10 @@ function failFunc(xhr, textStatus, errorThrown){
 }
 
 function successFunc(resData){
-	alert("success");
-	alert(JSON.stringify(resData));
+	//alert(JSON.stringify(resData.));
+	history.go(0);
+	//alert("success");
+	//alert(JSON.stringify(resData));
 }
 </script>
 
@@ -113,10 +121,10 @@ function successFunc(resData){
 									action="/api/questions/{{id}}/answers">
 									<div class="form-group" style="padding: 14px;">
 										<textarea class="form-control"
-											placeholder="Update your status" name="contents"></textarea>
+											placeholder="Update your status" name="contents" id="contents"></textarea>
 									</div>
-									<input type="submit" class="btn btn-success pull-right"
-										value="Reply" />
+									<input type="button" class="btn btn-success pull-right"
+										value="Reply" id="btnSubmit" data-id="{{id}}"/>
 									<div class="clearfix" />
 								</form>
 							</div>

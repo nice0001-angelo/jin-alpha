@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>{{> include/header}}
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type:"post"
+		,url:"users/userList"
+		,data:data
+		,dataType:"json"
+		,error:failFunc
+		,success:successFunc
+	});
+});
+
+function failFunc(xhr, textStatus, errorThrown){
+	alert("fail");
+	alert("textStatus:"+textStatus);
+	alert("errorThrown:"+errorThrown);
+}
+
+function successFunc(resData){
+	alert(JSON.stringify(resData));
+	//history.go(0);
+	//alert("success");
+	//alert(JSON.stringify(resData));
+}
+
+</script>
 </head>
 <body>
 	{{> include/navigation}}
