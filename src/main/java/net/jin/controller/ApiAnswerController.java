@@ -37,7 +37,7 @@ public class ApiAnswerController {
 		return answer;
 	}
 
-	@DeleteMapping("/{id}")
+	@PostMapping("/{id}")
 	public ResultUtils deleteAnswer(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
 		ResultUtils resultUtils = deleteAnswerService.deleteAnswer(questionId, id, session);
 		return resultUtils;
