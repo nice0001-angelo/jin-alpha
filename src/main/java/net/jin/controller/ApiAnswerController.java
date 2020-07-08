@@ -10,12 +10,14 @@ package net.jin.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.jin.answer.service.CreateAnsewerService;
 import net.jin.model.Answer;
 import net.jin.model.Question;
 import net.jin.model.User;
@@ -33,23 +35,13 @@ public class ApiAnswerController {
 	@Autowired
 	private AnswerRepository answerRepository;
 	
+	@Autowired
+	CreateAnsewerService createAnswerService;
 	
 	@PostMapping("")
 	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
-		System.out.println("**************Start API createAnswer************");
-		if(!HttpSessionUtils.isLoginUser(session)) {
-		System.out.println("**************You are Not login User************");
-			return null;
-		}
-
-		
-		User loginUser = HttpSessionUtils.getUserFromSession(session);
-		
-		Question question = questionRepository.findById(questionId).get();
-		Answer answer = new Answer(loginUser, question, contents);
-		question.addAnswer();
-		return answerRepository.save(answer);
-		
+		Answer page = createAnswerService.createAnswer(questionId, contents, session);
+		return page;
 	}
 
 
