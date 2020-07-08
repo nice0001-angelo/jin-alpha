@@ -40,11 +40,9 @@ public class ApiAnswerController {
 	
 	@PostMapping("")
 	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
-		Answer page = createAnswerService.createAnswer(questionId, contents, session);
-		return page;
+		Answer answer = createAnswerService.createAnswer(questionId, contents, session);
+		return answer;
 	}
-
-
 	
 	@DeleteMapping("/{id}")
 	public ResultUtils deleteAnswer(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
