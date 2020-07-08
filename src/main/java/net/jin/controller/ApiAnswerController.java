@@ -31,13 +31,13 @@ public class ApiAnswerController {
 	@Autowired
 	DeleteAnswerService deleteAnswerService;
 
-	@PostMapping("")
+	@PostMapping("/createAnswer")
 	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
 		Answer answer = createAnswerService.createAnswer(questionId, contents, session);
 		return answer;
 	}
 
-	@PostMapping("/{id}")
+	@PostMapping("/{id}/deleteAnswer")
 	public ResultUtils deleteAnswer(@PathVariable Long questionId, @PathVariable Long id, HttpSession session) {
 		ResultUtils resultUtils = deleteAnswerService.deleteAnswer(questionId, id, session);
 		return resultUtils;
