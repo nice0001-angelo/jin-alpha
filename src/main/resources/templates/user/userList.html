@@ -20,7 +20,15 @@ function failFunc(xhr, textStatus, errorThrown){
 }
 
 function successFunc(resData){
+	var addHtml = "";
 	alert(JSON.stringify(resData));
+	alert(JSON.stringify(resData.users.name));
+	var usersArry = resData.users;
+	for (var i=0; i < usersArry.length; i++) {
+		alert(JSON.stringify(usersArry[i].name));	
+		addHtml += "<td>"+usersArry[i].name+"</td>";
+	}
+	$("#display").html(addHtml);
 	//history.go(0);
 	//alert("success");
 	//alert(JSON.stringify(resData));
