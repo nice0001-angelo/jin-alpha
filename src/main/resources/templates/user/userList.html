@@ -5,9 +5,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.ajax({
-			type : "post",
+			type : "get",
 			url : "users/userList",
-			data : data,
+			data : resData,
 			dataType : "json",
 			error : failFunc,
 			success : successFunc
@@ -21,6 +21,7 @@
 	}
 
 	function successFunc(resData) {
+		alert("success")
 		var addHtml = "";
 		alert(JSON.stringify(resData));
 		alert(JSON.stringify(resData.users.name));
@@ -57,11 +58,11 @@
 					</thead>
 					<tbody>
 						<!-- {{#users}} -->
-						<tr>
-<!-- 							<th scope="row">{{id}}</th>
+						<tr id = "display">
+<!--  							<th scope="row">{{id}}</th>
 							<td>{{userId}}</td>
-							<td>{{name}}</td> -->
-							<td>{{email}}</td>
+							<td>{{name}}</td>
+							<td>{{email}}</td> -->
 
 							<td><a href="/users/{{id}}/goUpdateUserForm"
 								class="btn btn-success" role="button">Update</a></td>
