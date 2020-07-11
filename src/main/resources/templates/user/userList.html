@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="kr">
-<head>{{> include/header}}
+<head>
+{{> include/header}}
 <script type="text/javascript">
-$(document).ready(function(){
-	$.ajax({
-		type:"post"
-		,url:"users/userList"
-		,data:data
-		,dataType:"json"
-		,error:failFunc
-		,success:successFunc
+	$(document).ready(function() {
+		$.ajax({
+			type : "post",
+			url : "users/userList",
+			data : data,
+			dataType : "json",
+			error : failFunc,
+			success : successFunc
+		});
 	});
-});
 
-function failFunc(xhr, textStatus, errorThrown){
-	alert("fail");
-	alert("textStatus:"+textStatus);
-	alert("errorThrown:"+errorThrown);
-}
-
-function successFunc(resData){
-	var addHtml = "";
-	alert(JSON.stringify(resData));
-	alert(JSON.stringify(resData.users.name));
-	var usersArry = resData.users;
-	for (var i=0; i < usersArry.length; i++) {
-		alert(JSON.stringify(usersArry[i].name));	
-		addHtml += "<td>"+usersArry[i].name+"</td>";
+	function failFunc(xhr, textStatus, errorThrown) {
+		alert("fail");
+		alert("textStatus:" + textStatus);
+		alert("errorThrown:" + errorThrown);
 	}
-	$("#display").html(addHtml);
-	//history.go(0);
-	//alert("success");
-	//alert(JSON.stringify(resData));
-}
 
+	function successFunc(resData) {
+		var addHtml = "";
+		alert(JSON.stringify(resData));
+		alert(JSON.stringify(resData.users.name));
+		var usersArry = resData.users;
+		for (var i = 0; i < usersArry.length; i++) {
+			alert(JSON.stringify(usersArry[i].name));
+			addHtml += "<td>" + usersArry[i].id + "</td>";
+			addHtml += "<td>" + usersArry[i].userId + "</td>";
+			addHtml += "<td>" + usersArry[i].name + "</td>";
+			addHtml += "<td>" + usersArry[i].email + "</td>";
+		}
+		$("#display").html(addHtml);
+		//history.go(0);
+		//alert("success");
+		//alert(JSON.stringify(resData));
+	}
 </script>
 </head>
 <body>
@@ -55,12 +58,13 @@ function successFunc(resData){
 					<tbody>
 						<!-- {{#users}} -->
 						<tr>
-							<th scope="row">{{id}}</th>
+<!-- 							<th scope="row">{{id}}</th>
 							<td>{{userId}}</td>
-							<td>{{name}}</td>
+							<td>{{name}}</td> -->
 							<td>{{email}}</td>
-							<td><a href="/users/{{id}}/goUpdateUserForm" class="btn btn-success"
-								role="button">Update</a></td>
+
+							<td><a href="/users/{{id}}/goUpdateUserForm"
+								class="btn btn-success" role="button">Update</a></td>
 						</tr>
 						<!-- {{/users}} -->
 					</tbody>
