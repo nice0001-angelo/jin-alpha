@@ -30,8 +30,9 @@ public class ApiUserController {
 	}
 
 	@GetMapping("/userList")
-	public String list(Model model) {
+	public Model list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "hi there"; 
+		System.out.println("model ==>"+model);
+		return model;
 	}
 }
