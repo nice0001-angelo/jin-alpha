@@ -32,6 +32,6 @@ public class ApiUserController {
 	@GetMapping("/userList")
 	public String list(Model model) {
 		model.addAttribute("users", userRepository.findAll());
-		return "user/userList"; 
+		return "hi there"; 
 	}
 }
