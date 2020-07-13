@@ -31,7 +31,8 @@
 			addHtml += "<tr><td>" + resData[i].id + "</td>";
 			addHtml += "<td>" + resData[i].userId + "</td>";
 			addHtml += "<td>" + resData[i].name + "</td>";
-			addHtml += "<td>" + resData[i].email + "</td></tr>";
+			addHtml += "<td>" + resData[i].email + "</td>";
+			addHtml += "<td><a href='/users/"+resData[i].id+"/goUpdateUserForm'	class='btn btn-success' role='button'>Update</a></td></tr>";
 		}
 		$("#display").html(addHtml);
 		//history.go(0);
@@ -58,15 +59,14 @@
 					</thead>
 					<tbody id = "display">
 						<!-- {{#users}} -->
-						<tr>
-<!--  							<th scope="row">{{id}}</th>
+<!-- 						<tr>
+  							<th scope="row">{{id}}</th>
 							<td>{{userId}}</td>
 							<td>{{name}}</td>
-							<td>{{email}}</td> -->
-
+							<td>{{email}}</td>
 							<td><a href="/users/{{id}}/goUpdateUserForm"
 								class="btn btn-success" role="button">Update</a></td>
-						</tr>
+						</tr> -->
 						<!-- {{/users}} -->
 					</tbody>
 				</table>

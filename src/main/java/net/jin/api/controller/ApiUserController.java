@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the "/api/users" call controller
  */
-package net.jin.controller;
+package net.jin.api.controller;
 
 import java.util.List;
 

@@ -5,7 +5,7 @@
  * Created on : Jan 2020
  * Contents : for the "/api/questions/{questionId}/answers" call controller
  */
-package net.jin.controller;
+package net.jin.api.controller;
 
 import javax.servlet.http.HttpSession;
 
