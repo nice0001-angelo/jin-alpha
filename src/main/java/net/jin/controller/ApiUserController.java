@@ -7,10 +7,12 @@
  */
 package net.jin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,10 +31,11 @@ public class ApiUserController {
 		return userRepository.findById(id).get();
 	}
 
-	@GetMapping("/userList")
-	public Model list(Model model) {
-		model.addAttribute("users", userRepository.findAll());
-		System.out.println("model ==>"+model);
-		return model;
+	@PostMapping("/userList")
+	public List<User> list() {
+		//model.addAttribute("users", userRepository.findAll());
+		//System.out.println("model ==>"+model);
+		 
+		return (List<User>) userRepository.findAll();
 	}
 }

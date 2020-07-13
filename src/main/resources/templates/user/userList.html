@@ -5,9 +5,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.ajax({
-			type : "get",
-			url : "users/userList",
-			data : resData,
+			type : "post",
+			url : "/api/users/userList",
+			data : "",
 			dataType : "json",
 			error : failFunc,
 			success : successFunc
@@ -23,15 +23,15 @@
 	function successFunc(resData) {
 		alert("success")
 		var addHtml = "";
-		alert(JSON.stringify(resData));
-		alert(JSON.stringify(resData.users.name));
+		alert(JSON.stringify(resData[0].name));
+	//alert(JSON.stringify(resData.users.name));
 		var usersArry = resData.users;
-		for (var i = 0; i < usersArry.length; i++) {
-			alert(JSON.stringify(usersArry[i].name));
-			addHtml += "<td>" + usersArry[i].id + "</td>";
-			addHtml += "<td>" + usersArry[i].userId + "</td>";
-			addHtml += "<td>" + usersArry[i].name + "</td>";
-			addHtml += "<td>" + usersArry[i].email + "</td>";
+		for (var i = 0; i < resData.length; i++) {
+			//alert(JSON.stringify(resData[i].name));
+			addHtml += "<tr><td>" + resData[i].id + "</td>";
+			addHtml += "<td>" + resData[i].userId + "</td>";
+			addHtml += "<td>" + resData[i].name + "</td>";
+			addHtml += "<td>" + resData[i].email + "</td></tr>";
 		}
 		$("#display").html(addHtml);
 		//history.go(0);
@@ -56,9 +56,9 @@
 							<th></th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id = "display">
 						<!-- {{#users}} -->
-						<tr id = "display">
+						<tr>
 <!--  							<th scope="row">{{id}}</th>
 							<td>{{userId}}</td>
 							<td>{{name}}</td>

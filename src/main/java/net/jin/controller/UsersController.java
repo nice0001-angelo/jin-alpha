@@ -46,6 +46,11 @@ public class UsersController {
 	@Autowired
 	private GoUpdateUserFormService goUpdateUserFormService;
 	
+	/*
+	 * @GetMapping("{pageName}") public String returnPage(String pageName) { return
+	 * "user/"+pageName; }
+	 */
+	
 	@GetMapping("/loginForm")
 	public String loginForm() {
 		return "user/loginForm";
@@ -74,12 +79,16 @@ public class UsersController {
 		return page;
 	}
 
+	/*
+	 * @GetMapping("/userList") public String list(Model model) {
+	 * model.addAttribute("users", userRepository.findAll()); return
+	 * "user/userList"; }
+	 */
+
 	@GetMapping("/userList")
 	public String list(Model model) {
-		model.addAttribute("users", userRepository.findAll());
 		return "user/userList"; 
 	}
-
 	@GetMapping("/{id}/goUpdateUserForm")
 	public String goUpdateUserForm(@PathVariable Long id, Model model, HttpSession session) {
 		String page = goUpdateUserFormService.goUpdateUserForm(id, model, session);
