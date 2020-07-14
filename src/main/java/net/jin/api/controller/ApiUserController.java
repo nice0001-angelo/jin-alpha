@@ -21,7 +21,7 @@ import net.jin.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")
-public class ApiUserController {
+public class ApiUserController{
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -32,10 +32,9 @@ public class ApiUserController {
 	}
 
 	@PostMapping("/userList")
-	public List<User> list() {
+	public List<User> userList() {
 		//model.addAttribute("users", userRepository.findAll());
 		//System.out.println("model ==>"+model);
-		 
 		return (List<User>) userRepository.findAll();
 	}
 }
