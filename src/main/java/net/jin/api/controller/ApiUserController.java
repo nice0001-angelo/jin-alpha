@@ -33,6 +33,7 @@ public class ApiUserController{
 
 	@PostMapping("/userList")
 	public List<User> userList() {
+		//List Pattern
 		//model.addAttribute("users", userRepository.findAll());
 		//System.out.println("model ==>"+model);
 		return (List<User>) userRepository.findAll();
