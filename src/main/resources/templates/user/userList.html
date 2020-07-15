@@ -23,7 +23,6 @@
 	function successFunc(resData) {
 		var addHtml = "";
 		//alert(JSON.stringify(resData[0].name));
-		var usersArry = resData.users;
 		for (var i = 0; i < resData.length; i++) {
 			addHtml += "<tr><td>" + resData[i].id + "</td>";
 			addHtml += "<td>" + resData[i].userId + "</td>";
