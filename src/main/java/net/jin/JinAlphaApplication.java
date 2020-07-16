@@ -74,6 +74,9 @@ public class JinAlphaApplication {
 		System.out.println("JavaHungry is Object");
 	}
 	
+	public static void JavaHungry(Integer i) {
+		System.out.println("JavaHungry is Integer");
+	}
 	
 	@Bean
     public Docket newsApi() {
