@@ -35,6 +35,13 @@ public class JinAlphaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JinAlphaApplication.class, args);
 		
+		
+
+// null value input test	
+		System.out.println();
+		JavaHungry(null);
+		System.out.println();
+		
 // 다형성 테스트(OverWatch)		
 		OverWatch ow; // 인터페이스 객체 선언
 		System.out.println("플레이할 캐릭터 번호 선택(1. 메이, 2. 리퍼, 3. 맥크리)");
@@ -54,7 +61,19 @@ public class JinAlphaApplication {
 		ow.shiftButton();
 		ow.eButton();
 		ow.qButton();
+		
+		
 	}
+	
+	
+	public static void JavaHungry(String s) {
+		System.out.println("JavaHungry is String");
+	}
+	
+	public static void JavaHungry(Object o) {
+		System.out.println("JavaHungry is Object");
+	}
+	
 	
 	@Bean
     public Docket newsApi() {
