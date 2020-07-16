@@ -32,8 +32,14 @@ public class JinAlphaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JinAlphaApplication.class, args);
-
-// null value input test	
+		
+		System.out.println();
+		JinTest();
+		
+		System.out.println();
+		System.out.println("Hello world");
+		
+		// null value input test	
 		System.out.println();
 		
 		String s = null;
@@ -65,7 +71,11 @@ public class JinAlphaApplication {
 		ow.qButton();
 
 	}
-
+	
+	public static void JinTest() {
+		System.out.println("JinTest");
+	}
+	
 	public static void JavaHungry(String s) {
 		System.out.println("JavaHungry is String");
 	}
