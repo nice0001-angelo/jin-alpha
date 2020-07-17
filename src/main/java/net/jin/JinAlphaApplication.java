@@ -32,25 +32,27 @@ public class JinAlphaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JinAlphaApplication.class, args);
+
 		
+/********************************** Start of Test Code *************************************/
+		
+		//Call JinTest method
 		System.out.println();
 		JinTest();
-		
 		System.out.println();
-		System.out.println("Hello world");
-		
-		// null value input test	
+
+		//Print "Hello World"
+		System.out.println("Hello World");
+
+		// null value input test
 		System.out.println();
-		
 		String s = null;
 		Object o = null;
 		Integer i = null;
-
 		JavaHungry(s);
-		
 		System.out.println();
 
-// 다형성 테스트(OverWatch)		
+		// 다형성 테스트(OverWatch) : 입출력 처리부		
 		OverWatch ow; // 인터페이스 객체 선언
 		System.out.println("플레이할 캐릭터 번호 선택(1. 메이, 2. 리퍼, 3. 맥크리)");
 		Scanner sc = new Scanner(System.in); // 스캐너 객체
@@ -62,34 +64,19 @@ public class JinAlphaApplication {
 		} else {
 			ow = new Mccree(); // 업캐스팅
 		}
-// 선택한 조건에 따라서 부모 객체로 자식 메소드 사용(하나의 타입으로 다양한 결과를 얻어냄 / 다형성)
+        
+		// 다형성 테스트(OverWatch):	선택한 조건에 따라서 부모 객체로 자식 메소드 사용(하나의 타입으로 다양한 결과를 얻어냄 / 다형성)
 		ow.name();
 		ow.lClick();
 		ow.rClick();
 		ow.shiftButton();
 		ow.eButton();
 		ow.qButton();
-
+		
+/*********************************** End of Test Code *******************************************/
 	}
 	
-	public static void JinTest() {
-		System.out.println("JinTest");
-	}
 	
-	public static void JavaHungry(String s) {
-		System.out.println("JavaHungry is String");
-	}
-
-	public static void JavaHungry(Object o) {
-		System.out.println("JavaHungry is Object");
-	}
-
-	
-	  public static void JavaHungry(Integer i) {
-	  System.out.println("JavaHungry is Integer"); 
-	  }
-	 
-
 	@Bean
 	public Docket newsApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("Jin-Alpha").apiInfo(apiInfo()).select()
@@ -103,5 +90,24 @@ public class JinAlphaApplication {
 				.licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE").version("2.0")
 				.build();
 	}
+
+	
+
+	public static void JinTest() {
+		System.out.println("JinTest");
+	}
+
+	public static void JavaHungry(String s) {
+		System.out.println("JavaHungry is String");
+	}
+
+	public static void JavaHungry(Object o) {
+		System.out.println("JavaHungry is Object");
+	}
+
+	public static void JavaHungry(Integer i) {
+		System.out.println("JavaHungry is Integer");
+	}
+
 
 }
