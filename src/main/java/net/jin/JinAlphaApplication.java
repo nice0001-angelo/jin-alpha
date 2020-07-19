@@ -1,5 +1,5 @@
 /*
- * This is a Jin-alpha Project
+O * This is a Jin-alpha Project
  * File name : JinAlpahApplication.java
  * Created by : Jinhyun
  * Created on : Jan 2020
@@ -55,11 +55,11 @@ public class JinAlphaApplication {
 		// 다형성 테스트(OverWatch) : 입출력 처리부		
 		OverWatch ow; // 인터페이스 객체 선언
 		System.out.println("플레이할 캐릭터 번호 선택(1. 메이, 2. 리퍼, 3. 맥크리)");
-		Scanner sc = new Scanner(System.in); // 스캐너 객체
-		int n = sc.nextInt();
-		if (n == 1) {
+		Scanner scanner = new Scanner(System.in); // 스캐너 객체
+		int inputData = scanner.nextInt();
+		if (inputData == 1) {
 			ow = new Mei(); // 업캐스팅
-		} else if (n == 2) {
+		} else if (inputData == 2) {
 			ow = new Reaper(); // 업캐스팅
 		} else {
 			ow = new Mccree(); // 업캐스팅
