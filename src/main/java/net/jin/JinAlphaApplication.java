@@ -53,25 +53,25 @@ public class JinAlphaApplication {
 		System.out.println();
 
 		// 다형성 테스트(OverWatch) : 입출력 처리부		
-		OverWatch ow; // 인터페이스 객체 선언
+		OverWatch overWatch; // 인터페이스 객체 선언
 		System.out.println("플레이할 캐릭터 번호 선택(1. 메이, 2. 리퍼, 3. 맥크리)");
 		Scanner scanner = new Scanner(System.in); // 스캐너 객체
 		int inputData = scanner.nextInt();
 		if (inputData == 1) {
-			ow = new Mei(); // 업캐스팅
+			overWatch = new Mei(); // 업캐스팅
 		} else if (inputData == 2) {
-			ow = new Reaper(); // 업캐스팅
+			overWatch = new Reaper(); // 업캐스팅
 		} else {
-			ow = new Mccree(); // 업캐스팅
+			overWatch = new Mccree(); // 업캐스팅
 		}
         
 		// 다형성 테스트(OverWatch):	선택한 조건에 따라서 부모 객체로 자식 메소드 사용(하나의 타입으로 다양한 결과를 얻어냄 / 다형성)
-		ow.name();
-		ow.lClick();
-		ow.rClick();
-		ow.shiftButton();
-		ow.eButton();
-		ow.qButton();
+		overWatch.name();
+		overWatch.lClick();
+		overWatch.rClick();
+		overWatch.shiftButton();
+		overWatch.eButton();
+		overWatch.qButton();
 		
 /*********************************** End of Test Code *******************************************/
 	}
