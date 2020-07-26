@@ -4,5 +4,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
 public interface ShowQuestionService {
-	public String showQuestion(@PathVariable Long id, Model model);
+	//abstract method
+	public abstract String showQuestion(@PathVariable Long id, Model model);
 }

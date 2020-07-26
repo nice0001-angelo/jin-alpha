@@ -7,5 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import net.jin.model.User;
 
 public interface UpdateUserService {
-	public String updateUser(@PathVariable Long id, User updatedUser, HttpSession session);
+	//abstract method
+	public abstract String updateUser(@PathVariable Long id, User updatedUser, HttpSession session);
 }

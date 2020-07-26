@@ -4,5 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public interface CreateQuestionService {
-	public String createQuestion(HttpServletRequest httpServletRequest);
+	//abstract method
+	public abstract String createQuestion(HttpServletRequest httpServletRequest);
 }

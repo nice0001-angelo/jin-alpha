@@ -6,5 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 
 public interface DeleteQuestionService {
-	public String deleteQuestion(@PathVariable Long id, Model model, HttpSession session);
+	//abstract method
+	public abstract String deleteQuestion(@PathVariable Long id, Model model, HttpSession session);
 }

@@ -5,5 +5,6 @@ import javax.servlet.http.HttpSession;
 
 
 public interface LoginService {
-	public String loginUser(HttpServletRequest httpServletRequest);
+	//abstract method
+	public abstract String loginUser(HttpServletRequest httpServletRequest);
 }
