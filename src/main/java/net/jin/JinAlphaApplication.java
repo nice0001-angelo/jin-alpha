@@ -9,6 +9,9 @@ package net.jin;
 
 import java.util.Scanner;
 
+import static springfox.documentation.builders.PathSelectors.regex;
+
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -77,19 +80,6 @@ public class JinAlphaApplication {
 	}
 	
 	
-	@Bean
-	public Docket newsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("Jin-Alpha").apiInfo(apiInfo()).select()
-				.paths(PathSelectors.ant("/api/**")).build();
-	}
-
-	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Jin Alpha API").description("Jin Alpha API")
-				.termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
-				.contact("Niklas Heidloff").license("Apache License Version 2.0")
-				.licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE").version("2.0")
-				.build();
-	}
 
 	
 
@@ -108,6 +98,23 @@ public class JinAlphaApplication {
 	public static void JavaHungry(Integer i) {
 		System.out.println("JavaHungry is Integer");
 	}
+	
+	
+	//Bean for Swagger(2020.01)
+	@Bean
+	public Docket newsApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("Jin-Alpha").apiInfo(apiInfo()).select()
+				.paths(PathSelectors.ant("/api/**")).build(); //api로 시작하는 것들만 지정
+	}
 
+	private ApiInfo apiInfo() {
+		return new ApiInfoBuilder().title("Jin Alpha API").description("Jin Alpha API")
+				.termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
+				.contact("Niklas Heidloff").license("Apache License Version 2.0")
+				.licenseUrl("https://github.com/IBM-Bluemix/news-aggregator/blob/master/LICENSE").version("2.0")
+				.build();
+	}
 
+	
+	
 }
