@@ -104,7 +104,7 @@ public class JinAlphaApplication {
 	@Bean
 	public Docket newsApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("Jin-Alpha").apiInfo(apiInfo()).select()
-				.paths(PathSelectors.ant("/api/**")).build(); //api로 시작하는 것들만 지정
+				.paths(PathSelectors.ant("/**")).build(); //api로 시작하는 것들만 지정
 	}
 
 	private ApiInfo apiInfo() {
