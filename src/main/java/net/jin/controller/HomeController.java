@@ -37,6 +37,11 @@ public class HomeController {
 		return "navigation/about";
 	}
 	
+	@RequestMapping("/about1")
+	public String about1() {
+		return "navigation/about1";
+	}
+	
 	@RequestMapping("/foodblog")
 	public String recipes() {
 		return "navigation/foodblog";
