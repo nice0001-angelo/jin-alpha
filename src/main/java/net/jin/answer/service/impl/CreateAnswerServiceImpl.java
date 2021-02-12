@@ -19,6 +19,15 @@ import net.jin.util.HttpSessionUtils;
 //New 생성자를 이용해 생성한 객체는 IoC컨테이너에 등록된 객체가 아니므로 빈이 아니다
 //빈(Bean) 등록방법 3가지
 //1. Application context.xml(root-context.xml)에 등록 (Bean id와 클래스 명, 변수 이름, 의존관계 등을 xml로 작성하는 방법) 
+//2. 컴포넌트 스캔 : 빈으로 등록할 클래스에 어노테이션으로 명시해준다. 스프링은 컴포넌트 어노테이션이 붙은 클래스들을 스캔하여 자동으로 IoC컨테이너에 등록해주는 어노테이션 프로세서가 존재합니다.   
+/*
+ * 컴포넌트 어노테이션  
+@Component : 기본형   
+@Repository : 데이터 접근 객체   
+@Service : 서비스 객체   
+@Controller : 컨트롤러 객체   
+@Repository, @service, @Controller는 역할 구분을 위해 @Component를 재정의한 것입니다.   
+ */
 public class CreateAnswerServiceImpl implements CreateAnsewerService {
 	
 	@Autowired
