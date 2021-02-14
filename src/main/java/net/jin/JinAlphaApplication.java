@@ -35,7 +35,7 @@ public class JinAlphaApplication {
 		System.out.println();
 
 		//Print "Hello World"
-		System.out.println("Hello YoonSeo, I Love forever");
+		System.out.println("Hello Jee, YoonJi, YoonSeo, I Love forever");
 
 		// null value input test
 		System.out.println();

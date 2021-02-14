@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.jin.answer.service.GoUpdateAnswerFormService;
 
-@Controller
+@Controller//빈
 @RequestMapping("/answers/{questionId}/answers")
 public class AnswerController {
 
