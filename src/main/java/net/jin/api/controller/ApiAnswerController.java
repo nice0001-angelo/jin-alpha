@@ -32,6 +32,7 @@ public class ApiAnswerController {
 
 	@PostMapping("/createAnswer")
 	public Answer createAnswer(@PathVariable Long questionId, String contents, HttpSession session) {
+		System.out.println();
 		Answer answer = createAnswerService.createAnswer(questionId, contents, session);
 		return answer;
 	}
